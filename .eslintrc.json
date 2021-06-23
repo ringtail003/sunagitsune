@@ -25,6 +25,13 @@
       ],
       "rules": {
         "new-cap":"off",
+        "sort-keys":"off",
+        "class-methods-use-this":"off",
+        "no-undef":"off",
+        "no-console":"off",
+        "one-var":"off",
+        "init-declarations":"off",
+        "sort-imports":"off",
         "@angular-eslint/directive-selector": [
           "error",
           {
