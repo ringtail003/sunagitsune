@@ -1,7 +1,10 @@
 {
   "root": true,
   "ignorePatterns": [
-    "projects/**/*"
+    "polyfills.ts",
+    "src/environments/environment.ts",
+    "src/environments/environment.*.ts",
+    "node_modules/**/*"
   ],
   "overrides": [
     {
