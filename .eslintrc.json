@@ -21,6 +21,7 @@
         "prettier"
       ],
       "rules": {
+        "new-cap":"off",
         "@angular-eslint/directive-selector": [
           "error",
           {
