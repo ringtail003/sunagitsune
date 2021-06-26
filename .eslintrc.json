@@ -32,6 +32,9 @@
         "one-var":"off",
         "init-declarations":"off",
         "sort-imports":"off",
+        "no-useless-constructor":"off",
+        "no-empty-function":"off",
+        "no-unused-vars":"off",
         "@angular-eslint/directive-selector": [
           "error",
           {

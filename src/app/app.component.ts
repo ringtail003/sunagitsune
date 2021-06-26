@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { DownloaderService } from "src/app/downloader.service";
 
 @Component({
   selector: "app-root",
@@ -6,5 +7,9 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "imageffector";
+  constructor(private downloader: DownloaderService) {}
+
+  handleUpload(files: File[]): void {
+    files.forEach((file) => this.downloader.download(file));
+  }
 }

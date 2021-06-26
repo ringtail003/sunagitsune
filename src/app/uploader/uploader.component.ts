@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { NgxDropzoneChangeEvent } from "ngx-dropzone";
 
 @Component({
   selector: "app-uploader",
@@ -6,8 +7,10 @@ import { Component } from "@angular/core";
   styleUrls: ["./uploader.component.scss"],
 })
 export class UploaderComponent {
-  onSelect(event: any) {
-    console.log(event);
+  @Output() upload = new EventEmitter<File[]>();
+
+  handleChange(event: NgxDropzoneChangeEvent) {
+    this.upload.emit(event.addedFiles);
   }
 
   onRemove(event: any) {
