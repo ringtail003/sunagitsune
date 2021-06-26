@@ -1,3 +1,7 @@
-<ngx-dropzone (change)="handleChange($event)">
-  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-</ngx-dropzone>
+<div 
+  ngx-dropzone 
+  class="dropzone-container"
+  (change)="handleChange($event)"
+>
+  <ngx-dropzone-label>Drop image here.</ngx-dropzone-label>
+</div>
