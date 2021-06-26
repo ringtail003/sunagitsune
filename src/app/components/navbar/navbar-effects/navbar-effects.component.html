@@ -1,0 +1,47 @@
+<nav
+  class="
+    grid
+    gap-y-10
+    px-4
+    py-8
+    bg-white
+    sm:gap-x-8 sm:py-12 sm:px-6
+    lg:px-8
+    xl:pr-12
+  "
+>
+  <div>
+    <h3 class="text-sm font-medium tracking-wide text-gray-500 uppercase">
+      EFFECTS
+    </h3>
+    <ul class="mt-5 space-y-6">
+      <li class="flow-root">
+        <app-navbar-effects-menu
+          [text]="'Border'"
+          [isActive]="true"
+        ></app-navbar-effects-menu>
+      </li>
+
+      <li class="flow-root">
+        <app-navbar-effects-menu
+          [text]="'Resize'"
+          [isActive]="false"
+        ></app-navbar-effects-menu>
+      </li>
+
+      <li class="flow-root">
+        <app-navbar-effects-menu
+          [text]="'Shadow'"
+          [isActive]="false"
+        ></app-navbar-effects-menu>
+      </li>
+
+      <li class="flow-root">
+        <app-navbar-effects-menu
+          [text]="'Round'"
+          [isActive]="true"
+        ></app-navbar-effects-menu>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,48 @@
+<div class="relative bg-white">
+  <div
+    class="absolute inset-0 shadow z-30 pointer-events-none"
+    aria-hidden="true"
+  ></div>
+  <div class="relative z-20">
+    <div
+      class="
+        max-w-7xl
+        flex
+        justify-between
+        items-center
+        px-4
+        py-5
+        sm:px-6 sm:py-4
+        lg:px-8
+        md:justify-start md:space-x-6
+      "
+    >
+      <div class="hidden md:flex-1 md:flex md:items-center">
+        <nav class="flex space-x-4 items-center">
+          <app-logo></app-logo>
+          <app-setting-button></app-setting-button>
+        </nav>
+
+        <div
+          class="
+            hidden
+            md:block
+            absolute
+            z-10
+            top-full
+            inset-x-0
+            transform
+            shadow-lg
+          "
+        >
+          <div class="relative grid grid-cols-5">
+            <app-navbar-effects class="block"></app-navbar-effects>
+            <app-navbar-setting class="block col-span-4"></app-navbar-setting>
+          </div>
+
+          <app-navbar-footer></app-navbar-footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

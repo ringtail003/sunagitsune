@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { DownloaderService } from "src/app/downloader.service";
+import { DownloaderService } from "src/app/services/downloader.service";
 
 @Component({
   selector: "app-root",
