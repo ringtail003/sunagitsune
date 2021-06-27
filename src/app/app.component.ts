@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Effect } from "src/app/models/effect";
 import { DownloaderService } from "src/app/services/downloader.service";
-import { EffectorService } from "src/app/services/effector.service";
+import { EffectorService } from "src/app/services/effectors/effector.service";
 import { LoaderService } from "src/app/services/loader.service";
 
 @Component({
@@ -35,8 +35,9 @@ export class AppComponent implements OnInit {
 
   handleUpload(files: File[]): void {
     files.forEach((file) => {
-      this.effector.effect(file, this.effect);
-      this.downloader.download(file);
+      this.effector.effect(file, this.effect).subscribe((canvas) => {
+        this.downloader.download(file, canvas);
+      });
     });
   }
 }

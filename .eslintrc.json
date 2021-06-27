@@ -38,6 +38,12 @@
         "lines-between-class-members":"off",
         "no-magic-numbers":"off",
         "no-ternary":"off",
+        "capitalized-comments":"off",
+        "max-statements":"off",
+        "multiline-comment-style":"off",
+        "line-comment-position":"off",
+        "no-inline-comments":"off",
+        "max-lines-per-function": "off",
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
           "error",
