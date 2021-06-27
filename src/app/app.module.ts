@@ -10,11 +10,11 @@ import { IconChevronComponent } from "./components/icons/icon-chevron-down/icon-
 import { IconChevronLeftComponent } from "./components/icons/icon-chevron-left/icon-chevron-left.component";
 import { IconClipboardComponent } from "./components/icons/icon-clipboard/icon-clipboard.component";
 import { IconCogComponent } from "./components/icons/icon-cog/icon-cog.component";
+import { LogoComponent } from "./components/logo/logo.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { LogoComponent } from "./logo/logo.component";
 
 @NgModule({
   declarations: [
