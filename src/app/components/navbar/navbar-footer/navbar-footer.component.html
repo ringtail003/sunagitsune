@@ -8,26 +8,22 @@
       py-5
       sm:flex sm:space-y-0 sm:space-x-10 sm:px-6
       lg:px-8
+      hover:text-gray-900
     "
+    [class.bg-blue-100]="copied"
+    [class.text-gray-900]="copied"
+    [class.text-gray-500]="!copied"
   >
-    <span class="text-gray-500 font-sm" [textContent]="url"></span>
+    <span class="font-sm" [textContent]="url"></span>
     <div class="flow-root">
       <a
         href="#"
-        class="
-          -m-3
-          p-3
-          flex
-          items-center
-          rounded-md
-          text-base
-          font-medium
-          text-gray-500
-          hover:bg-gray-100
-        "
+        class="-m-3 p-3 flex items-center rounded-md text-base font-medium"
+        (click)="handleClick()"
       >
         <app-icon-clipboard></app-icon-clipboard>
-        <span class="ml-2">Copy URL</span>
+        <span *ngIf="!copied" class="ml-2 w-20">Copy URL</span>
+        <span *ngIf="copied" class="ml-2 w-20">Copied !</span>
       </a>
     </div>
   </div>
