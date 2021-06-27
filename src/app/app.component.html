@@ -1,4 +1,8 @@
-<app-navbar [isMenuOpen]="isMenuOpen" (toggle)="handleToggle()"></app-navbar>
+<app-navbar
+  [isMenuOpen]="isMenuOpen"
+  [url]="persistUrl"
+  (toggle)="handleToggleMenu()"
+></app-navbar>
 
 <app-uploader
   *ngIf="!isMenuOpen"
