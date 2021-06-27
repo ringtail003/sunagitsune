@@ -17,15 +17,23 @@
         md:justify-start md:space-x-6
       "
     >
-      <div class="hidden md:flex-1 md:flex md:items-center">
+      <div class="md:flex-1 md:flex md:items-center">
         <nav class="flex space-x-4 items-center">
           <app-logo></app-logo>
-          <app-setting-button></app-setting-button>
+          <app-setting-button
+            [isMenuOpen]="isMenuOpen"
+            [text]="'Settings'"
+            (click)="handleClick()"
+          ></app-setting-button>
         </nav>
 
         <div
+          [class.opacity-100]="isMenuOpen"
+          [class.opacity-0]="!isMenuOpen"
           class="
-            hidden
+            transition
+            ease-in-out
+            duration-500
             md:block
             absolute
             z-10
