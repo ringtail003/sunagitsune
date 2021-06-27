@@ -2,7 +2,9 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
+import { NavbarFooterComponent } from "src/app/components/navbar/navbar-footer/navbar-footer.component";
 import { NavbarSettingComponent } from "src/app/components/navbar/navbar-setting/navbar-setting.component";
+import { PreviewComponent } from "src/app/components/preview/preview.component";
 import { AppComponent } from "./app.component";
 import { IconChevronComponent } from "./components/icons/icon-chevron-down/icon-chevron-down.component";
 import { IconChevronLeftComponent } from "./components/icons/icon-chevron-left/icon-chevron-left.component";
@@ -13,8 +15,6 @@ import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navba
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { LogoComponent } from "./logo/logo.component";
-import { NavbarFooterComponent } from "./navbar-footer/navbar-footer.component";
-import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   declarations: [
