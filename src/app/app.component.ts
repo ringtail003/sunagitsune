@@ -10,7 +10,7 @@ import { LoaderService } from "src/app/services/loader.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  isMenuOpen = false;
+  isMenuOpen!: boolean;
   effect!: Effect;
   persistUrl!: string;
 
@@ -25,8 +25,12 @@ export class AppComponent implements OnInit {
     this.persistUrl = this.loader.generateUrl(this.effect);
   }
 
-  handleToggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
+  handleOpenMenu(): void {
+    this.isMenuOpen = true;
+  }
+
+  handleCloseMenu(): void {
+    this.isMenuOpen = false;
   }
 
   handleUpload(files: File[]): void {

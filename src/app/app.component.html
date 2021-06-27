@@ -1,11 +1,12 @@
 <app-navbar
-  [isMenuOpen]="isMenuOpen"
   [url]="persistUrl"
-  (toggle)="handleToggleMenu()"
+  (openMenu)="handleOpenMenu()"
+  (openClose)="handleCloseMenu()"
 ></app-navbar>
 
 <app-uploader
   *ngIf="!isMenuOpen"
   (upload)="handleUpload($event)"
 ></app-uploader>
+
 <app-preview *ngIf="isMenuOpen"></app-preview>

@@ -21,15 +21,15 @@
         <nav class="flex space-x-4 items-center">
           <app-logo></app-logo>
           <app-navbar-button
-            [isMenuOpen]="isMenuOpen"
+            [isMenuOpen]="isOpen"
             [text]="'Settings'"
             (click)="handleClick()"
           ></app-navbar-button>
         </nav>
 
         <div
-          [class.opacity-100]="isMenuOpen"
-          [class.opacity-0]="!isMenuOpen"
+          [class.opacity-100]="isOpen"
+          [class.opacity-0]="!isOpen"
           class="
             transition
             ease-in-out

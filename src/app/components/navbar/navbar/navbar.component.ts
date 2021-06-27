@@ -6,15 +6,24 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  @Input() isMenuOpen!: boolean;
   @Input() url!: string;
-  @Output() toggle = new EventEmitter<boolean>();
+  @Output() openMenu = new EventEmitter<void>();
+  @Output() closeMenu = new EventEmitter<void>();
+
+  isOpen = false;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.emit();
+  }
 
   handleClick(): void {
-    this.toggle.emit();
+    this.isOpen = !this.isOpen;
+    this.emit();
+  }
+
+  emit(): void {
+    (this.isOpen ? this.openMenu : this.closeMenu).emit();
   }
 }
