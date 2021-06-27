@@ -5,15 +5,16 @@ import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-eff
 import { NavbarSettingComponent } from "src/app/components/navbar/navbar-setting/navbar-setting.component";
 import { AppComponent } from "./app.component";
 import { IconChevronComponent } from "./components/icons/icon-chevron-down/icon-chevron-down.component";
+import { IconChevronLeftComponent } from "./components/icons/icon-chevron-left/icon-chevron-left.component";
 import { IconClipboardComponent } from "./components/icons/icon-clipboard/icon-clipboard.component";
 import { IconCogComponent } from "./components/icons/icon-cog/icon-cog.component";
+import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
-import { SettingButtonComponent } from "./components/navbar/setting-button/setting-button.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { LogoComponent } from "./logo/logo.component";
 import { NavbarFooterComponent } from "./navbar-footer/navbar-footer.component";
-import { IconChevronLeftComponent } from "./components/icons/icon-chevron-left/icon-chevron-left.component";
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,11 @@ import { IconChevronLeftComponent } from "./components/icons/icon-chevron-left/i
     NavbarEffectsMenuComponent,
     NavbarEffectsComponent,
     NavbarSettingComponent,
-    SettingButtonComponent,
+    NavbarButtonComponent,
     NavbarFooterComponent,
     IconClipboardComponent,
     IconChevronLeftComponent,
+    PreviewComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule],
   providers: [],

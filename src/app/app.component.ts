@@ -7,7 +7,13 @@ import { DownloaderService } from "src/app/services/downloader.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
+  isMenuOpen = false;
+
   constructor(private downloader: DownloaderService) {}
+
+  handleToggle(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   handleUpload(files: File[]): void {
     files.forEach((file) => this.downloader.download(file));
