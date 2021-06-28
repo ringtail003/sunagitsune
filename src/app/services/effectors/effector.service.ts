@@ -57,8 +57,14 @@ export class EffectorService {
         0,
         canvas.height,
         canvas.width
+        // canvas.width * 0.5,
+        // canvas.height * 0.5,
+        // canvas.width * 0.5
       );
       context!.restore();
+
+      // toDataURL()でImageに変換
+      // onloadでImage取得（回転後のイメージ）
 
       // ====================
       // border
