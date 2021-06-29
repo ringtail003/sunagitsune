@@ -35,8 +35,8 @@ export class AppComponent implements OnInit {
 
   handleUpload(files: File[]): void {
     files.forEach((file) => {
-      this.effector.effect(file, this.effect).subscribe((canvas) => {
-        this.downloader.download(file, canvas);
+      this.effector.effect(file, file.type, this.effect).subscribe((url) => {
+        this.downloader.download(file, url);
       });
     });
   }

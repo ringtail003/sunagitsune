@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import * as Rx from "rxjs";
 import { Effect } from "src/app/models/effect";
+import { draw } from "src/app/services/effectors/draw";
 
 @Injectable({
   providedIn: "root",
@@ -8,7 +9,11 @@ import { Effect } from "src/app/models/effect";
 export class EffectorService {
   constructor() {}
 
-  effect(file: File, effect: Effect): Rx.Observable<HTMLCanvasElement> {
+  effect(file: File, mime: string, effect: Effect): Rx.Observable<string> {
+    return draw(URL.createObjectURL(file), mime);
+  }
+
+  effect2(file: File, effect: Effect): Rx.Observable<HTMLCanvasElement> {
     const canvas = document.createElement("canvas");
 
     document.body.append(canvas);

@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 
 interface Content {
   file: File;
-  canvas: HTMLCanvasElement;
   url: string;
   element: HTMLAnchorElement;
 }
@@ -11,17 +10,16 @@ interface Content {
   providedIn: "root",
 })
 export class DownloaderService {
-  download(file: File, canvas: HTMLCanvasElement): void {
-    const content = this.create(file, canvas);
+  download(file: File, url: string): void {
+    const content = this.create(file, url);
     this.execute(content);
     this.dispose(content);
   }
 
-  private create(file: File, canvas: HTMLCanvasElement): Content {
+  private create(file: File, url: string): Content {
     return {
       file,
-      canvas,
-      url: canvas.toDataURL("image/png"),
+      url,
       element: document.createElement("a"),
     };
   }
