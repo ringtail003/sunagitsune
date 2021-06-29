@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import * as Rx from "rxjs";
 import { mergeMap } from "rxjs/operators";
 import { Effect } from "src/app/models/effect";
+import { border } from "src/app/services/effectors/border";
 import { draw } from "src/app/services/effectors/draw";
 import { rotate } from "src/app/services/effectors/rotate";
 import { shadow } from "src/app/services/effectors/shadow";
@@ -15,6 +16,7 @@ export class EffectorService {
   effect(file: File, mime: string, effect: Effect): Rx.Observable<string> {
     return draw(URL.createObjectURL(file), mime).pipe(
       mergeMap((url) => rotate(url, mime)),
+      mergeMap((url) => border(url, mime)),
       mergeMap((url) => shadow(url, mime))
     );
   }

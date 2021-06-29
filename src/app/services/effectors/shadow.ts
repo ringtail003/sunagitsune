@@ -18,7 +18,7 @@ export const shadow = (url: string, mime: string): Rx.Observable<string> => {
     context!.shadowOffsetX = 15;
     context!.shadowOffsetY = 15;
 
-    context!.drawImage(image, 0, -30);
+    context!.drawImage(image, 0, 0);
     context!.restore();
 
     subject$.next(canvas.toDataURL(mime, 1));
