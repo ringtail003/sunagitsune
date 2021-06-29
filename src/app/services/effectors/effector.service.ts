@@ -3,7 +3,7 @@ import * as Rx from "rxjs";
 import { mergeMap } from "rxjs/operators";
 import { Effect } from "src/app/models/effect";
 import { border } from "src/app/services/effectors/border";
-import { draw } from "src/app/services/effectors/draw";
+import { resize } from "src/app/services/effectors/resize";
 import { rotate } from "src/app/services/effectors/rotate";
 import { shadow } from "src/app/services/effectors/shadow";
 import { text } from "src/app/services/effectors/text";
@@ -15,7 +15,7 @@ export class EffectorService {
   constructor() {}
 
   effect(file: File, mime: string, effect: Effect): Rx.Observable<string> {
-    return draw(URL.createObjectURL(file), mime).pipe(
+    return resize(URL.createObjectURL(file), mime).pipe(
       mergeMap((url) => rotate(url, mime)),
       mergeMap((url) => border(url, mime)),
       mergeMap((url) => shadow(url, mime)),
