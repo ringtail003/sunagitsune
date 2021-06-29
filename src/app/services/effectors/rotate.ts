@@ -1,15 +1,32 @@
 import * as Rx from "rxjs";
 
-export const rotate = (
-  canvas: HTMLCanvasElement
-): Rx.Observable<HTMLCanvasElement> => {
-  const subject$ = new Rx.Subject<HTMLCanvasElement>();
+export const rotate = (url: string, mime: string): Rx.Observable<string> => {
+  const subject$ = new Rx.Subject<string>();
+  const canvas = document.createElement("canvas");
   const image = new Image();
 
-  image.src = canvas.toDataURL();
+  image.src = url;
 
   image.onload = () => {
-    subject$.next(canvas);
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    const context = canvas.getContext("2d");
+
+    context!.drawImage(image, 0, 0);
+
+    const [width, height] = [canvas.width, canvas.height];
+    canvas.width = height;
+    canvas.height = width;
+
+    context!.save();
+    context!.translate(height, width / height);
+    context!.rotate(Math.PI / 2);
+
+    context!.drawImage(image, 0, 0, canvas.height, canvas.width);
+    context!.restore();
+
+    subject$.next(canvas.toDataURL(mime, 1));
   };
 
   return subject$.asObservable();
