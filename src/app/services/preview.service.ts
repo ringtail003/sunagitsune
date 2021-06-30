@@ -1,13 +1,10 @@
 import { Injectable } from "@angular/core";
 import * as Rx from "rxjs";
+import { Canvas } from "src/app/models/canvas";
 
 @Injectable({ providedIn: "root" })
 export class PreviewService {
-  provideRawImage(): Rx.Observable<HTMLCanvasElement> {
-    const canvas = document.createElement("canvas");
-    const image = new Image();
-    const subject$ = new Rx.Subject<HTMLCanvasElement>();
-
-    image.onload = () => {};
+  provideRaw(imageSrc: string): Canvas {
+    return new Canvas(imageSrc);
   }
 }
