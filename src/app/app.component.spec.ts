@@ -1,5 +1,5 @@
-import { AppComponent } from "./app.component";
 import { TestBed } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
 
 describe("AppComponent", () => {
   beforeEach(async () => {
@@ -14,10 +14,10 @@ describe("AppComponent", () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'imageffector'`, () => {
+  it(`should have as title 'sunagitsune'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual("imageffector");
+    expect(app.title).toEqual("sunagitsune");
   });
 
   it("should render title", () => {
@@ -25,7 +25,7 @@ describe("AppComponent", () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector(".content span").textContent).toContain(
-      "imageffector app is running!"
+      "sunagitsune app is running!"
     );
   });
 });
