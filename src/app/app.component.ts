@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import * as Rx from "rxjs";
 import { mergeMap } from "rxjs/operators";
-import { DrawingCanvas } from "src/app/models/canvas/drawing-canvas";
+import { Canvas } from "src/app/models/canvas/canvas";
 import { Effect } from "src/app/models/effect";
 import { DownloaderService } from "src/app/services/downloader.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
   handleUpload(files: File[]): void {
     Rx.from(files)
       .pipe(
-        mergeMap((file) => new DrawingCanvas(file).load()),
+        mergeMap((file) => new Canvas(file).load()),
         mergeMap((canvas) => this.effector.effect(canvas, this.effect))
       )
       .subscribe((canvas) => {

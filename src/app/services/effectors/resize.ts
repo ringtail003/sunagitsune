@@ -1,7 +1,6 @@
 import * as Rx from "rxjs";
 import { mergeMap } from "rxjs/operators";
-import { Canvas } from "src/app/models/canvas";
-import { ScaledCanvas } from "src/app/models/canvas/scaled-canvas";
+import { Canvas } from "src/app/models/canvas/canvas";
 import { Effect } from "src/app/models/effect";
 
 export const resize = (
@@ -10,9 +9,9 @@ export const resize = (
 ): Rx.Observable<Canvas> => {
   return canvas.load().pipe(
     mergeMap(() => {
-      return new ScaledCanvas(canvas.source, {
-        width: canvas.width * 0.5,
-        height: canvas.height * 0.5,
+      return new Canvas(canvas.source, {
+        width: canvas.scale.width * 0.5,
+        height: canvas.scale.height * 0.5,
       }).load();
     })
   );

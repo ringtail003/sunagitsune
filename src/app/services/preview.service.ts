@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import * as Rx from "rxjs";
-import { Canvas } from "src/app/models/canvas";
+import { Canvas } from "src/app/models/canvas/canvas";
 
 @Injectable({ providedIn: "root" })
 export class PreviewService {

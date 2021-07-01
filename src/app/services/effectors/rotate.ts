@@ -1,7 +1,6 @@
 import * as Rx from "rxjs";
 import { map, mergeMap } from "rxjs/operators";
-import { Canvas } from "src/app/models/canvas";
-import { ScaledCanvas } from "src/app/models/canvas/scaled-canvas";
+import { Canvas } from "src/app/models/canvas/canvas";
 import { Effect } from "src/app/models/effect";
 
 export const rotate = (
@@ -10,22 +9,21 @@ export const rotate = (
 ): Rx.Observable<Canvas> => {
   return canvas.load().pipe(
     mergeMap(() => {
-      return new ScaledCanvas(canvas.source, {
-        width: canvas.height,
-        height: canvas.width,
+      return new Canvas(canvas.source, {
+        width: canvas.scale.height,
+        height: canvas.scale.width,
       }).load();
     }),
     map((rotated) => {
+      const { width, height } = rotated.scale;
+
       rotated.context.save();
-      rotated.context.translate(canvas.height, canvas.width / canvas.height);
+      rotated.context.translate(width, height / width);
       rotated.context.rotate(Math.PI / 2);
-      rotated.context.drawImage(
-        rotated.drawing.source,
-        0,
-        0,
-        rotated.height,
-        rotated.width
-      );
+      rotated.drawWithScale({
+        width: height,
+        height: width,
+      });
       rotated.context.restore();
 
       return rotated;
