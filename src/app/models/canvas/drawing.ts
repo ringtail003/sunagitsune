@@ -35,4 +35,8 @@ export class Drawing {
       height: this.#element.height,
     };
   }
+
+  get source(): HTMLImageElement {
+    return this.#element;
+  }
 }

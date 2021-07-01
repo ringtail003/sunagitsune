@@ -2,11 +2,11 @@ import { Canvas } from "src/app/models/canvas";
 import { Scale } from "src/app/models/canvas/scale";
 
 export class ScaledCanvas extends Canvas {
-  constructor(imageSrc: string, mime: string, private scale: Scale) {
-    super(imageSrc, mime);
+  constructor(source: string | File, private scale: Scale) {
+    super(source);
   }
 
-  protected draw(): void {
+  draw(): void {
     this.element.width = this.scale.width;
     this.element.height = this.scale.height;
 
