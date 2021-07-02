@@ -33,13 +33,13 @@ export class Canvas {
   load(): Rx.Observable<this> {
     return this.#drawing.load().pipe(
       tap({
-        next: () => this.draw(),
+        next: () => this.resize(),
       }),
       map(() => this)
     );
   }
 
-  draw(): void {
+  resize(): void {
     const scale = {
       width: this.scale.width || this.#drawing.scale.width,
       height: this.scale.height || this.#drawing.scale.height,
@@ -48,10 +48,10 @@ export class Canvas {
     this.#element.width = scale.width;
     this.#element.height = scale.height;
 
-    this.#drawing.drawTo(this.context, scale);
+    this.draw(scale);
   }
 
-  drawWithScale(scale: Scale): void {
+  draw(scale: Scale): void {
     this.#drawing.drawTo(this.context, scale);
   }
 

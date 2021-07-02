@@ -4,11 +4,11 @@ import { Canvas } from "src/app/models/canvas/canvas";
 import { Effect } from "src/app/models/effect";
 
 export const resize = (
-  canvas: Canvas,
+  source: Canvas,
   effect: Effect
 ): Rx.Observable<Canvas> => {
-  return canvas.load().pipe(
-    mergeMap(() => {
+  return source.load().pipe(
+    mergeMap((canvas) => {
       return new Canvas(canvas.source, {
         width: canvas.scale.width * 0.5,
         height: canvas.scale.height * 0.5,

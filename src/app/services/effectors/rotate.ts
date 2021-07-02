@@ -4,29 +4,32 @@ import { Canvas } from "src/app/models/canvas/canvas";
 import { Effect } from "src/app/models/effect";
 
 export const rotate = (
-  canvas: Canvas,
+  source: Canvas,
   effect: Effect
 ): Rx.Observable<Canvas> => {
-  return canvas.load().pipe(
-    mergeMap(() => {
+  return source.load().pipe(
+    mergeMap((canvas) => {
       return new Canvas(canvas.source, {
         width: canvas.scale.height,
         height: canvas.scale.width,
       }).load();
     }),
-    map((rotated) => {
-      const { width, height } = rotated.scale;
+    map((canvas) => {
+      const { width, height } = canvas.scale;
 
-      rotated.context.save();
-      rotated.context.translate(width, height / width);
-      rotated.context.rotate(Math.PI / 2);
-      rotated.drawWithScale({
+      canvas.context.save();
+      canvas.context.translate(width, height / width);
+      canvas.context.rotate(Math.PI / 2);
+      canvas.draw({
         width: height,
         height: width,
       });
-      rotated.context.restore();
+      canvas.context.restore();
 
-      return rotated;
+      return canvas;
+    }),
+    mergeMap((canvas) => {
+      return new Canvas(canvas.source).load();
     })
   );
 };
