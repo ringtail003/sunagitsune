@@ -45,6 +45,8 @@
         "no-inline-comments":"off",
         "max-lines-per-function": "off",
         "arrow-body-style":"off",
+        "no-warning-comments":"off",
+        "prefer-destructuring":"off",
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
           "error",

@@ -1,33 +1,29 @@
 import * as Rx from "rxjs";
 import { map, tap } from "rxjs/operators";
-import { Drawing } from "src/app/models/canvas/drawing";
-import { Mime } from "src/app/models/canvas/mime/interface";
-import { MimeFromFile } from "src/app/models/canvas/mime/mime-from-file";
-import { MimeFromPath } from "src/app/models/canvas/mime/mime-from-path";
-import { Scale } from "src/app/models/canvas/scale";
+import { Drawing } from "src/app/models/drawing";
+import { Mime } from "src/app/models/mime";
+import { Scale } from "src/app/models/scale";
 
 export class Canvas {
   #element: HTMLCanvasElement;
   #drawing: Drawing;
   #mime: Mime;
+  #disposer: () => void;
 
-  dispose: () => void;
-
-  constructor(public readonly source: string | File, scale?: Scale) {
-    this.#element = document.createElement("canvas");
-    this.#element.width = scale?.width || 0;
-    this.#element.height = scale?.height || 0;
-
-    if (typeof source === "string") {
-      this.#drawing = new Drawing(source);
-      this.#mime = new MimeFromPath(source);
-      this.dispose = () => {};
-    } else {
-      const url = URL.createObjectURL(source);
-      this.#drawing = new Drawing(url);
-      this.#mime = new MimeFromFile(source);
-      this.dispose = () => URL.revokeObjectURL(url);
+  constructor(
+    source: string,
+    options: {
+      mime: Mime;
+      scale: Scale;
+      disposer: () => void;
     }
+  ) {
+    this.#element = document.createElement("canvas");
+    this.#element.width = options.scale.width;
+    this.#element.height = options.scale.height;
+    this.#drawing = new Drawing(source);
+    this.#mime = options.mime;
+    this.#disposer = options.disposer;
   }
 
   load(): Rx.Observable<this> {
@@ -35,6 +31,7 @@ export class Canvas {
       tap({
         next: () => this.resize(),
       }),
+      // TODO: dispose
       map(() => this)
     );
   }
@@ -64,7 +61,7 @@ export class Canvas {
   }
 
   get url(): string {
-    return this.#element.toDataURL(this.#mime.detect(), 1);
+    return this.#element.toDataURL(this.#mime, 1);
   }
 
   get scale(): Scale {

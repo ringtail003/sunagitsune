@@ -1,5 +1,5 @@
 import * as Rx from "rxjs";
-import { Scale } from "src/app/models/canvas/scale";
+import { Scale } from "src/app/models/scale";
 
 export class Drawing {
   #element: HTMLImageElement;

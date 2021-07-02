@@ -1,28 +1,44 @@
 import * as Rx from "rxjs";
-import { map, mergeMap } from "rxjs/operators";
+import { map } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
+import { canvas } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect";
 
 export const shadow = (
-  canvas: Canvas,
+  source: Canvas,
   effect: Effect
 ): Rx.Observable<Canvas> => {
-  return canvas.load().pipe(
-    mergeMap((source) => {
-      return new Canvas(source.source, {
-        width: source.scale.width + 30,
-        height: source.scale.height + 30,
-      }).load();
-    }),
-    map((source) => {
-      source.context.shadowColor = "green";
-      source.context.shadowBlur = 10;
-      source.context.shadowOffsetX = 15;
-      source.context.shadowOffsetY = 15;
-
-      return source;
+  return canvas
+    .fromCanvas(source, {
+      width: source.scale.width + 30,
+      height: source.scale.height + 30,
     })
-  );
+    .load()
+    .pipe(
+      map((resized) => {
+        resized.context.clearRect(
+          0,
+          0,
+          resized.scale.width,
+          resized.scale.height
+        );
+
+        const context = resized.context;
+
+        context.shadowColor = "green";
+        context.shadowBlur = 10;
+        context.shadowOffsetX = 15;
+        context.shadowOffsetY = 15;
+        context.save();
+
+        resized.draw({
+          width: resized.scale.width - 30,
+          height: resized.scale.height - 30,
+        });
+
+        return resized;
+      })
+    );
 };
 
 // export const shadow = (url: string, mime: string): Rx.Observable<string> => {

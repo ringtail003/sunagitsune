@@ -1,20 +1,27 @@
 import * as Rx from "rxjs";
-import { mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
+import { canvas } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect";
 
 export const resize = (
   source: Canvas,
   effect: Effect
 ): Rx.Observable<Canvas> => {
-  return source.load().pipe(
-    mergeMap((canvas) => {
-      return new Canvas(canvas.source, {
-        width: canvas.scale.width * 0.5,
-        height: canvas.scale.height * 0.5,
-      }).load();
+  return canvas
+    .fromCanvas(source, {
+      width: source.scale.width * 0.5,
+      height: source.scale.height * 0.5,
     })
-  );
+    .load();
+
+  // return source.load().pipe(
+  //   mergeMap((canvas) => {
+  //     return new Canvas(canvas.source, {
+  //       width: canvas.scale.width * 0.5,
+  //       height: canvas.scale.height * 0.5,
+  //     }).load();
+  //   })
+  // );
 };
 
 // const subject$ = new Rx.Subject<string>();
