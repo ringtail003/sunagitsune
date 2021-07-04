@@ -1,7 +1,7 @@
 <app-navbar
   [url]="persistUrl"
   (openMenu)="handleOpenMenu()"
-  (openClose)="handleCloseMenu()"
+  (closeMenu)="handleCloseMenu()"
 ></app-navbar>
 
 <app-uploader
@@ -9,4 +9,4 @@
   (upload)="handleUpload($event)"
 ></app-uploader>
 
-<app-preview *ngIf="isMenuOpen"></app-preview>
+<app-preview *ngIf="isMenuOpen" [effect]="effect"></app-preview>

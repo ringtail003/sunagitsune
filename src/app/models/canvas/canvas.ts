@@ -70,4 +70,8 @@ export class Canvas {
       height: this.#element.height,
     };
   }
+
+  get ref(): HTMLCanvasElement {
+    return this.#element;
+  }
 }

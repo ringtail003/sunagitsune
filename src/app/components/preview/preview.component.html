@@ -3,7 +3,7 @@
     absolute
     bottom-0
     flex
-    items-center
+    items-start
     p-6
     w-full
     gap-6
@@ -11,8 +11,13 @@
     font-medium
   "
 >
-  <label for="before">Before </label>
-  <img id="before" class="w-1/4" src="assets/preview.png" alt="" />
-  <label for="after">After</label>
-  <img id="after" class="w-1/4" src="assets/preview.png" alt="" />
+  <figure>
+    <figcaption class="text-gray-300">PRE EFFECT</figcaption>
+    <div #preEffect class="border-2 border-gray-100 p-2"></div>
+  </figure>
+
+  <figure>
+    <figcaption class="text-gray-300">POST EFFECT</figcaption>
+    <div #postEffect class="border-2 border-gray-100 p-2"></div>
+  </figure>
 </div>
