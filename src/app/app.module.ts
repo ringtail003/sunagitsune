@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxDropzoneModule } from "ngx-dropzone";
+import { IconLoadingComponent } from "src/app/components/icons/icon-loading/icon-loading.component";
 import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
 import { NavbarFooterComponent } from "src/app/components/navbar/navbar-footer/navbar-footer.component";
 import { NavbarSettingComponent } from "src/app/components/navbar/navbar-setting/navbar-setting.component";
@@ -32,6 +33,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     IconClipboardComponent,
     IconChevronLeftComponent,
     PreviewComponent,
+    IconLoadingComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule],
   providers: [],

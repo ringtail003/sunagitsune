@@ -8,7 +8,8 @@ import {
   ViewChild,
 } from "@angular/core";
 import * as Rx from "rxjs";
-import { mergeMap } from "rxjs/operators";
+import { delay, mergeMap } from "rxjs/operators";
+import { Canvas } from "src/app/models/canvas/canvas";
 import { canvas } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect";
 import { EffectorService } from "src/app/services/effectors/effector.service";
@@ -23,23 +24,38 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("preEffect") preEffect!: ElementRef<HTMLDivElement>;
   @ViewChild("postEffect") postEffect!: ElementRef<HTMLDivElement>;
 
-  private elements: HTMLCanvasElement[] = [];
-
   constructor(private effector: EffectorService) {}
 
   ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-    this.elements.forEach((element) => element.remove());
-  }
+  ngOnDestroy(): void {}
 
   ngAfterViewInit(): void {
-    this.load({ withEffect: false }).subscribe((source) =>
-      this.preEffect?.nativeElement.appendChild<HTMLCanvasElement>(source.ref)
-    );
+    this.load({ withEffect: false }).subscribe((source) => {
+      this.removeFrom(this.preEffect);
+      this.appendTo(this.preEffect, source);
+    });
 
-    this.load({ withEffect: true }).subscribe((source) =>
-      this.postEffect?.nativeElement.appendChild<HTMLCanvasElement>(source.ref)
+    this.load({ withEffect: true })
+      .pipe(delay(1500))
+      .subscribe((source) => {
+        this.removeFrom(this.postEffect);
+        this.appendTo(this.postEffect, source);
+      });
+  }
+
+  remove() {
+    this.removeFrom(this.preEffect);
+    this.removeFrom(this.postEffect);
+  }
+
+  private appendTo(container: ElementRef, source: Canvas): void {
+    container.nativeElement.appendChild(source.ref);
+  }
+
+  private removeFrom(container: ElementRef<HTMLDivElement>): void {
+    Array.from(container.nativeElement.children).forEach((child) =>
+      container.nativeElement.removeChild(child)
     );
   }
 
