@@ -15,6 +15,11 @@ import { LogoComponent } from "./components/logo/logo.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
+import { BorderSettingComponent } from "./components/navbar/settings/border-setting/border-setting.component";
+import { FilenameSettingComponent } from "./components/navbar/settings/filename-setting/filename-setting.component";
+import { ResizeSettingComponent } from "./components/navbar/settings/resize-setting/resize-setting.component";
+import { RotateSettingComponent } from "./components/navbar/settings/rotate-setting/rotate-setting.component";
+import { ShadowSettingComponent } from "./components/navbar/settings/shadow-setting/shadow-setting.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 
 @NgModule({
@@ -34,6 +39,12 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     IconChevronLeftComponent,
     PreviewComponent,
     IconLoadingComponent,
+    BorderSettingComponent,
+    BorderSettingComponent,
+    ResizeSettingComponent,
+    ShadowSettingComponent,
+    RotateSettingComponent,
+    FilenameSettingComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule],
   providers: [],

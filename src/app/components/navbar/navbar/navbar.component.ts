@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { EffectMenuType } from "src/app/components/navbar/effect-menu-type";
 
 @Component({
   selector: "app-navbar",
@@ -11,6 +12,7 @@ export class NavbarComponent implements OnInit {
   @Output() closeMenu = new EventEmitter<void>();
 
   isOpen = false;
+  activeMenuType: EffectMenuType = "border";
 
   constructor() {}
 
@@ -21,6 +23,10 @@ export class NavbarComponent implements OnInit {
   handleClick(): void {
     this.isOpen = !this.isOpen;
     this.emit();
+  }
+
+  handleSelectMenu(type: EffectMenuType): void {
+    this.activeMenuType = type;
   }
 
   emit(): void {

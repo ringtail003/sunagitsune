@@ -44,8 +44,16 @@
           "
         >
           <div class="relative grid grid-cols-5">
-            <app-navbar-effects class="block"></app-navbar-effects>
-            <app-navbar-setting class="block col-span-4"></app-navbar-setting>
+            <app-navbar-effects
+              class="block"
+              [activeMenuType]="activeMenuType"
+              (selectMenu)="handleSelectMenu($event)"
+            ></app-navbar-effects>
+
+            <app-navbar-setting
+              class="block col-span-4"
+              [activeMenuType]="activeMenuType"
+            ></app-navbar-setting>
           </div>
 
           <app-navbar-footer [url]="url"></app-navbar-footer>

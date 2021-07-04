@@ -1,7 +1,11 @@
-<div
-  class="bg-gray-50 px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12 w-full h-full"
->
+<div class="bg-gray-50 p-6 w-full h-full">
   <div class="p-3">
-    <!-- 編集エリア -->
+    <ng-container [ngSwitch]="activeMenuType">
+      <app-border-setting *ngSwitchCase="'border'"></app-border-setting>
+      <app-shadow-setting *ngSwitchCase="'shadow'"></app-shadow-setting>
+      <app-resize-setting *ngSwitchCase="'resize'"></app-resize-setting>
+      <app-rotate-setting *ngSwitchCase="'rotate'"></app-rotate-setting>
+      <app-filename-setting *ngSwitchCase="'filename'"></app-filename-setting>
+    </ng-container>
   </div>
 </div>

@@ -9,9 +9,12 @@
     text-base
     font-medium
     text-gray-900
-    hover:bg-gray-50
   "
+  [class.bg-gray-100]="isActive"
+  (click)="handleClick()"
 >
-  <app-icon-cog [isActive]="isActive"></app-icon-cog>
-  <span class="ml-4" [textContent]="text"></span>
+  <app-icon-cog
+    [tone]="{ light: !hasSetting, dark: hasSetting }"
+  ></app-icon-cog>
+  <span class="ml-4 capitalize" [textContent]="menu"></span>
 </a>

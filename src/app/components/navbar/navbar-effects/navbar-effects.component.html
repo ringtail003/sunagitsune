@@ -15,31 +15,11 @@
       EFFECTS
     </h3>
     <ul class="mt-5 space-y-6">
-      <li class="flow-root">
+      <li class="flow-root" *ngFor="let type of menuTypes">
         <app-navbar-effects-menu
-          [text]="'Border'"
-          [isActive]="true"
-        ></app-navbar-effects-menu>
-      </li>
-
-      <li class="flow-root">
-        <app-navbar-effects-menu
-          [text]="'Resize'"
-          [isActive]="false"
-        ></app-navbar-effects-menu>
-      </li>
-
-      <li class="flow-root">
-        <app-navbar-effects-menu
-          [text]="'Shadow'"
-          [isActive]="false"
-        ></app-navbar-effects-menu>
-      </li>
-
-      <li class="flow-root">
-        <app-navbar-effects-menu
-          [text]="'Round'"
-          [isActive]="true"
+          [menu]="type"
+          [activeMenuType]="activeMenuType"
+          (selectMenu)="handleSelectMenu($event)"
         ></app-navbar-effects-menu>
       </li>
     </ul>
