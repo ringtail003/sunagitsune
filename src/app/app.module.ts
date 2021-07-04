@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
@@ -48,7 +49,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     FilenameSettingComponent,
     InputNumberComponent,
   ],
-  imports: [BrowserModule, NgxDropzoneModule],
+  imports: [BrowserModule, NgxDropzoneModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
