@@ -16,6 +16,12 @@ import { FilenameSettingComponent } from "./components/navbar/settings/filename-
 import { ResizeSettingComponent } from "./components/navbar/settings/resize-setting/resize-setting.component";
 import { RotateSettingComponent } from "./components/navbar/settings/rotate-setting/rotate-setting.component";
 import { ShadowSettingComponent } from "./components/navbar/settings/shadow-setting/shadow-setting.component";
+import { FormContentComponent } from "./components/shared/form-layout/form-content/form-content.component";
+import { FormLabelForDirective } from "./components/shared/form-layout/form-label-for/form-label-for.directive";
+import { FormLabelComponent } from "./components/shared/form-layout/form-label/form-label.component";
+import { FormLayoutComponent } from "./components/shared/form-layout/form-layout.component";
+import { FormSectionComponent } from "./components/shared/form-layout/form-section/form-section.component";
+import { FormUnitComponent } from "./components/shared/form-layout/form-unit/form-unit.component";
 import { IconChevronComponent } from "./components/shared/icons/icon-chevron-down/icon-chevron-down.component";
 import { IconChevronLeftComponent } from "./components/shared/icons/icon-chevron-left/icon-chevron-left.component";
 import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard/icon-clipboard.component";
@@ -48,6 +54,12 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     RotateSettingComponent,
     FilenameSettingComponent,
     InputNumberComponent,
+    FormLayoutComponent,
+    FormLabelComponent,
+    FormContentComponent,
+    FormSectionComponent,
+    FormUnitComponent,
+    FormLabelForDirective,
   ],
   imports: [BrowserModule, NgxDropzoneModule, FormsModule],
   providers: [],

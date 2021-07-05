@@ -6,15 +6,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
   styleUrls: ["./input-number.component.scss"],
 })
 export class InputNumberComponent implements OnInit {
-  @Input() label!: string;
-  @Input() placeholder!: string;
-  @Input() value!: number;
-  @Input() required!: boolean;
-  @Input() disabled!: boolean;
+  @Input() placeholder: string = "";
+  @Input() value: number | null = null;
+  @Input() required = false;
+  @Input() disabled = false;
 
   @Output() changeValue = new EventEmitter<number>();
 
-  model!: number;
+  model: number | null = null;
 
   constructor() {}
 

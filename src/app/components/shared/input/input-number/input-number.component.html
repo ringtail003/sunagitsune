@@ -1,7 +1,14 @@
-<label class="sr-only" [textContent]="label"></label>
 <input
+  id="id"
   type="number"
-  class="border-2 border-gray-300 rounded-md"
-  [attr.disabled]="disabled"
+  class="
+    border-2 border-gray-300
+    rounded-md
+    focus:ring-2 focus:ring-blue-500 focus:outline-none
+    p-2
+    text-sm text-gray-700
+  "
+  [placeholder]="placeholder"
+  [disabled]="disabled"
   [(ngModel)]="model"
 />
