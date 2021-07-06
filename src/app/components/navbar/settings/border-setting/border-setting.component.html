@@ -10,3 +10,14 @@
     <app-form-unit>px</app-form-unit>
   </app-form-content>
 </app-form-section>
+
+<app-form-section>
+  <app-form-label [label]="'color'"></app-form-label>
+  <app-form-content>
+    <app-input-color
+      appFormLabelFor
+      [value]="'#fff'"
+      (changeValue)="handleChangeColor($event)"
+    ></app-input-color>
+  </app-form-content>
+</app-form-section>

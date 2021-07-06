@@ -29,6 +29,7 @@ import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.co
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
+import { InputColorComponent } from './components/shared/input/input-color/input-color.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     FormSectionComponent,
     FormUnitComponent,
     FormLabelForDirective,
+    InputColorComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule, FormsModule],
   providers: [],
