@@ -1,7 +1,12 @@
 <app-form-section>
-  <app-form-label [label]="'border'"></app-form-label>
+  <app-form-label [label]="'width'"></app-form-label>
   <app-form-content>
-    <app-input-number appFormLabelFor [placeholder]="'1-10'"></app-input-number>
+    <app-input-number
+      appFormLabelFor
+      [placeholder]="'1-10'"
+      [value]="1"
+      (changeValue)="handleChangeWidth($event)"
+    ></app-input-number>
     <app-form-unit>px</app-form-unit>
   </app-form-content>
 </app-form-section>
