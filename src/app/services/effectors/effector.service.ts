@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import * as Rx from "rxjs";
 import { mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
-import { Effect } from "src/app/models/effect";
+import { Effect } from "src/app/models/effect/effect";
 import { plugins } from "src/app/services/effectors/plugins";
 import { resize } from "src/app/services/effectors/plugins/resize";
 

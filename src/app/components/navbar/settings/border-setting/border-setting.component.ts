@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PreviewUpdater } from "src/app/services/preview-updater.service";
+import { EffectConfigService } from "src/app/services/effect-config.service";
 
 @Component({
   selector: "app-border-setting",
@@ -7,17 +7,19 @@ import { PreviewUpdater } from "src/app/services/preview-updater.service";
   styleUrls: ["./border-setting.component.scss"],
 })
 export class BorderSettingComponent implements OnInit {
-  constructor(private updater: PreviewUpdater) {}
+  constructor(private config: EffectConfigService) {}
 
   ngOnInit(): void {
-    this.updater.observable$.subscribe(() => console.log("update"));
+    this.config
+      .watch()
+      .subscribe((effect) => console.log("update", effect.borderConfig()));
   }
 
   handleChangeWidth(value: number | null): void {
-    this.updater.update();
+    this.config.patch({ borderWidth: value });
   }
 
   handleChangeColor(value: string | null): void {
-    this.updater.update();
+    this.config.patch({ borderColor: value });
   }
 }

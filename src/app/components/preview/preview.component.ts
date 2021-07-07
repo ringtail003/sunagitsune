@@ -11,7 +11,7 @@ import * as Rx from "rxjs";
 import { delay, mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvas } from "src/app/models/canvas/factory";
-import { Effect } from "src/app/models/effect";
+import { Effect } from "src/app/models/effect/effect";
 import { EffectorService } from "src/app/services/effectors/effector.service";
 
 @Component({

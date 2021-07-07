@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Effect } from "src/app/models/effect";
+import { Effect } from "src/app/models/effect/effect";
 
 @Injectable({
   providedIn: "root",

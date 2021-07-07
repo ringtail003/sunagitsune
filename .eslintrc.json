@@ -47,6 +47,8 @@
         "arrow-body-style":"off",
         "no-warning-comments":"off",
         "prefer-destructuring":"off",
+        "no-implicit-coercion":"off",
+        "no-undefined":"off",
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "@angular-eslint/directive-selector": [
           "error",

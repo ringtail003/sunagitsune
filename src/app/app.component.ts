@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import * as Rx from "rxjs";
 import { mergeMap, tap } from "rxjs/operators";
 import { canvas } from "src/app/models/canvas/factory/index";
-import { Effect } from "src/app/models/effect";
+import { Effect } from "src/app/models/effect/effect";
 import { DownloaderService } from "src/app/services/downloader.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
 import { LoaderService } from "src/app/services/loader.service";
