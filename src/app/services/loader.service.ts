@@ -1,17 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Effect } from "src/app/models/effect/effect";
+import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable({ providedIn: "root" })
 export class LoaderService {
-  constructor() {}
-
-  load(): Effect {
-    return new Effect();
-  }
-
-  generateUrl(effect: Effect): string {
-    return "http://foobar.com";
+  load(): Partial<EffectMetadata> {
+    return {
+      borderWidth: 5,
+      borderColor: "#dedede",
+    };
   }
 }

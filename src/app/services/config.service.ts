@@ -32,14 +32,15 @@ export class ConfigService {
     return this.observable$;
   }
 
+  update(): void {
+    console.log("next");
+    this.subject$.next(new Effect(this.#metadata));
+  }
+
   private assign(key: EffectMetadataKey, value: unknown): void {
     if (!Object.keys(this.#metadata).includes(key)) {
       return;
     }
     Object.assign(this.#metadata, { [key]: value });
-  }
-
-  private update(): void {
-    this.subject$.next(new Effect(this.#metadata));
   }
 }

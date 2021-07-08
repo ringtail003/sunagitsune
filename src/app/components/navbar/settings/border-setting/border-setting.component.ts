@@ -10,9 +10,9 @@ export class BorderSettingComponent implements OnInit {
   constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
-    this.config
-      .watch()
-      .subscribe((effect) => console.log("update", effect.borderConfig()));
+    this.config.watch().subscribe((effect) => {
+      // TODO:
+    });
   }
 
   handleChangeWidth(value: number | null): void {

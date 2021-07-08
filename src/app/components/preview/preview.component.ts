@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from "@angular/core";
 import * as Rx from "rxjs";
-import { mergeMap, skipUntil } from "rxjs/operators";
+import { mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvas } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
@@ -32,10 +32,11 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.renderPreEffect();
+
     this.#subscription = this.config
       .watch()
-      .pipe(skipUntil(this.#ready$))
-      .subscribe((effect) => this.render(effect));
+      .subscribe((effect) => this.renderPostEffect(effect));
   }
 
   ngOnDestroy(): void {
@@ -46,12 +47,14 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     this.#ready$.next();
   }
 
-  private render(effect: Effect): void {
+  private renderPreEffect(): void {
     this.load().subscribe((source) => {
       this.removeFrom(this.preEffect);
       this.appendTo(this.preEffect, source);
     });
+  }
 
+  private renderPostEffect(effect: Effect): void {
     this.load(effect).subscribe((source) => {
       this.removeFrom(this.postEffect);
       this.appendTo(this.postEffect, source);

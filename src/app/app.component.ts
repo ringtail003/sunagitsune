@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit } from "@angular/core";
 import * as Rx from "rxjs";
 import { mergeMap, tap } from "rxjs/operators";
 import { canvas } from "src/app/models/canvas/factory/index";
@@ -13,15 +13,15 @@ import { LoaderService } from "src/app/services/loader.service";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   isMenuOpen!: boolean;
   effect!: Effect;
   persistUrl!: string;
 
   // eslint-disable-next-line max-params
   constructor(
-    private loader: LoaderService,
     private config: ConfigService,
+    private loader: LoaderService,
     private effector: EffectorService,
     private downloader: DownloaderService
   ) {}
@@ -31,7 +31,11 @@ export class AppComponent implements OnInit {
       this.effect = effect;
     });
 
-    this.persistUrl = this.loader.generateUrl(this.effect);
+    this.persistUrl = "http://foobar.com";
+  }
+
+  ngAfterViewInit(): void {
+    this.config.patch(this.loader.load());
   }
 
   handleOpenMenu(): void {

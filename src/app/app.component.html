@@ -5,8 +5,8 @@
 ></app-navbar>
 
 <app-uploader
-  *ngIf="!isMenuOpen"
+  [class.hidden]="isMenuOpen"
   (upload)="handleUpload($event)"
 ></app-uploader>
 
-<app-preview *ngIf="isMenuOpen"></app-preview>
+<app-preview [class.hidden]="!isMenuOpen"></app-preview>
