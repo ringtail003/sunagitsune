@@ -3,6 +3,7 @@ import * as Rx from "rxjs";
 import { mergeMap, tap } from "rxjs/operators";
 import { canvas } from "src/app/models/canvas/factory/index";
 import { Effect } from "src/app/models/effect/effect";
+import { ConfigService } from "src/app/services/config.service";
 import { DownloaderService } from "src/app/services/downloader.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
 import { LoaderService } from "src/app/services/loader.service";
@@ -17,14 +18,19 @@ export class AppComponent implements OnInit {
   effect!: Effect;
   persistUrl!: string;
 
+  // eslint-disable-next-line max-params
   constructor(
     private loader: LoaderService,
+    private config: ConfigService,
     private effector: EffectorService,
     private downloader: DownloaderService
   ) {}
 
   ngOnInit(): void {
-    this.effect = this.loader.load();
+    this.config.watch().subscribe((effect) => {
+      this.effect = effect;
+    });
+
     this.persistUrl = this.loader.generateUrl(this.effect);
   }
 

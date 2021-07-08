@@ -9,7 +9,7 @@ import {
 import { createEffectMetadata } from "src/app/models/effect/factory";
 
 @Injectable({ providedIn: "root" })
-export class EffectConfigService {
+export class ConfigService {
   private subject$ = new Rx.Subject<Effect>();
   private observable$: Rx.Observable<Effect>;
 

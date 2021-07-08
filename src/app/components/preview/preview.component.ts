@@ -2,16 +2,16 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Input,
   OnDestroy,
   OnInit,
   ViewChild,
 } from "@angular/core";
 import * as Rx from "rxjs";
-import { delay, mergeMap } from "rxjs/operators";
+import { mergeMap, skipUntil } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvas } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
+import { ConfigService } from "src/app/services/config.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
 
 @Component({
@@ -20,33 +20,42 @@ import { EffectorService } from "src/app/services/effectors/effector.service";
   styleUrls: ["./preview.component.scss"],
 })
 export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() effect!: Effect;
   @ViewChild("preEffect") preEffect!: ElementRef<HTMLDivElement>;
   @ViewChild("postEffect") postEffect!: ElementRef<HTMLDivElement>;
 
-  constructor(private effector: EffectorService) {}
+  #subscription!: Rx.Subscription;
+  #ready$ = new Rx.Subject<void>();
 
-  ngOnInit(): void {}
+  constructor(
+    private effector: EffectorService,
+    private config: ConfigService
+  ) {}
 
-  ngOnDestroy(): void {}
+  ngOnInit(): void {
+    this.#subscription = this.config
+      .watch()
+      .pipe(skipUntil(this.#ready$))
+      .subscribe((effect) => this.render(effect));
+  }
+
+  ngOnDestroy(): void {
+    this.#subscription.unsubscribe();
+  }
 
   ngAfterViewInit(): void {
-    this.load({ withEffect: false }).subscribe((source) => {
+    this.#ready$.next();
+  }
+
+  private render(effect: Effect): void {
+    this.load().subscribe((source) => {
       this.removeFrom(this.preEffect);
       this.appendTo(this.preEffect, source);
     });
 
-    this.load({ withEffect: true })
-      .pipe(delay(1500))
-      .subscribe((source) => {
-        this.removeFrom(this.postEffect);
-        this.appendTo(this.postEffect, source);
-      });
-  }
-
-  remove() {
-    this.removeFrom(this.preEffect);
-    this.removeFrom(this.postEffect);
+    this.load(effect).subscribe((source) => {
+      this.removeFrom(this.postEffect);
+      this.appendTo(this.postEffect, source);
+    });
   }
 
   private appendTo(container: ElementRef, source: Canvas): void {
@@ -59,15 +68,13 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  private load(options: { withEffect: boolean }) {
+  private load(effect?: Effect) {
     return canvas
       .fromUrl("assets/preview.png")
       .load()
       .pipe(
         mergeMap((source) => {
-          return options.withEffect
-            ? this.effector.effect(source, this.effect)
-            : Rx.of(source);
+          return effect ? this.effector.effect(source, effect) : Rx.of(source);
         })
       );
   }

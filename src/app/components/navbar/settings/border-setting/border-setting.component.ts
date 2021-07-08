@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { EffectConfigService } from "src/app/services/effect-config.service";
+import { ConfigService } from "src/app/services/config.service";
 
 @Component({
   selector: "app-border-setting",
@@ -7,7 +7,7 @@ import { EffectConfigService } from "src/app/services/effect-config.service";
   styleUrls: ["./border-setting.component.scss"],
 })
 export class BorderSettingComponent implements OnInit {
-  constructor(private config: EffectConfigService) {}
+  constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
     this.config
