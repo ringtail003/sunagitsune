@@ -1,23 +1,25 @@
-<app-form-section>
-  <app-form-label [label]="'width'"></app-form-label>
-  <app-form-content>
-    <app-input-number
-      appFormLabelFor
-      [placeholder]="'1-10'"
-      [value]="1"
-      (changeValue)="handleChangeWidth($event)"
-    ></app-input-number>
-    <app-form-unit>px</app-form-unit>
-  </app-form-content>
-</app-form-section>
+<ng-container *ngIf="setting">
+  <app-form-section>
+    <app-form-label [label]="'width'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [placeholder]="'1-10'"
+        [value]="setting.width"
+        (changeValue)="handleChangeWidth($event)"
+      ></app-input-number>
+      <app-form-unit>px</app-form-unit>
+    </app-form-content>
+  </app-form-section>
 
-<app-form-section>
-  <app-form-label [label]="'color'"></app-form-label>
-  <app-form-content>
-    <app-input-color
-      appFormLabelFor
-      [value]="'#fff'"
-      (changeValue)="handleChangeColor($event)"
-    ></app-input-color>
-  </app-form-content>
-</app-form-section>
+  <app-form-section>
+    <app-form-label [label]="'color'"></app-form-label>
+    <app-form-content>
+      <app-input-color
+        appFormLabelFor
+        [value]="setting.color"
+        (changeValue)="handleChangeColor($event)"
+      ></app-input-color>
+    </app-form-content>
+  </app-form-section>
+</ng-container>

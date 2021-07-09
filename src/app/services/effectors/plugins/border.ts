@@ -8,19 +8,29 @@ export const border = (
   source: Canvas,
   effect: Effect
 ): Rx.Observable<Canvas> => {
+  const config = {
+    hasEffect: effect.borderConfig.hasEffect(),
+    color: effect.borderConfig.color!,
+    width: effect.borderConfig.width || 0,
+  };
+
   return canvas
     .fromCanvas(source, source.scale)
     .load()
     .pipe(
       map((loaded) => {
+        if (!config.hasEffect) {
+          return loaded;
+        }
+
         loaded.context.beginPath();
-        loaded.context.strokeStyle = "#f00";
-        loaded.context.lineWidth = 10;
+        loaded.context.strokeStyle = config.color;
+        loaded.context.lineWidth = config.width;
         loaded.context.strokeRect(
-          5,
-          5,
-          loaded.context.canvas.width - 10,
-          loaded.context.canvas.height - 10
+          config.width / 2,
+          config.width / 2,
+          loaded.context.canvas.width - config.width,
+          loaded.context.canvas.height - config.width
         );
         loaded.context.closePath();
 

@@ -4,7 +4,7 @@ import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 export class Effect {
   constructor(private metadata: EffectMetadata) {}
 
-  borderConfig(): BorderConfig {
+  get borderConfig(): BorderConfig {
     return new BorderConfig(this.metadata);
   }
 }
