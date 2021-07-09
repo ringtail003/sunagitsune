@@ -10,11 +10,11 @@ import { ConfigService } from "src/app/services/config.service";
 export class BorderSettingComponent implements OnInit {
   constructor(private config: ConfigService) {}
 
-  setting!: BorderConfig;
+  effect!: BorderConfig;
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.setting = effect.borderConfig;
+      this.effect = effect.borderConfig;
     });
   }
 

@@ -31,6 +31,7 @@ import { InputColorComponent } from "./components/shared/input/input-color/input
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
+import { InputRadioComponent } from './components/shared/input/input-radio/input-radio.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     FormUnitComponent,
     FormLabelForDirective,
     InputColorComponent,
+    InputRadioComponent,
   ],
   imports: [
     BrowserModule,

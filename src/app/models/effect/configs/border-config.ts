@@ -1,15 +1,22 @@
 import { Config } from "src/app/models/effect/configs/config";
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
+import {
+  BorderType,
+  borderTypeList,
+} from "src/app/models/effect/types/border-type";
 import { asNumber } from "src/app/utils/as-type/as-number";
 import { asString } from "src/app/utils/as-type/as-string";
+import { asType } from "src/app/utils/as-type/as-type";
 
 export class BorderConfig implements Config {
   #width: number | null;
   #color: string | null;
+  #type: BorderType | null;
 
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.borderWidth, null);
     this.#color = asString(metadata.borderColor, null);
+    this.#type = asType(metadata.borderType, borderTypeList, null);
   }
 
   get width(): number | null {
@@ -20,10 +27,15 @@ export class BorderConfig implements Config {
     return this.#color;
   }
 
+  get type(): BorderType | null {
+    return this.#type;
+  }
+
   createMetadata() {
     return {
       borderWidth: this.#width,
       borderColor: this.#color,
+      borderType: this.#type,
     };
   }
 
@@ -39,6 +51,7 @@ export class BorderConfig implements Config {
     return {
       width: this.assertWidth(),
       color: this.assertColor(),
+      type: this.assertType(),
     };
   }
 
@@ -49,6 +62,14 @@ export class BorderConfig implements Config {
   private assertColor(): string | null {
     if (!this.#width && this.#color) {
       return `線幅の指定がないため色指定は無効です`;
+    }
+
+    return null;
+  }
+
+  private assertType(): string | null {
+    if (!this.#width && this.#type) {
+      return `線幅の指定がないため種類選択は無効です`;
     }
 
     return null;

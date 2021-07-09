@@ -1,11 +1,11 @@
-<ng-container *ngIf="setting">
+<ng-container *ngIf="effect">
   <app-form-section>
     <app-form-label [label]="'width'"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
         [placeholder]="'1-10'"
-        [value]="setting.width"
+        [value]="effect.width"
         (changeValue)="handleChangeWidth($event)"
       ></app-input-number>
       <app-form-unit>px</app-form-unit>
@@ -17,9 +17,20 @@
     <app-form-content>
       <app-input-color
         appFormLabelFor
-        [value]="setting.color"
+        [value]="effect.color"
         (changeValue)="handleChangeColor($event)"
       ></app-input-color>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'type'"></app-form-label>
+    <app-form-content>
+      <app-input-radio
+        appFormLabelFor
+        [value]="effect.type"
+        (changeValue)="handleChangeColor($event)"
+      ></app-input-radio>
     </app-form-content>
   </app-form-section>
 </ng-container>
