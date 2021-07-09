@@ -33,7 +33,6 @@ export class ConfigService {
   }
 
   update(): void {
-    console.log("next");
     this.subject$.next(new Effect(this.#metadata));
   }
 

@@ -4,9 +4,6 @@
   (closeMenu)="handleCloseMenu()"
 ></app-navbar>
 
-<app-uploader
-  [class.hidden]="isMenuOpen"
-  (upload)="handleUpload($event)"
-></app-uploader>
+<app-uploader [class.hidden]="isMenuOpen"></app-uploader>
 
 <app-preview [class.hidden]="!isMenuOpen"></app-preview>
