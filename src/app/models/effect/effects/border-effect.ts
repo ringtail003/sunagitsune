@@ -1,5 +1,5 @@
-import { Config } from "src/app/models/effect/configs/config";
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
+import { Config } from "src/app/models/effect/effects/config";
 import {
   BorderType,
   borderTypeList,
@@ -8,7 +8,7 @@ import { asNumber } from "src/app/utils/as-type/as-number";
 import { asString } from "src/app/utils/as-type/as-string";
 import { asType } from "src/app/utils/as-type/as-type";
 
-export class BorderConfig implements Config {
+export class BorderEffect implements Config {
   #width: number | null;
   #color: string | null;
   #type: BorderType | null;

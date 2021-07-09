@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { BorderConfig } from "src/app/models/effect/configs/border-config";
+import { BorderEffect } from "src/app/models/effect/effects/border-effect";
 import { ConfigService } from "src/app/services/config.service";
 
 @Component({
@@ -10,11 +10,11 @@ import { ConfigService } from "src/app/services/config.service";
 export class BorderSettingComponent implements OnInit {
   constructor(private config: ConfigService) {}
 
-  effect!: BorderConfig;
+  effect!: BorderEffect;
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.borderConfig;
+      this.effect = effect.borderEffect;
     });
   }
 

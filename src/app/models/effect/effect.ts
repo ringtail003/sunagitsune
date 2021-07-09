@@ -1,19 +1,19 @@
-import { BorderConfig } from "src/app/models/effect/configs/border-config";
 import {
   EffectMetadata,
   EffectMetadataKey,
 } from "src/app/models/effect/effect-metadata";
+import { BorderEffect } from "src/app/models/effect/effects/border-effect";
 
 export class Effect {
   constructor(private metadata: EffectMetadata) {}
 
-  get borderConfig(): BorderConfig {
-    return new BorderConfig(this.metadata);
+  get borderEffect(): BorderEffect {
+    return new BorderEffect(this.metadata);
   }
 
   createMetadata(): Partial<EffectMetadata> {
     const metadata = {
-      ...this.borderConfig.createMetadata(),
+      ...this.borderEffect.createMetadata(),
     };
 
     return Object.keys(metadata).reduce((acc, current) => {
