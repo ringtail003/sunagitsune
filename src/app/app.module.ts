@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
 import { NavbarFooterComponent } from "src/app/components/navbar/navbar-footer/navbar-footer.component";
@@ -26,10 +27,10 @@ import { IconChevronComponent } from "./components/shared/icons/icon-chevron-dow
 import { IconChevronLeftComponent } from "./components/shared/icons/icon-chevron-left/icon-chevron-left.component";
 import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard/icon-clipboard.component";
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
+import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { InputColorComponent } from './components/shared/input/input-color/input-color.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,12 @@ import { InputColorComponent } from './components/shared/input/input-color/input
     FormLabelForDirective,
     InputColorComponent,
   ],
-  imports: [BrowserModule, NgxDropzoneModule, FormsModule],
+  imports: [
+    BrowserModule,
+    NgxDropzoneModule,
+    FormsModule,
+    RouterModule.forRoot([], { useHash: false }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

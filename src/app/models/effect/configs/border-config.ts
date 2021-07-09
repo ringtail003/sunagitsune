@@ -20,6 +20,13 @@ export class BorderConfig implements Config {
     return this.#color;
   }
 
+  createMetadata() {
+    return {
+      borderWidth: this.#width,
+      borderColor: this.#color,
+    };
+  }
+
   hasEffect() {
     return !!this.#width;
   }

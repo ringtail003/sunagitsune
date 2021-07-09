@@ -9,17 +9,16 @@ import { LoaderService } from "src/app/services/loader.service";
 })
 export class AppComponent implements OnInit, AfterViewInit {
   isMenuOpen!: boolean;
-  persistUrl!: string;
 
   constructor(private config: ConfigService, private loader: LoaderService) {}
 
   ngOnInit(): void {
-    this.persistUrl = "http://foobar.com";
+    this.loader.load().subscribe((metadata) => {
+      this.config.patch(metadata);
+    });
   }
 
-  ngAfterViewInit(): void {
-    this.config.patch(this.loader.load());
-  }
+  ngAfterViewInit(): void {}
 
   handleOpenMenu(): void {
     this.isMenuOpen = true;
