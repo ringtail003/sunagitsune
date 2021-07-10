@@ -4,5 +4,6 @@ export const createEffectMetadata = (): EffectMetadata => {
   return {
     borderWidth: null,
     borderColor: null,
+    borderType: null,
   };
 };

@@ -9,9 +9,9 @@ export const border = (
   effect: Effect
 ): Rx.Observable<Canvas> => {
   const config = {
-    hasEffect: effect.borderConfig.hasEffect(),
-    color: effect.borderConfig.color!,
-    width: effect.borderConfig.width || 0,
+    hasEffect: effect.borderEffect.hasEffect(),
+    color: effect.borderEffect.color!,
+    width: effect.borderEffect.width || 0,
   };
 
   return canvas
