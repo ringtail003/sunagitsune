@@ -27,7 +27,7 @@ export class FormSectionComponent implements OnInit, AfterContentInit {
       );
     }
 
-    this.labelElement.for = this.labelForElement.id();
+    this.labelElement.for = this.labelForElement.id;
     this.labelForElement.label = this.labelElement.label;
   }
 }
