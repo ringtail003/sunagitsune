@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BorderEffect } from "src/app/models/effect/effects/border-effect";
+import { BorderType } from "src/app/models/effect/types/border-type";
 import { ConfigService } from "src/app/services/config.service";
 
 @Component({
@@ -24,5 +25,9 @@ export class BorderSettingComponent implements OnInit {
 
   handleChangeColor(value: string | null): void {
     this.config.patch({ borderColor: value });
+  }
+
+  handleChangeType(value: string | null): void {
+    this.config.patch({ borderType: value as BorderType });
   }
 }

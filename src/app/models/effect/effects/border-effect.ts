@@ -2,6 +2,7 @@ import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 import { Config } from "src/app/models/effect/effects/config";
 import {
   BorderType,
+  borderTypeConfig,
   borderTypeList,
 } from "src/app/models/effect/types/border-type";
 import { asNumber } from "src/app/utils/as-type/as-number";
@@ -12,11 +13,18 @@ export class BorderEffect implements Config {
   #width: number | null;
   #color: string | null;
   #type: BorderType | null;
+  #typeList: { selection: BorderType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.borderWidth, null);
     this.#color = asString(metadata.borderColor, null);
     this.#type = asType(metadata.borderType, borderTypeList, null);
+    this.#typeList = Object.keys(borderTypeConfig).map((key) => {
+      return {
+        selection: key as BorderType,
+        label: borderTypeConfig[key as BorderType] as string,
+      };
+    });
   }
 
   get width(): number | null {
@@ -29,6 +37,10 @@ export class BorderEffect implements Config {
 
   get type(): BorderType | null {
     return this.#type;
+  }
+
+  get typeList(): { selection: BorderType; label: string }[] {
+    return this.#typeList;
   }
 
   createMetadata() {

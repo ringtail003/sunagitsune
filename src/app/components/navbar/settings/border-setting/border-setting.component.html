@@ -23,19 +23,16 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-group-section>
     <app-form-label [label]="'type'"></app-form-label>
     <app-form-content>
       <app-input-radio
-        appFormLabelFor
+        *ngFor="let item of effect.typeList"
+        [label]="item.label"
+        [selection]="item.selection"
         [value]="effect.type"
-        (changeValue)="handleChangeColor($event)"
-      ></app-input-radio>
-
-      <app-input-radio
-        [value]="effect.type"
-        (changeValue)="handleChangeColor($event)"
+        (changeValue)="handleChangeType($event)"
       ></app-input-radio>
     </app-form-content>
-  </app-form-section>
+  </app-form-group-section>
 </ng-container>
