@@ -1,4 +1,5 @@
 export const borderTypeConfig = {
+  none: "none",
   inside: "inside",
   outside: "outside",
 };

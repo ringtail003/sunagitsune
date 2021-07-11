@@ -12,7 +12,7 @@ import { asType } from "src/app/utils/as-type/as-type";
 export const borderResetMetadata = {
   borderWidth: null,
   borderColor: null,
-  borderType: "inside" as BorderType,
+  borderType: "none" as BorderType,
 };
 
 export class BorderPluginEffect implements Plugin {
@@ -62,7 +62,7 @@ export class BorderPluginEffect implements Plugin {
   }
 
   hasEffect() {
-    return !!this.#width;
+    return this.#type !== "none";
   }
 
   isValid() {
@@ -78,22 +78,22 @@ export class BorderPluginEffect implements Plugin {
   }
 
   private assertWidth(): string | null {
+    if (this.hasEffect()) {
+      return `線幅が指定されていません`;
+    }
+
     return null;
   }
 
   private assertColor(): string | null {
-    if (!this.#width && this.#color) {
-      return `width が指定されていないため Border は適用されません`;
+    if (this.hasEffect()) {
+      return `色が指定されていません`;
     }
 
     return null;
   }
 
   private assertType(): string | null {
-    if (!this.#width && this.#type) {
-      return `width が指定されていないため Border は適用されません`;
-    }
-
     return null;
   }
 }
