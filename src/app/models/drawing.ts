@@ -1,4 +1,5 @@
 import * as Rx from "rxjs";
+import { Position } from "src/app/models/position";
 import { Scale } from "src/app/models/scale";
 
 export class Drawing {
@@ -21,8 +22,23 @@ export class Drawing {
     return subject$;
   }
 
-  drawTo(context: CanvasRenderingContext2D, scale: Scale): void {
-    context.drawImage(this.#element, 0, 0, scale.width, scale.height);
+  drawTo(
+    context: CanvasRenderingContext2D,
+    scale: Scale,
+    position: Position
+  ): void {
+    context.drawImage(
+      this.#element,
+      position.left,
+      position.top,
+      scale.width,
+      scale.height
+    );
+  }
+
+  fill(context: CanvasRenderingContext2D, scale: Scale, color: string): void {
+    context.fillStyle = color;
+    context.fillRect(0, 0, scale.width, scale.height);
   }
 
   get hasImage(): boolean {

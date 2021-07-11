@@ -2,6 +2,7 @@ import * as Rx from "rxjs";
 import { map, tap } from "rxjs/operators";
 import { Drawing } from "src/app/models/drawing";
 import { Mime } from "src/app/models/mime";
+import { Position } from "src/app/models/position";
 import { Scale } from "src/app/models/scale";
 
 export class Canvas {
@@ -48,8 +49,12 @@ export class Canvas {
     this.draw(scale);
   }
 
-  draw(scale: Scale): void {
-    this.#drawing.drawTo(this.context, scale);
+  draw(scale: Scale, position?: Position): void {
+    this.#drawing.drawTo(this.context, scale, position || { left: 0, top: 0 });
+  }
+
+  fill(scale: Scale, color: string): void {
+    this.#drawing.fill(this.context, scale, color);
   }
 
   get context(): CanvasRenderingContext2D {
