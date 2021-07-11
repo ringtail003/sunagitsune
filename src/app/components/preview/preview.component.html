@@ -16,6 +16,12 @@
     <div #preEffect class="border-2 border-gray-100 p-2">
       <img src="assets/preview.png" class="opacity-25" />
     </div>
+    <div class="flex gap-2 text-gray-300 text-sm">
+      <span [textContent]="'width'"></span>
+      <span [textContent]="preScale?.width + 'px'"></span>
+      <span [textContent]="'height'"></span>
+      <span [textContent]="preScale?.height + 'px'"></span>
+    </div>
   </figure>
 
   <figure>
@@ -23,6 +29,12 @@
     <div #postEffect class="border-2 border-gray-100 p-2">
       <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
       <img src="assets/preview.png" class="opacity-25" />
+    </div>
+    <div class="flex gap-2 text-gray-300 text-sm">
+      <span [textContent]="'width'"></span>
+      <span [textContent]="postScale?.width + 'px'"></span>
+      <span [textContent]="'height'"></span>
+      <span [textContent]="postScale?.height + 'px'"></span>
     </div>
   </figure>
 </div>

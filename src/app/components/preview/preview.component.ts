@@ -11,6 +11,7 @@ import { mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
+import { Scale } from "src/app/models/scale";
 import { ConfigService } from "src/app/services/config.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
 
@@ -25,6 +26,9 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
   #subscription!: Rx.Subscription;
   #ready$ = new Rx.Subject<void>();
+
+  preScale?: Scale;
+  postScale?: Scale;
 
   constructor(
     private effector: EffectorService,
@@ -51,6 +55,7 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     this.load().subscribe((source) => {
       this.removeFrom(this.preEffect);
       this.appendTo(this.preEffect, source);
+      this.preScale = source.scale;
     });
   }
 
@@ -58,6 +63,7 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     this.load(effect).subscribe((source) => {
       this.removeFrom(this.postEffect);
       this.appendTo(this.postEffect, source);
+      this.postScale = source.scale;
     });
   }
 
