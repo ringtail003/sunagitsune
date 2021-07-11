@@ -3,6 +3,7 @@ import { map } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
+import { Plugin } from "src/app/services/effectors/plugins/interface";
 
 function borderInside(
   source: Canvas,
@@ -59,7 +60,10 @@ function borderOutside(
     );
 }
 
-function border(source: Canvas, effect: Effect): Rx.Observable<Canvas> {
+const border: Plugin = (
+  source: Canvas,
+  effect: Effect
+): Rx.Observable<Canvas> => {
   if (!effect.borderEffect.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
@@ -78,6 +82,6 @@ function border(source: Canvas, effect: Effect): Rx.Observable<Canvas> {
     default:
       throw new Error(`Unknown border type "${effect.borderEffect.type}".`);
   }
-}
+};
 
 export { border };

@@ -8,7 +8,7 @@ import {
 import { asType } from "src/app/utils/as-type/as-type";
 
 export const rotateResetMetadata = {
-  rotateType: "right90" as RotateType,
+  rotateType: "none" as RotateType,
 };
 
 export class RotatePluginEffect implements Plugin {
@@ -44,7 +44,7 @@ export class RotatePluginEffect implements Plugin {
   }
 
   hasEffect() {
-    return !!this.#type;
+    return this.#type !== "none";
   }
 
   isValid() {
