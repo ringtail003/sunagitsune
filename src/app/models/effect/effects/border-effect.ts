@@ -73,7 +73,7 @@ export class BorderEffect implements Config {
 
   private assertColor(): string | null {
     if (!this.#width && this.#color) {
-      return `線幅の指定がないため色指定は無効です`;
+      return `width が指定されていないため Border は適用されません`;
     }
 
     return null;
@@ -81,7 +81,7 @@ export class BorderEffect implements Config {
 
   private assertType(): string | null {
     if (!this.#width && this.#type) {
-      return `線幅の指定がないため種類選択は無効です`;
+      return `width が指定されていないため Border は適用されません`;
     }
 
     return null;

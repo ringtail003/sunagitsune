@@ -12,10 +12,15 @@ export class BorderSettingComponent implements OnInit {
   constructor(private config: ConfigService) {}
 
   effect!: BorderEffect;
+  error!: string | null;
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.borderEffect;
+      this.error =
+        Object.values(effect.borderEffect.getErrors()).find(
+          (error) => !!error
+        ) || null;
     });
   }
 

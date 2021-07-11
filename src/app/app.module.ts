@@ -34,6 +34,8 @@ import { InputRadioComponent } from "./components/shared/input/input-radio/input
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailBorderComponent } from "./components/shared/thumbnails/thumbnail-border/thumbnail-border.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
+import { FormErrorComponent } from './components/shared/form-layout/form-error/form-error.component';
+import { IconExclamationCircleComponent } from './components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     InputRadioComponent,
     FormGroupSectionComponent,
     ThumbnailBorderComponent,
+    FormErrorComponent,
+    IconExclamationCircleComponent,
   ],
   imports: [
     BrowserModule,
