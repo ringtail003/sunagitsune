@@ -1,10 +1,13 @@
-<div class="flex flex-row gap-1 items-center">
-  <input
-    type="radio"
-    id="{{ id }}"
-    [value]="selection"
-    [(ngModel)]="value"
-    (change)="handleChange()"
-  />
-  <label for="{{ id }}" [textContent]="label"></label>
+<div class="flex flex-col gap-2 mr-2">
+  <div class="flex flex-row gap-1 items-center">
+    <input
+      type="radio"
+      id="{{ id }}"
+      [value]="selection"
+      [(ngModel)]="value"
+      (change)="handleChange()"
+    />
+    <label class="text-gray-500" for="{{ id }}" [textContent]="label"></label>
+  </div>
+  <ng-content></ng-content>
 </div>

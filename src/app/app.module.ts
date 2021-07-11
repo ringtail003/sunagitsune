@@ -18,6 +18,7 @@ import { ResizeSettingComponent } from "./components/navbar/settings/resize-sett
 import { RotateSettingComponent } from "./components/navbar/settings/rotate-setting/rotate-setting.component";
 import { ShadowSettingComponent } from "./components/navbar/settings/shadow-setting/shadow-setting.component";
 import { FormContentComponent } from "./components/shared/form-layout/form-content/form-content.component";
+import { FormGroupSectionComponent } from "./components/shared/form-layout/form-group-section/form-group-section.component";
 import { FormLabelForDirective } from "./components/shared/form-layout/form-label-for/form-label-for.directive";
 import { FormLabelComponent } from "./components/shared/form-layout/form-label/form-label.component";
 import { FormLayoutComponent } from "./components/shared/form-layout/form-layout.component";
@@ -29,10 +30,10 @@ import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
 import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
+import { InputRadioComponent } from "./components/shared/input/input-radio/input-radio.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
+import { ThumbnailBorderComponent } from "./components/shared/thumbnails/thumbnail-border/thumbnail-border.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { InputRadioComponent } from './components/shared/input/input-radio/input-radio.component';
-import { FormGroupSectionComponent } from './components/shared/form-layout/form-group-section/form-group-section.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { FormGroupSectionComponent } from './components/shared/form-layout/form-
     InputColorComponent,
     InputRadioComponent,
     FormGroupSectionComponent,
+    ThumbnailBorderComponent,
   ],
   imports: [
     BrowserModule,
