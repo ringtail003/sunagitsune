@@ -10,11 +10,11 @@ import { ConfigService } from "src/app/services/config.service";
   styleUrls: ["./border-setting.component.scss"],
 })
 export class BorderSettingComponent implements OnInit {
-  constructor(private config: ConfigService) {}
-
   effect!: BorderPluginEffect;
   error!: string | null;
   reset!: Partial<EffectMetadata>;
+
+  constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {

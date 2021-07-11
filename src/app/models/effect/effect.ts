@@ -4,6 +4,7 @@ import {
 } from "src/app/models/effect/effect-metadata";
 import { BorderPluginEffect } from "src/app/models/effect/plugin/border-effect";
 import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { RotatePluginEffect } from "src/app/models/effect/plugin/rotate-effect";
 
 export class Effect {
   constructor(private metadata: EffectMetadata) {}
@@ -20,9 +21,14 @@ export class Effect {
     return new BorderPluginEffect(this.metadata);
   }
 
+  get rotateEffect(): RotatePluginEffect {
+    return new RotatePluginEffect(this.metadata);
+  }
+
   createMetadata(): Partial<EffectMetadata> {
     const metadata = {
       ...this.borderEffect.createMetadata(),
+      ...this.rotateEffect.createMetadata(),
     };
 
     return Object.keys(metadata).reduce((acc, current) => {

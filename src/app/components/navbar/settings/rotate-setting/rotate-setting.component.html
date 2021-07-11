@@ -1,1 +1,26 @@
-<p>rotate-setting works!</p>
+<ng-container *ngIf="effect">
+  <app-form-group-section>
+    <app-form-label [label]="'type'"></app-form-label>
+    <app-form-content>
+      <app-input-radio
+        *ngFor="let item of effect.typeList"
+        [label]="item.label"
+        [selection]="item.selection"
+        [value]="effect.type"
+        (changeValue)="handleChangeType($event)"
+      >
+        <app-thumbnail-rotate
+          [type]="item.selection"
+          [label]="item.label"
+        ></app-thumbnail-rotate>
+      </app-input-radio>
+    </app-form-content>
+  </app-form-group-section>
+
+  <app-form-footer>
+    <app-outline-button
+      [text]="'Reset rotate config'"
+      (buttonClick)="handleReset()"
+    ></app-outline-button>
+  </app-form-footer>
+</ng-container>

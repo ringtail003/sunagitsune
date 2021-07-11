@@ -38,6 +38,7 @@ import { FormErrorComponent } from './components/shared/form-layout/form-error/f
 import { IconExclamationCircleComponent } from './components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component';
 import { OutlineButtonComponent } from './components/shared/buttons/outline-button/outline-button.component';
 import { FormFooterComponent } from './components/shared/form-layout/form-footer/form-footer.component';
+import { ThumbnailRotateComponent } from './components/shared/thumbnails/thumbnail-rotate/thumbnail-rotate.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { FormFooterComponent } from './components/shared/form-layout/form-footer
     IconExclamationCircleComponent,
     OutlineButtonComponent,
     FormFooterComponent,
+    ThumbnailRotateComponent,
   ],
   imports: [
     BrowserModule,
