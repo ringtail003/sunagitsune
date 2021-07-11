@@ -9,7 +9,7 @@ import {
 import * as Rx from "rxjs";
 import { mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
-import { canvas } from "src/app/models/canvas/factory";
+import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
 import { ConfigService } from "src/app/services/config.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
@@ -72,7 +72,7 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private load(effect?: Effect) {
-    return canvas
+    return canvasFactory
       .fromUrl("assets/preview.png")
       .load()
       .pipe(

@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { NgxDropzoneChangeEvent } from "ngx-dropzone";
 import * as Rx from "rxjs";
 import { mergeMap, tap } from "rxjs/operators";
-import { canvas } from "src/app/models/canvas/factory/index";
+import { canvasFactory } from "src/app/models/canvas/factory/index";
 import { Effect } from "src/app/models/effect/effect";
 import { ConfigService } from "src/app/services/config.service";
 import { DownloaderService } from "src/app/services/downloader.service";
@@ -37,7 +37,7 @@ export class UploaderComponent implements OnInit {
       .pipe(
         mergeMap((file) =>
           Rx.of(file).pipe(
-            mergeMap(() => canvas.fromFile(file).load()),
+            mergeMap(() => canvasFactory.fromFile(file).load()),
             mergeMap((source) => this.effector.effect(source, this.effect)),
             tap({
               next: (source) => {
