@@ -41,5 +41,14 @@
     </app-form-content>
   </app-form-group-section>
 
-  <app-form-error [error]="error"></app-form-error>
+  <app-form-footer>
+    <app-outline-button
+      [text]="'Reset border config'"
+      (buttonClick)="handleReset()"
+    ></app-outline-button>
+  </app-form-footer>
+
+  <app-form-footer *ngIf="error">
+    <app-form-error [error]="error"></app-form-error>
+  </app-form-footer>
 </ng-container>

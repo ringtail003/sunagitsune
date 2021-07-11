@@ -36,6 +36,8 @@ import { ThumbnailBorderComponent } from "./components/shared/thumbnails/thumbna
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { FormErrorComponent } from './components/shared/form-layout/form-error/form-error.component';
 import { IconExclamationCircleComponent } from './components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component';
+import { OutlineButtonComponent } from './components/shared/buttons/outline-button/outline-button.component';
+import { FormFooterComponent } from './components/shared/form-layout/form-footer/form-footer.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,8 @@ import { IconExclamationCircleComponent } from './components/shared/icons/icon-e
     ThumbnailBorderComponent,
     FormErrorComponent,
     IconExclamationCircleComponent,
+    OutlineButtonComponent,
+    FormFooterComponent,
   ],
   imports: [
     BrowserModule,

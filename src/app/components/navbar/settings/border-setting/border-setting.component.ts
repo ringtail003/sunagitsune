@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 import { BorderEffect } from "src/app/models/effect/effects/border-effect";
 import { BorderType } from "src/app/models/effect/types/border-type";
 import { ConfigService } from "src/app/services/config.service";
@@ -13,6 +14,7 @@ export class BorderSettingComponent implements OnInit {
 
   effect!: BorderEffect;
   error!: string | null;
+  reset!: Partial<EffectMetadata>;
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
@@ -21,6 +23,7 @@ export class BorderSettingComponent implements OnInit {
         Object.values(effect.borderEffect.getErrors()).find(
           (error) => !!error
         ) || null;
+      this.reset = effect.borderEffect.resetMetadata();
     });
   }
 
@@ -34,5 +37,9 @@ export class BorderSettingComponent implements OnInit {
 
   handleChangeType(value: string | null): void {
     this.config.patch({ borderType: value as BorderType });
+  }
+
+  handleReset(): void {
+    this.config.patch(this.reset);
   }
 }

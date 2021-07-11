@@ -1,9 +1,8 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
+import { borderEffectReset } from "src/app/models/effect/effects/border-effect";
 
 export const createEffectMetadata = (): EffectMetadata => {
   return {
-    borderWidth: null,
-    borderColor: null,
-    borderType: "inside",
+    ...borderEffectReset,
   };
 };

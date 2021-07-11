@@ -5,4 +5,5 @@ export interface Config {
   isValid: () => boolean;
   getErrors: () => { [key: string]: string | null };
   createMetadata: () => Partial<EffectMetadata>;
+  resetMetadata: () => Partial<EffectMetadata>;
 }

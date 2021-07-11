@@ -9,6 +9,12 @@ import { asNumber } from "src/app/utils/as-type/as-number";
 import { asString } from "src/app/utils/as-type/as-string";
 import { asType } from "src/app/utils/as-type/as-type";
 
+export const borderEffectReset = {
+  borderWidth: null,
+  borderColor: null,
+  borderType: "inside" as BorderType,
+};
+
 export class BorderEffect implements Config {
   #width: number | null;
   #color: string | null;
@@ -49,6 +55,10 @@ export class BorderEffect implements Config {
       borderColor: this.#color,
       borderType: this.#type,
     };
+  }
+
+  resetMetadata() {
+    return borderEffectReset;
   }
 
   hasEffect() {
