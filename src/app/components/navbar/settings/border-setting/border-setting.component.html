@@ -3,6 +3,7 @@
     <app-form-label [label]="'type'"></app-form-label>
     <app-form-content>
       <app-input-radio
+        class="block mr-4"
         *ngFor="let item of effect.typeList"
         [label]="item.label"
         [selection]="item.selection"
