@@ -27,7 +27,8 @@ export class NavbarEffectsMenuComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.config.watch().subscribe((config) => {
-      console.log(config.borderEffect.hasEffect());
+      // TODO プラグインの実装が完了したらoptionalを外す
+      this.hasSetting = config.effects[this.menu]?.hasEffect() || false;
     });
 
     this.hasSetting = false;
