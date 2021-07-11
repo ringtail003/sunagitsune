@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Config } from "src/app/models/effect/effects/config";
+import { Plugin } from "src/app/models/effect/plugin/plugin";
 import {
   BorderType,
   borderTypeConfig,
@@ -9,13 +9,13 @@ import { asNumber } from "src/app/utils/as-type/as-number";
 import { asString } from "src/app/utils/as-type/as-string";
 import { asType } from "src/app/utils/as-type/as-type";
 
-export const borderEffectReset = {
+export const borderResetMetadata = {
   borderWidth: null,
   borderColor: null,
   borderType: "inside" as BorderType,
 };
 
-export class BorderEffect implements Config {
+export class BorderPluginEffect implements Plugin {
   #width: number | null;
   #color: string | null;
   #type: BorderType | null;
@@ -58,7 +58,7 @@ export class BorderEffect implements Config {
   }
 
   resetMetadata() {
-    return borderEffectReset;
+    return borderResetMetadata;
   }
 
   hasEffect() {

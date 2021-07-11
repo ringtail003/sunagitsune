@@ -2,13 +2,22 @@ import {
   EffectMetadata,
   EffectMetadataKey,
 } from "src/app/models/effect/effect-metadata";
-import { BorderEffect } from "src/app/models/effect/effects/border-effect";
+import { BorderPluginEffect } from "src/app/models/effect/plugin/border-effect";
+import { Plugin } from "src/app/models/effect/plugin/plugin";
 
 export class Effect {
   constructor(private metadata: EffectMetadata) {}
 
-  get borderEffect(): BorderEffect {
-    return new BorderEffect(this.metadata);
+  get effects(): {
+    [key: string]: Plugin;
+  } {
+    return {
+      border: this.borderEffect,
+    };
+  }
+
+  get borderEffect(): BorderPluginEffect {
+    return new BorderPluginEffect(this.metadata);
   }
 
   createMetadata(): Partial<EffectMetadata> {
