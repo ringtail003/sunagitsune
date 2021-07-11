@@ -53,7 +53,7 @@ export class BorderEffect implements Config {
     return {
       borderWidth: this.#width,
       borderColor: this.#color,
-      borderType: this.#type,
+      borderType: this.#width ? this.#type : null,
     };
   }
 
