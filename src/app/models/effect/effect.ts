@@ -14,6 +14,7 @@ export class Effect {
   } {
     return {
       border: this.borderEffect,
+      rotate: this.rotateEffect,
     };
   }
 
