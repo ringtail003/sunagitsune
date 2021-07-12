@@ -42,7 +42,7 @@ export class BorderPluginEffect implements Plugin {
   }
 
   get type(): BorderType | null {
-    return this.#type;
+    return this.#type || null;
   }
 
   get typeList(): { selection: BorderType; label: string }[] {
@@ -53,7 +53,7 @@ export class BorderPluginEffect implements Plugin {
     return {
       borderWidth: this.#width,
       borderColor: this.#color,
-      borderType: this.#width ? this.#type : null,
+      borderType: this.#type,
     };
   }
 

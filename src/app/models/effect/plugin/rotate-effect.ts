@@ -26,7 +26,7 @@ export class RotatePluginEffect implements Plugin {
   }
 
   get type(): RotateType | null {
-    return this.#type;
+    return this.#type || null;
   }
 
   get typeList(): { selection: RotateType; label: string }[] {

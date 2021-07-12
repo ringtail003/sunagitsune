@@ -1,1 +1,50 @@
-<p>resize-setting works!</p>
+<ng-container *ngIf="effect">
+  <app-form-group-section>
+    <app-form-label [label]="'type'"></app-form-label>
+    <app-form-content>
+      <app-input-radio
+        class="block mr-4"
+        *ngFor="let item of effect.typeList"
+        [label]="item.label"
+        [selection]="item.selection"
+        [value]="effect.type"
+        (changeValue)="handleChangeType($event)"
+      >
+        <app-thumbnail-resize
+          [type]="item.selection"
+          [label]="item.label"
+        ></app-thumbnail-resize>
+      </app-input-radio>
+    </app-form-content>
+  </app-form-group-section>
+
+  <app-form-section *ngIf="effect.requiredWidth">
+    <app-form-label [label]="'width'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [placeholder]="'1-1000'"
+        [value]="effect.width"
+        (changeValue)="handleChangeWidth($event)"
+      ></app-input-number>
+      <app-form-unit>px</app-form-unit>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section *ngIf="effect.requiredHeight">
+    <app-form-label [label]="'height'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [placeholder]="'1-1000'"
+        [value]="effect.height"
+        (changeValue)="handleChangeWidth($event)"
+      ></app-input-number>
+      <app-form-unit>px</app-form-unit>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-footer *ngIf="error">
+    <app-form-error [error]="error"></app-form-error>
+  </app-form-footer>
+</ng-container>
