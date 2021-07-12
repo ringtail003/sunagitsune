@@ -15,8 +15,8 @@ function borderInside(
     .pipe(
       map((canvas) => {
         canvas.context.beginPath();
-        canvas.context.strokeStyle = effect.color || "#000000";
-        canvas.context.lineWidth = effect.width || 0;
+        canvas.context.strokeStyle = effect.color;
+        canvas.context.lineWidth = effect.width;
         canvas.context.strokeRect(
           effect.width / 2,
           effect.width / 2,
@@ -68,17 +68,16 @@ const border: Plugin = (
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
+  const value = {
+    width: effect.borderEffect.width || 1,
+    color: effect.borderEffect.color || "#000000",
+  };
+
   switch (effect.borderEffect.type) {
     case "inside":
-      return borderInside(source, {
-        width: effect.borderEffect.width!,
-        color: effect.borderEffect.color!,
-      });
+      return borderInside(source, value);
     case "outside":
-      return borderOutside(source, {
-        width: effect.borderEffect.width!,
-        color: effect.borderEffect.color!,
-      });
+      return borderOutside(source, value);
     default:
       throw new Error(`Unknown border type "${effect.borderEffect.type}".`);
   }

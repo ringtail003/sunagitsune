@@ -34,11 +34,11 @@ export class BorderPluginEffect implements Plugin {
   }
 
   get width(): number | null {
-    return this.#width;
+    return this.#width || null;
   }
 
   get color(): string | null {
-    return this.#color;
+    return this.#color || null;
   }
 
   get type(): BorderType | null {
@@ -78,7 +78,7 @@ export class BorderPluginEffect implements Plugin {
   }
 
   private assertWidth(): string | null {
-    if (this.hasEffect()) {
+    if (this.hasEffect() && !this.#width) {
       return `線幅が指定されていません`;
     }
 
@@ -86,7 +86,7 @@ export class BorderPluginEffect implements Plugin {
   }
 
   private assertColor(): string | null {
-    if (this.hasEffect()) {
+    if (this.hasEffect() && !this.#color) {
       return `色が指定されていません`;
     }
 
