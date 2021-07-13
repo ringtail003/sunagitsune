@@ -38,4 +38,8 @@ export class ResizeSettingComponent implements OnInit {
   handleChangeHeight(value: number | null): void {
     this.config.patch({ resizeHeight: value });
   }
+
+  handleReset(): void {
+    this.config.patch(this.reset);
+  }
 }

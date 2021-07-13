@@ -38,11 +38,18 @@
         appFormLabelFor
         [placeholder]="'1-1000'"
         [value]="effect.height"
-        (changeValue)="handleChangeWidth($event)"
+        (changeValue)="handleChangeHeight($event)"
       ></app-input-number>
       <app-form-unit>px</app-form-unit>
     </app-form-content>
   </app-form-section>
+
+  <app-form-footer>
+    <app-outline-button
+      [text]="'Reset resize config'"
+      (buttonClick)="handleReset()"
+    ></app-outline-button>
+  </app-form-footer>
 
   <app-form-footer *ngIf="error">
     <app-form-error [error]="error"></app-form-error>
