@@ -18,7 +18,7 @@
     </app-form-content>
   </app-form-group-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.requiredWidth">
     <app-form-label [label]="'width'"></app-form-label>
     <app-form-content>
       <app-input-number
@@ -31,7 +31,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.requiredColor">
     <app-form-label [label]="'color'"></app-form-label>
     <app-form-content>
       <app-input-color

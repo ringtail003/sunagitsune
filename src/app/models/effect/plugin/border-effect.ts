@@ -34,11 +34,19 @@ export class BorderPluginEffect implements Plugin {
   }
 
   get width(): number | null {
-    return this.#width || null;
+    return this.requiredWidth ? this.#width || null : null;
+  }
+
+  get requiredWidth(): boolean {
+    return this.#type !== "none";
   }
 
   get color(): string | null {
-    return this.#color || null;
+    return this.requiredColor ? this.#color || null : null;
+  }
+
+  get requiredColor(): boolean {
+    return this.#type !== "none";
   }
 
   get type(): BorderType | null {
