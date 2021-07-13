@@ -39,7 +39,7 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     this.renderPreEffect();
 
     this.#subscription = this.config
-      .watch()
+      .watch({ debounce: 1000 })
       .subscribe((effect) => this.renderPostEffect(effect));
   }
 

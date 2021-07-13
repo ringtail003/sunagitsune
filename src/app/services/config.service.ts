@@ -16,7 +16,7 @@ export class ConfigService {
   #metadata: EffectMetadata;
 
   constructor() {
-    this.observable$ = this.subject$.asObservable().pipe(debounceTime(1000));
+    this.observable$ = this.subject$.asObservable();
     this.#metadata = createEffectMetadata();
   }
 
@@ -28,8 +28,8 @@ export class ConfigService {
     this.update();
   }
 
-  watch(): Rx.Observable<Effect> {
-    return this.observable$;
+  watch(options?: { debounce: number }): Rx.Observable<Effect> {
+    return this.observable$.pipe(debounceTime(options?.debounce || 0));
   }
 
   update(): void {
