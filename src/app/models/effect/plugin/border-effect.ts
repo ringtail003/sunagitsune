@@ -87,7 +87,7 @@ export class BorderPluginEffect implements Plugin {
 
   private assertWidth(): string | null {
     if (this.hasEffect() && !this.#width) {
-      return `線幅が指定されていません`;
+      return `widthを入力してください`;
     }
 
     return null;
@@ -95,7 +95,7 @@ export class BorderPluginEffect implements Plugin {
 
   private assertColor(): string | null {
     if (this.hasEffect() && !this.#color) {
-      return `色が指定されていません`;
+      return `colorを選択してください`;
     }
 
     return null;

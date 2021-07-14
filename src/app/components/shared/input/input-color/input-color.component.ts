@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 export class InputColorComponent implements OnInit {
   @Input() value: string | null = null;
   @Output() changeValue = new EventEmitter<string | null>();
+  @Input() error: string | null = null;
 
   constructor() {}
 

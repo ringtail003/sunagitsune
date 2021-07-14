@@ -79,24 +79,24 @@ export class ShadowPluginEffect implements Plugin {
 
   getErrors() {
     return {
-      width: this.assertWidth(),
+      blur: this.assertBlur(),
       color: this.assertColor(),
       offset: this.assertOffset(),
       type: this.assertType(),
     };
   }
 
-  private assertWidth(): string | null {
+  private assertBlur(): string | null {
     if (this.hasEffect() && !this.#blur) {
-      return `線幅が指定されていません`;
+      return `blurを入力してください`;
     }
 
     return null;
   }
 
   private assertOffset(): string | null {
-    if (this.hasEffect() && !this.#blur) {
-      return `オフセットが指定されていません`;
+    if (this.hasEffect() && !this.#offset) {
+      return `offsetを入力してください`;
     }
 
     return null;
@@ -104,7 +104,7 @@ export class ShadowPluginEffect implements Plugin {
 
   private assertColor(): string | null {
     if (this.hasEffect() && !this.#color) {
-      return `色が指定されていません`;
+      return `colorを選択してください`;
     }
 
     return null;

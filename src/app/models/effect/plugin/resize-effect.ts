@@ -86,7 +86,7 @@ export class ResizePluginEffect implements Plugin {
 
   private assertWidth(): string | null {
     if (this.requiredWidth && !this.#width) {
-      return `幅が指定されていません`;
+      return `widthを入力してください`;
     }
 
     return null;
@@ -94,7 +94,7 @@ export class ResizePluginEffect implements Plugin {
 
   private assertHeight(): string | null {
     if (this.requiredHeight && !this.#height) {
-      return `高さが指定されていません`;
+      return `heightを入力してください`;
     }
 
     return null;

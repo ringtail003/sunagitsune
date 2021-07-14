@@ -24,6 +24,7 @@
     <app-form-content>
       <app-input-color
         appFormLabelFor
+        [error]="effect.getErrors().color"
         [value]="effect.color"
         (changeValue)="handleChangeColor($event)"
       ></app-input-color>
@@ -35,6 +36,7 @@
     <app-form-content>
       <app-input-number
         appFormLabelFor
+        [error]="effect.getErrors().offset"
         [placeholder]="'1-10'"
         [value]="effect.offset"
         (changeValue)="handleChangeOffset($event)"
@@ -48,6 +50,7 @@
     <app-form-content>
       <app-input-number
         appFormLabelFor
+        [error]="effect.getErrors().blur"
         [placeholder]="'1-10'"
         [value]="effect.blur"
         (changeValue)="handleChangeBlur($event)"

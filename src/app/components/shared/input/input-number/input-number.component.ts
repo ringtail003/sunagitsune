@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 export class InputNumberComponent implements OnInit {
   @Input() placeholder: string = "";
   @Input() value: number | null = null;
+  @Input() error: string | null = null;
 
   @Output() changeValue = new EventEmitter<number | null>();
 

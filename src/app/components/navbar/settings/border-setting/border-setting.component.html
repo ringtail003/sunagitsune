@@ -24,6 +24,7 @@
     <app-form-content>
       <app-input-number
         appFormLabelFor
+        [error]="effect.getErrors().width"
         [placeholder]="'1-10'"
         [value]="effect.width"
         (changeValue)="handleChangeWidth($event)"
@@ -37,6 +38,7 @@
     <app-form-content>
       <app-input-color
         appFormLabelFor
+        [error]="effect.getErrors().color"
         [value]="effect.color"
         (changeValue)="handleChangeColor($event)"
       ></app-input-color>

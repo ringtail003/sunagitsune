@@ -24,6 +24,7 @@
     <app-form-content>
       <app-input-number
         appFormLabelFor
+        [error]="effect.getErrors().width"
         [placeholder]="'1-1000'"
         [value]="effect.width"
         (changeValue)="handleChangeWidth($event)"
@@ -37,6 +38,7 @@
     <app-form-content>
       <app-input-number
         appFormLabelFor
+        [error]="effect.getErrors().height"
         [placeholder]="'1-1000'"
         [value]="effect.height"
         (changeValue)="handleChangeHeight($event)"
