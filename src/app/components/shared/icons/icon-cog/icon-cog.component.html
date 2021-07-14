@@ -1,7 +1,8 @@
 <svg
   class="flex-shrink-0 h-6 w-6"
-  [class.text-gray-400]="tone.dark"
-  [class.text-gray-200]="tone.light"
+  [class.text-gray-400]="!error && tone.dark"
+  [class.text-gray-200]="!error && tone.light"
+  [class.text-red-400]="error"
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 20 20"

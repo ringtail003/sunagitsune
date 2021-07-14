@@ -15,6 +15,7 @@
 >
   <app-icon-cog
     [tone]="{ light: !hasSetting, dark: hasSetting }"
+    [error]="hasError"
   ></app-icon-cog>
   <span class="ml-4 capitalize" [textContent]="menu"></span>
 </a>

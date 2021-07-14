@@ -72,7 +72,7 @@ export class ResizePluginEffect implements Plugin {
     return this.#type !== "none";
   }
 
-  isValid() {
+  hasError() {
     return !!Object.values(this.getErrors()).find((error) => !!error);
   }
 

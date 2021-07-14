@@ -6,7 +6,10 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./icon-cog.component.scss"],
 })
 export class IconCogComponent implements OnInit {
-  @Input() tone: { light?: boolean; dark?: boolean } = { light: true };
+  @Input() tone: { light?: boolean; dark?: boolean } = {
+    light: true,
+  };
+  @Input() error!: boolean;
 
   constructor() {}
 

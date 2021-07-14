@@ -20,7 +20,8 @@ export class NavbarEffectsMenuComponent implements OnInit, OnChanges {
 
   @Output() selectMenu = new EventEmitter<EffectMenuType>();
 
-  hasSetting!: boolean;
+  hasSetting: boolean = false;
+  hasError: boolean = false;
   isActive!: boolean;
 
   constructor(private config: ConfigService) {}
@@ -29,9 +30,8 @@ export class NavbarEffectsMenuComponent implements OnInit, OnChanges {
     this.config.watch().subscribe((config) => {
       // TODO プラグインの実装が完了したらoptionalを外す
       this.hasSetting = config.effects[this.menu]?.hasEffect() || false;
+      this.hasError = config.effects[this.menu]?.hasError() || false;
     });
-
-    this.hasSetting = false;
   }
 
   ngOnChanges(): void {

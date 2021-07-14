@@ -47,8 +47,8 @@ export class RotatePluginEffect implements Plugin {
     return this.#type !== "none";
   }
 
-  isValid() {
-    return true;
+  hasError() {
+    return false;
   }
 
   getErrors() {
