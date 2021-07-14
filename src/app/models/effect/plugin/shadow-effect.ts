@@ -10,21 +10,21 @@ import { asString } from "src/app/utils/as-type/as-string";
 import { asType } from "src/app/utils/as-type/as-type";
 
 export const shadowResetMetadata = {
-  shadowWidth: null,
+  shadowBlur: null,
   shadowColor: null,
   shadowOffset: null,
   shadowType: "none" as ShadowType,
 };
 
 export class ShadowPluginEffect implements Plugin {
-  #width: number | null;
+  #blur: number | null;
   #color: string | null;
   #offset: number | null;
   #type: ShadowType | null;
   #typeList: { selection: ShadowType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
-    this.#width = asNumber(metadata.shadowWidth, null);
+    this.#blur = asNumber(metadata.shadowBlur, null);
     this.#color = asString(metadata.shadowColor, null);
     this.#offset = asNumber(metadata.shadowOffset, null);
     this.#type = asType(metadata.shadowType, shadowTypeList, null);
@@ -36,8 +36,8 @@ export class ShadowPluginEffect implements Plugin {
     });
   }
 
-  get width(): number | null {
-    return this.hasEffect() ? this.#width || null : null;
+  get blur(): number | null {
+    return this.hasEffect() ? this.#blur || null : null;
   }
 
   get color(): string | null {
@@ -58,7 +58,7 @@ export class ShadowPluginEffect implements Plugin {
 
   createMetadata() {
     return {
-      shadowWidth: this.#width,
+      shadowBlur: this.#blur,
       shadowColor: this.#color,
       shadowOffset: this.#offset,
       shadowType: this.#type,
@@ -87,7 +87,7 @@ export class ShadowPluginEffect implements Plugin {
   }
 
   private assertWidth(): string | null {
-    if (this.hasEffect() && !this.#width) {
+    if (this.hasEffect() && !this.#blur) {
       return `線幅が指定されていません`;
     }
 
@@ -95,7 +95,7 @@ export class ShadowPluginEffect implements Plugin {
   }
 
   private assertOffset(): string | null {
-    if (this.hasEffect() && !this.#width) {
+    if (this.hasEffect() && !this.#blur) {
       return `オフセットが指定されていません`;
     }
 

@@ -31,8 +31,8 @@ export class ShadowSettingComponent implements OnInit {
     this.config.patch({ shadowType: value as ShadowType });
   }
 
-  handleChangeWidth(value: number | null): void {
-    this.config.patch({ shadowWidth: value });
+  handleChangeBlur(value: number | null): void {
+    this.config.patch({ shadowBlur: value });
   }
 
   handleChangeColor(value: string | null): void {

@@ -11,7 +11,7 @@ interface FullEffectMetadata {
   resizeType: ResizeType;
   resizeWidth: number;
   resizeHeight: number;
-  shadowWidth: number;
+  shadowBlur: number;
   shadowColor: string;
   shadowOffset: number;
   shadowType: ShadowType;

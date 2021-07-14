@@ -24,8 +24,8 @@ export const shadow: Plugin = (source: Canvas, effect: Effect) => {
 
         context.shadowColor = "green";
         context.shadowBlur = 10;
-        context.shadowOffsetX = 15;
-        context.shadowOffsetY = 15;
+        context.shadowOffsetX = 20;
+        context.shadowOffsetY = 20;
         context.save();
 
         resized.draw({
