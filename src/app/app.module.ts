@@ -17,7 +17,10 @@ import { FilenameSettingComponent } from "./components/navbar/settings/filename-
 import { ResizeSettingComponent } from "./components/navbar/settings/resize-setting/resize-setting.component";
 import { RotateSettingComponent } from "./components/navbar/settings/rotate-setting/rotate-setting.component";
 import { ShadowSettingComponent } from "./components/navbar/settings/shadow-setting/shadow-setting.component";
+import { OutlineButtonComponent } from "./components/shared/buttons/outline-button/outline-button.component";
 import { FormContentComponent } from "./components/shared/form-layout/form-content/form-content.component";
+import { FormErrorComponent } from "./components/shared/form-layout/form-error/form-error.component";
+import { FormFooterComponent } from "./components/shared/form-layout/form-footer/form-footer.component";
 import { FormGroupSectionComponent } from "./components/shared/form-layout/form-group-section/form-group-section.component";
 import { FormLabelForDirective } from "./components/shared/form-layout/form-label-for/form-label-for.directive";
 import { FormLabelComponent } from "./components/shared/form-layout/form-label/form-label.component";
@@ -28,19 +31,13 @@ import { IconChevronComponent } from "./components/shared/icons/icon-chevron-dow
 import { IconChevronLeftComponent } from "./components/shared/icons/icon-chevron-left/icon-chevron-left.component";
 import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard/icon-clipboard.component";
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
+import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
 import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { InputRadioComponent } from "./components/shared/input/input-radio/input-radio.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
-import { ThumbnailBorderComponent } from "./components/shared/thumbnails/thumbnail-border/thumbnail-border.component";
+import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { FormErrorComponent } from './components/shared/form-layout/form-error/form-error.component';
-import { IconExclamationCircleComponent } from './components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component';
-import { OutlineButtonComponent } from './components/shared/buttons/outline-button/outline-button.component';
-import { FormFooterComponent } from './components/shared/form-layout/form-footer/form-footer.component';
-import { ThumbnailRotateComponent } from './components/shared/thumbnails/thumbnail-rotate/thumbnail-rotate.component';
-import { ThumbnailResizeComponent } from './components/shared/thumbnails/thumbnail-resize/thumbnail-resize.component';
-import { ThumbnailShadowComponent } from './components/shared/thumbnails/thumbnail-shadow/thumbnail-shadow.component';
 
 @NgModule({
   declarations: [
@@ -75,14 +72,11 @@ import { ThumbnailShadowComponent } from './components/shared/thumbnails/thumbna
     InputColorComponent,
     InputRadioComponent,
     FormGroupSectionComponent,
-    ThumbnailBorderComponent,
     FormErrorComponent,
     IconExclamationCircleComponent,
     OutlineButtonComponent,
     FormFooterComponent,
-    ThumbnailRotateComponent,
-    ThumbnailResizeComponent,
-    ThumbnailShadowComponent,
+    ThumbnailComponent,
   ],
   imports: [
     BrowserModule,

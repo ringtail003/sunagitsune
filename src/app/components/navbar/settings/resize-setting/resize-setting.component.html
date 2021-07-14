@@ -10,10 +10,11 @@
         [value]="effect.type"
         (changeValue)="handleChangeType($event)"
       >
-        <app-thumbnail-resize
+        <app-thumbnail
+          [effect]="'resize'"
           [type]="item.selection"
           [label]="item.label"
-        ></app-thumbnail-resize>
+        ></app-thumbnail>
       </app-input-radio>
     </app-form-content>
   </app-form-group-section>

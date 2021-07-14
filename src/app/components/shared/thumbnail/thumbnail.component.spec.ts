@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThumbnailResizeComponent } from './thumbnail-resize.component';
+import { ThumbnailComponent } from './thumbnail.component';
 
-describe('ThumbnailResizeComponent', () => {
-  let component: ThumbnailResizeComponent;
-  let fixture: ComponentFixture<ThumbnailResizeComponent>;
+describe('ThumbnailComponent', () => {
+  let component: ThumbnailComponent;
+  let fixture: ComponentFixture<ThumbnailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThumbnailResizeComponent ]
+      declarations: [ ThumbnailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThumbnailResizeComponent);
+    fixture = TestBed.createComponent(ThumbnailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
