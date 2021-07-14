@@ -35,7 +35,7 @@ export class RotatePluginEffect implements Plugin {
 
   createMetadata() {
     return {
-      rotateType: this.#type,
+      rotateType: this.#type === "none" ? null : this.#type,
     };
   }
 

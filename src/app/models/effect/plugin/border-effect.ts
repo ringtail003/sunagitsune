@@ -61,7 +61,7 @@ export class BorderPluginEffect implements Plugin {
     return {
       borderWidth: this.#width,
       borderColor: this.#color,
-      borderType: this.#type,
+      borderType: this.#type === "none" ? null : this.#type,
     };
   }
 

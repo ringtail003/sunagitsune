@@ -61,7 +61,7 @@ export class ShadowPluginEffect implements Plugin {
       shadowBlur: this.#blur,
       shadowColor: this.#color,
       shadowOffset: this.#offset,
-      shadowType: this.#type,
+      shadowType: this.#type === "none" ? null : this.#type,
     };
   }
 
