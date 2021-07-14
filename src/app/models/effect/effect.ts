@@ -6,6 +6,7 @@ import { BorderPluginEffect } from "src/app/models/effect/plugin/border-effect";
 import { Plugin } from "src/app/models/effect/plugin/plugin";
 import { ResizePluginEffect } from "src/app/models/effect/plugin/resize-effect";
 import { RotatePluginEffect } from "src/app/models/effect/plugin/rotate-effect";
+import { ShadowPluginEffect } from "src/app/models/effect/plugin/shadow-effect";
 
 export class Effect {
   constructor(private metadata: EffectMetadata) {}
@@ -17,6 +18,7 @@ export class Effect {
       border: this.borderEffect,
       rotate: this.rotateEffect,
       resize: this.resizeEffect,
+      shadow: this.shadowEffect,
     };
   }
 
@@ -32,11 +34,16 @@ export class Effect {
     return new ResizePluginEffect(this.metadata);
   }
 
+  get shadowEffect(): ShadowPluginEffect {
+    return new ShadowPluginEffect(this.metadata);
+  }
+
   createMetadata(): Partial<EffectMetadata> {
     const metadata = {
       ...this.borderEffect.createMetadata(),
       ...this.rotateEffect.createMetadata(),
       ...this.resizeEffect.createMetadata(),
+      ...this.shadowEffect.createMetadata(),
     };
 
     return Object.keys(metadata).reduce((acc, current) => {

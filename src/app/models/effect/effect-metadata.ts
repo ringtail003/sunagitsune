@@ -1,6 +1,7 @@
 import { BorderType } from "src/app/models/effect/types/border-type";
 import { ResizeType } from "src/app/models/effect/types/resize-type";
 import { RotateType } from "src/app/models/effect/types/rotate-type";
+import { ShadowType } from "src/app/models/effect/types/shadow-type";
 
 interface FullEffectMetadata {
   borderWidth: number;
@@ -10,6 +11,10 @@ interface FullEffectMetadata {
   resizeType: ResizeType;
   resizeWidth: number;
   resizeHeight: number;
+  shadowWidth: number;
+  shadowColor: string;
+  shadowOffset: number;
+  shadowType: ShadowType;
 }
 
 export type EffectMetadataKey = keyof FullEffectMetadata;
