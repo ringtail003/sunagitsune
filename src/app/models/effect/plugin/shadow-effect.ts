@@ -37,27 +37,15 @@ export class ShadowPluginEffect implements Plugin {
   }
 
   get width(): number | null {
-    return this.requiredWidth ? this.#width || null : null;
-  }
-
-  get requiredWidth(): boolean {
-    return this.#type !== "none";
+    return this.hasEffect() ? this.#width || null : null;
   }
 
   get color(): string | null {
-    return this.requiredColor ? this.#color || null : null;
-  }
-
-  get requiredColor(): boolean {
-    return this.#type !== "none";
+    return this.hasEffect() ? this.#color || null : null;
   }
 
   get offset(): number | null {
-    return this.requiredOffset ? this.#offset || null : null;
-  }
-
-  get requiredOffset(): boolean {
-    return this.#type !== "none";
+    return this.hasEffect() ? this.#offset || null : null;
   }
 
   get type(): ShadowType | null {

@@ -26,4 +26,24 @@ export class ShadowSettingComponent implements OnInit {
       this.reset = effect.shadowEffect.resetMetadata();
     });
   }
+
+  handleChangeType(value: string | null): void {
+    this.config.patch({ shadowType: value as ShadowType });
+  }
+
+  handleChangeWidth(value: number | null): void {
+    this.config.patch({ shadowWidth: value });
+  }
+
+  handleChangeColor(value: string | null): void {
+    this.config.patch({ shadowColor: value });
+  }
+
+  handleChangeOffset(value: number | null): void {
+    this.config.patch({ shadowOffset: value });
+  }
+
+  handleReset(): void {
+    this.config.patch(this.reset);
+  }
 }

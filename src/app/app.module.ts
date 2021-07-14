@@ -40,6 +40,7 @@ import { OutlineButtonComponent } from './components/shared/buttons/outline-butt
 import { FormFooterComponent } from './components/shared/form-layout/form-footer/form-footer.component';
 import { ThumbnailRotateComponent } from './components/shared/thumbnails/thumbnail-rotate/thumbnail-rotate.component';
 import { ThumbnailResizeComponent } from './components/shared/thumbnails/thumbnail-resize/thumbnail-resize.component';
+import { ThumbnailShadowComponent } from './components/shared/thumbnails/thumbnail-shadow/thumbnail-shadow.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { ThumbnailResizeComponent } from './components/shared/thumbnails/thumbna
     FormFooterComponent,
     ThumbnailRotateComponent,
     ThumbnailResizeComponent,
+    ThumbnailShadowComponent,
   ],
   imports: [
     BrowserModule,
