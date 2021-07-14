@@ -5,35 +5,41 @@ import { Effect } from "src/app/models/effect/effect";
 import { Plugin } from "src/app/services/effectors/plugins/interface";
 
 export const shadow: Plugin = (source: Canvas, effect: Effect) => {
+  if (!effect.shadowEffect.hasEffect()) {
+    return canvasFactory.fromCanvas(source, source.scale).load();
+  }
+
+  const value = {
+    offset: effect.shadowEffect.offset || 1,
+    blur: effect.shadowEffect.blur || 0,
+    color: effect.shadowEffect.color || "#000000",
+    margin: Math.max(
+      effect.shadowEffect.offset || 1,
+      (effect.shadowEffect.blur || 0) * 1.7
+    ),
+  };
+
   return canvasFactory
     .fromCanvas(source, {
-      width: source.scale.width + 30,
-      height: source.scale.height + 30,
+      width: source.scale.width + value.margin,
+      height: source.scale.height + value.margin,
     })
     .load()
     .pipe(
-      map((resized) => {
-        resized.context.clearRect(
-          0,
-          0,
-          resized.scale.width,
-          resized.scale.height
-        );
+      map((canvas) => {
+        canvas.context.clearRect(0, 0, canvas.scale.width, canvas.scale.height);
 
-        const context = resized.context;
+        canvas.context.shadowColor = value.color;
+        canvas.context.shadowBlur = value.blur;
+        canvas.context.shadowOffsetX = value.offset;
+        canvas.context.shadowOffsetY = value.offset;
 
-        context.shadowColor = "green";
-        context.shadowBlur = 10;
-        context.shadowOffsetX = 20;
-        context.shadowOffsetY = 20;
-        context.save();
-
-        resized.draw({
-          width: resized.scale.width - 30,
-          height: resized.scale.height - 30,
+        canvas.draw({
+          width: canvas.scale.width - value.margin,
+          height: canvas.scale.height - value.margin,
         });
 
-        return resized;
+        return canvas;
       })
     );
 };

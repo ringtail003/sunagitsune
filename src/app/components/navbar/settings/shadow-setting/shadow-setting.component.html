@@ -19,15 +19,13 @@
   </app-form-group-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'width'"></app-form-label>
+    <app-form-label [label]="'color'"></app-form-label>
     <app-form-content>
-      <app-input-number
+      <app-input-color
         appFormLabelFor
-        [placeholder]="'1-10'"
-        [value]="effect.blur"
-        (changeValue)="handleChangeBlur($event)"
-      ></app-input-number>
-      <app-form-unit>px</app-form-unit>
+        [value]="effect.color"
+        (changeValue)="handleChangeColor($event)"
+      ></app-input-color>
     </app-form-content>
   </app-form-section>
 
@@ -39,6 +37,19 @@
         [placeholder]="'1-10'"
         [value]="effect.offset"
         (changeValue)="handleChangeOffset($event)"
+      ></app-input-number>
+      <app-form-unit>px</app-form-unit>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section *ngIf="effect.hasEffect()">
+    <app-form-label [label]="'blur'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [placeholder]="'1-10'"
+        [value]="effect.blur"
+        (changeValue)="handleChangeBlur($event)"
       ></app-input-number>
       <app-form-unit>px</app-form-unit>
     </app-form-content>
