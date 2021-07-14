@@ -15,7 +15,8 @@
         "project": [
           "tsconfig.json"
         ],
-        "createDefaultProgram": true
+        "createDefaultProgram": true,
+        "ecmaVersion": 2017
       },
       "extends": [
         "eslint:all",
