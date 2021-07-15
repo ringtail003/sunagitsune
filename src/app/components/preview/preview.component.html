@@ -1,7 +1,10 @@
 <div class="flex flex-wrap p-6 w-full gap-6 justify-center font-medium">
-  <figure>
+  <figure class="flex-row w-full">
     <figcaption class="text-gray-500">BEFORE</figcaption>
-    <div #preEffectContainer class="border-2 border-gray-100 p-2"></div>
+    <div
+      #preEffectContainer
+      class="border-2 border-gray-100 p-2 flex justify-center"
+    ></div>
     <ul *ngIf="preEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
       <li [textContent]="filename"></li>
       <li class="flex gap-2">
@@ -14,9 +17,12 @@
     </ul>
   </figure>
 
-  <figure>
+  <figure class="flex-row w-full">
     <figcaption class="text-gray-500">AFTER</figcaption>
-    <div #postEffectContainer class="border-2 border-gray-100 p-2">
+    <div
+      #postEffectContainer
+      class="border-2 border-gray-100 p-2 flex justify-center"
+    >
       <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
     </div>
     <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
