@@ -5,7 +5,7 @@
       <app-input-filename
         appFormLabelFor
         [error]="effect.getErrors().prefix"
-        [placeholder]="'foo'"
+        [placeholder]="'-foo'"
         [value]="effect.prefix"
         (changeValue)="handleChangePrefix($event)"
       ></app-input-filename>
@@ -18,7 +18,7 @@
       <app-input-filename
         appFormLabelFor
         [error]="effect.getErrors().suffix"
-        [placeholder]="'bar'"
+        [placeholder]="'-bar'"
         [value]="effect.suffix"
         (changeValue)="handleChangeSuffix($event)"
       ></app-input-filename>
