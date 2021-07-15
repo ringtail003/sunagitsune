@@ -41,6 +41,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
 import { InputFilenameComponent } from './components/shared/input/input-filename/input-filename.component';
 import { TextSettingComponent } from './components/navbar/settings/text-setting/text-setting.component';
 import { InputTextComponent } from './components/shared/input/input-text/input-text.component';
+import { AreaTitleComponent } from './components/shared/area-title/area-title.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { InputTextComponent } from './components/shared/input/input-text/input-t
     InputFilenameComponent,
     TextSettingComponent,
     InputTextComponent,
+    AreaTitleComponent,
   ],
   imports: [
     BrowserModule,
