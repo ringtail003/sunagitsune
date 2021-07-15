@@ -10,11 +10,7 @@
     </nav>
   </div>
 
-  <div
-    [class.opacity-100]="isOpen"
-    [class.opacity-0]="!isOpen"
-    class="z-0 transition ease-in-out duration-500 md:block transform shadow-lg"
-  >
+  <div [class.hidden]="!isOpen">
     <div class="relative grid grid-cols-5 bg-white">
       <app-navbar-effects
         class="block"
