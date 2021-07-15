@@ -1,6 +1,7 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 import { Plugin } from "src/app/models/effect/plugin/plugin";
 import { asString } from "src/app/utils/as-type/as-string";
+import { splitFilename } from "src/app/utils/split-filename";
 import validFilename from "valid-filename";
 
 export const filenameResetMetadata = {
@@ -26,11 +27,11 @@ export class FilenamePluginEffect implements Plugin {
   }
 
   getFilename(raw: string): string {
-    return (
-      (this.assertPrefix() ? "" : this.#prefix) +
-      raw +
-      (this.assertSuffix() ? "" : this.#suffix)
-    );
+    const split = splitFilename(raw);
+    const prefix = this.assertPrefix() ? "" : this.#prefix || "";
+    const suffix = this.assertSuffix() ? "" : this.#suffix || "";
+
+    return `${prefix}${split.withoutExtension}${suffix}.${split.extension}`;
   }
 
   createMetadata() {

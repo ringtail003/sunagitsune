@@ -13,28 +13,34 @@
 >
   <figure>
     <figcaption class="text-gray-300">BEFORE</figcaption>
-    <div #preEffect class="border-2 border-gray-100 p-2">
-      <img src="assets/preview.png" class="opacity-25" />
-    </div>
-    <div class="flex gap-2 text-gray-300 text-sm">
-      <span [textContent]="'width'"></span>
-      <span [textContent]="preScale?.width + 'px'"></span>
-      <span [textContent]="'height'"></span>
-      <span [textContent]="preScale?.height + 'px'"></span>
-    </div>
+    <div #preEffectContainer class="border-2 border-gray-100 p-2"></div>
+    <ul *ngIf="preEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
+      <li [textContent]="filename"></li>
+      <li class="flex gap-2">
+        <span [textContent]="'width'"></span>
+        <span [textContent]="preEffect.canvas.scale.width + 'px'"></span>
+        <span [textContent]="'height'"></span>
+        <span [textContent]="preEffect.canvas.scale.height + 'px'"></span>
+        <span [textContent]="'height'"></span>
+      </li>
+    </ul>
   </figure>
 
   <figure>
     <figcaption class="text-gray-300">AFTER</figcaption>
-    <div #postEffect class="border-2 border-gray-100 p-2">
+    <div #postEffectContainer class="border-2 border-gray-100 p-2">
       <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
-      <img src="assets/preview.png" class="opacity-25" />
     </div>
-    <div class="flex gap-2 text-gray-300 text-sm">
-      <span [textContent]="'width'"></span>
-      <span [textContent]="postScale?.width + 'px'"></span>
-      <span [textContent]="'height'"></span>
-      <span [textContent]="postScale?.height + 'px'"></span>
-    </div>
+    <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
+      <li
+        [textContent]="postEffect.effect!.filenameEffect.getFilename(filename)"
+      ></li>
+      <li class="flex gap-2">
+        <span [textContent]="'width'"></span>
+        <span [textContent]="postEffect.canvas.scale.width + 'px'"></span>
+        <span [textContent]="'height'"></span>
+        <span [textContent]="postEffect.canvas.scale.height + 'px'"></span>
+      </li>
+    </ul>
   </figure>
 </div>

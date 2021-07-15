@@ -11,9 +11,13 @@ import { mergeMap } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
-import { Scale } from "src/app/models/scale";
 import { ConfigService } from "src/app/services/config.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
+
+interface Preview {
+  canvas: Canvas;
+  effect: Effect | null;
+}
 
 @Component({
   selector: "app-preview",
@@ -21,14 +25,18 @@ import { EffectorService } from "src/app/services/effectors/effector.service";
   styleUrls: ["./preview.component.scss"],
 })
 export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild("preEffect") preEffect!: ElementRef<HTMLDivElement>;
-  @ViewChild("postEffect") postEffect!: ElementRef<HTMLDivElement>;
+  @ViewChild("preEffectContainer")
+  preEffectContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild("postEffectContainer")
+  postEffectContainer!: ElementRef<HTMLDivElement>;
+
+  filename = "sunagitsune.png";
 
   #subscription!: Rx.Subscription;
   #ready$ = new Rx.Subject<void>();
 
-  preScale?: Scale;
-  postScale?: Scale;
+  preEffect?: Preview;
+  postEffect?: Preview;
 
   constructor(
     private effector: EffectorService,
@@ -40,7 +48,9 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.#subscription = this.config
       .watch({ debounce: 1000 })
-      .subscribe((effect) => this.renderPostEffect(effect));
+      .subscribe((effect) => {
+        this.renderPostEffect(effect);
+      });
   }
 
   ngOnDestroy(): void {
@@ -52,18 +62,18 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private renderPreEffect(): void {
-    this.load().subscribe((source) => {
-      this.removeFrom(this.preEffect);
-      this.appendTo(this.preEffect, source);
-      this.preScale = source.scale;
+    this.load().subscribe((canvas) => {
+      this.removeFrom(this.preEffectContainer);
+      this.appendTo(this.preEffectContainer, canvas);
+      this.preEffect = { canvas, effect: null };
     });
   }
 
   private renderPostEffect(effect: Effect): void {
-    this.load(effect).subscribe((source) => {
-      this.removeFrom(this.postEffect);
-      this.appendTo(this.postEffect, source);
-      this.postScale = source.scale;
+    this.load(effect).subscribe((canvas) => {
+      this.removeFrom(this.postEffectContainer);
+      this.appendTo(this.postEffectContainer, canvas);
+      this.postEffect = { canvas, effect };
     });
   }
 
@@ -79,7 +89,7 @@ export class PreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private load(effect?: Effect) {
     return canvasFactory
-      .fromUrl("assets/preview.png")
+      .fromUrl(`assets/${this.filename}`)
       .load()
       .pipe(
         mergeMap((source) => {
