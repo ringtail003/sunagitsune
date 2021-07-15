@@ -8,12 +8,13 @@
         [label]="item.label"
         [selection]="item.selection"
         [value]="effect.type"
-        (changeValue)="handleChangeType($event)"
+        (changeValue)="handleChangeType(effect.type)"
       >
         <app-thumbnail
           [effect]="'text'"
           [type]="item.selection"
           [label]="item.label"
+          (clickThumbnail)="handleChangeType(effect.type)"
         ></app-thumbnail>
       </app-input-radio>
     </app-form-content>

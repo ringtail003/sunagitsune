@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { kebabToDash } from "src/app/utils/kebab-to-dash";
 
 @Component({
@@ -10,6 +10,7 @@ export class ThumbnailComponent implements OnInit {
   @Input() effect!: string;
   @Input() label!: string;
   @Input() type!: string;
+  @Output() clickThumbnail = new EventEmitter<void>();
 
   filename!: string;
 
@@ -17,5 +18,9 @@ export class ThumbnailComponent implements OnInit {
 
   ngOnInit(): void {
     this.filename = kebabToDash(this.type);
+  }
+
+  handleClick(): void {
+    this.clickThumbnail.emit();
   }
 }
