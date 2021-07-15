@@ -41,7 +41,11 @@ export class UploaderComponent implements OnInit {
             mergeMap((source) => this.effector.effect(source, this.effect)),
             tap({
               next: (source) => {
-                this.downloader.download(file, source.url);
+                this.downloader.download(
+                  file,
+                  source.url,
+                  this.effect.filenameEffect.getFilename(file.name)
+                );
               },
             })
           )
