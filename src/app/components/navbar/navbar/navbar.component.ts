@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   @Output() closeMenu = new EventEmitter<void>();
 
   isOpen = false;
-  activeMenuType: EffectMenuType = "border";
+  activeMenuType: EffectMenuType = "resize";
 
   constructor() {}
 

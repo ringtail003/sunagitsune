@@ -11,10 +11,10 @@ export class NavbarEffectsComponent implements OnInit {
   @Output() selectMenu = new EventEmitter<EffectMenuType>();
 
   menuTypes: EffectMenuType[] = [
-    "border",
-    "shadow",
     "resize",
     "rotate",
+    "border",
+    "shadow",
     "filename",
   ];
 
