@@ -38,6 +38,7 @@ import { InputRadioComponent } from "./components/shared/input/input-radio/input
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
+import { InputFilenameComponent } from './components/shared/input/input-filename/input-filename.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     OutlineButtonComponent,
     FormFooterComponent,
     ThumbnailComponent,
+    InputFilenameComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ interface FullEffectMetadata {
   shadowColor: string;
   shadowOffset: number;
   shadowType: ShadowType;
+  filenamePrefix: string;
+  filenameSuffix: string;
 }
 
 export type EffectMetadataKey = keyof FullEffectMetadata;

@@ -1,1 +1,38 @@
-<p>filename-setting works!</p>
+<ng-container *ngIf="effect">
+  <app-form-section>
+    <app-form-label [label]="'prefix'"></app-form-label>
+    <app-form-content>
+      <app-input-filename
+        appFormLabelFor
+        [error]="effect.getErrors().prefix"
+        [placeholder]="'foo'"
+        [value]="effect.prefix"
+        (changeValue)="handleChangePrefix($event)"
+      ></app-input-filename>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'suffix'"></app-form-label>
+    <app-form-content>
+      <app-input-filename
+        appFormLabelFor
+        [error]="effect.getErrors().suffix"
+        [placeholder]="'bar'"
+        [value]="effect.suffix"
+        (changeValue)="handleChangeSuffix($event)"
+      ></app-input-filename>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-footer>
+    <app-outline-button
+      [text]="'Reset filename config'"
+      (buttonClick)="handleReset()"
+    ></app-outline-button>
+  </app-form-footer>
+
+  <app-form-footer *ngIf="error">
+    <app-form-error [error]="error"></app-form-error>
+  </app-form-footer>
+</ng-container>
