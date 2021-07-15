@@ -1,66 +1,35 @@
-<div class="relative bg-white">
+<div>
+  <div class="bg-white w-full sticky top-0 px-6 py-4 shadow-md z-20">
+    <nav class="flex space-x-4 items-center">
+      <app-logo></app-logo>
+      <app-navbar-button
+        [isMenuOpen]="isOpen"
+        [text]="'Settings'"
+        (click)="handleClick()"
+      ></app-navbar-button>
+    </nav>
+  </div>
+
   <div
-    class="absolute inset-0 shadow z-30 pointer-events-none"
-    aria-hidden="true"
-  ></div>
-  <div class="relative z-20">
-    <div
-      class="
-        max-w-7xl
-        flex
-        justify-between
-        items-center
-        px-4
-        py-5
-        sm:px-6 sm:py-4
-        lg:px-8
-        md:justify-start md:space-x-6
-      "
-    >
-      <div class="md:flex-1 md:flex md:items-center">
-        <nav class="flex space-x-4 items-center">
-          <app-logo></app-logo>
-          <app-navbar-button
-            [isMenuOpen]="isOpen"
-            [text]="'Settings'"
-            (click)="handleClick()"
-          ></app-navbar-button>
-        </nav>
+    [class.opacity-100]="isOpen"
+    [class.opacity-0]="!isOpen"
+    class="z-0 transition ease-in-out duration-500 md:block transform shadow-lg"
+  >
+    <div class="relative grid grid-cols-5 bg-white">
+      <app-navbar-effects
+        class="block"
+        [activeMenuType]="activeMenuType"
+        (selectMenu)="handleSelectMenu($event)"
+      ></app-navbar-effects>
 
-        <div
-          [class.opacity-100]="isOpen"
-          [class.opacity-0]="!isOpen"
-          class="
-            transition
-            ease-in-out
-            duration-500
-            md:block
-            absolute
-            z-10
-            top-full
-            inset-x-0
-            transform
-            shadow-lg
-          "
-        >
-          <div class="relative grid grid-cols-5 bg-white">
-            <app-navbar-effects
-              class="block"
-              [activeMenuType]="activeMenuType"
-              (selectMenu)="handleSelectMenu($event)"
-            ></app-navbar-effects>
+      <app-navbar-setting
+        class="block col-span-2"
+        [activeMenuType]="activeMenuType"
+      ></app-navbar-setting>
 
-            <app-navbar-setting
-              class="block col-span-2"
-              [activeMenuType]="activeMenuType"
-            ></app-navbar-setting>
-
-            <app-preview class="block col-span-2"></app-preview>
-          </div>
-
-          <app-navbar-footer></app-navbar-footer>
-        </div>
-      </div>
+      <app-preview class="block col-span-2"></app-preview>
     </div>
+
+    <app-navbar-footer></app-navbar-footer>
   </div>
 </div>

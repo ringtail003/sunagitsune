@@ -1,40 +1,48 @@
-<div class="flex flex-wrap p-6 w-full gap-6 justify-center font-medium">
-  <figure class="flex-row w-full">
-    <figcaption class="text-gray-500">BEFORE</figcaption>
-    <div
-      #preEffectContainer
-      class="border-2 border-gray-100 p-2 flex justify-center"
-    ></div>
-    <ul *ngIf="preEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
-      <li [textContent]="filename"></li>
-      <li class="flex gap-2">
-        <span [textContent]="'width'"></span>
-        <span [textContent]="preEffect.canvas.scale.width + 'px'"></span>
-        <span [textContent]="'height'"></span>
-        <span [textContent]="preEffect.canvas.scale.height + 'px'"></span>
-        <span [textContent]="'height'"></span>
-      </li>
-    </ul>
-  </figure>
+<div class="py-6 px-9 w-full">
+  <h3 class="tracking-wide text-gray-500 font-medium uppercase pb-3">
+    preview
+  </h3>
 
-  <figure class="flex-row w-full">
-    <figcaption class="text-gray-500">AFTER</figcaption>
-    <div
-      #postEffectContainer
-      class="border-2 border-gray-100 p-2 flex justify-center"
-    >
-      <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
-    </div>
-    <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
-      <li
-        [textContent]="postEffect.effect!.filenameEffect.getFilename(filename)"
-      ></li>
-      <li class="flex gap-2">
-        <span [textContent]="'width'"></span>
-        <span [textContent]="postEffect.canvas.scale.width + 'px'"></span>
-        <span [textContent]="'height'"></span>
-        <span [textContent]="postEffect.canvas.scale.height + 'px'"></span>
-      </li>
-    </ul>
-  </figure>
+  <div class="flex flex-wrap justify-center gap-6">
+    <figure class="flex-row w-full">
+      <figcaption class="text-gray-500">BEFORE</figcaption>
+      <div
+        #preEffectContainer
+        class="border-2 border-gray-100 p-2 flex justify-center"
+      ></div>
+      <ul *ngIf="preEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
+        <li [textContent]="filename"></li>
+        <li class="flex gap-2">
+          <span [textContent]="'width'"></span>
+          <span [textContent]="preEffect.canvas.scale.width + 'px'"></span>
+          <span [textContent]="'height'"></span>
+          <span [textContent]="preEffect.canvas.scale.height + 'px'"></span>
+          <span [textContent]="'height'"></span>
+        </li>
+      </ul>
+    </figure>
+
+    <figure class="flex-row w-full">
+      <figcaption class="text-gray-500">AFTER</figcaption>
+      <div
+        #postEffectContainer
+        class="border-2 border-gray-100 p-2 flex justify-center"
+      >
+        <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
+      </div>
+      <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
+        <li
+          [textContent]="
+            postEffect.effect!.filenameEffect.getFilename(filename)
+          "
+        ></li>
+        <li class="flex gap-2">
+          <span [textContent]="'width'"></span>
+          <span [textContent]="postEffect.canvas.scale.width + 'px'"></span>
+          <span [textContent]="'height'"></span>
+          <span [textContent]="postEffect.canvas.scale.height + 'px'"></span>
+        </li>
+      </ul>
+    </figure>
+  </div>
 </div>

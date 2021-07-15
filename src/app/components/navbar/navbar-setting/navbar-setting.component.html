@@ -1,27 +1,29 @@
-<div class="bg-gray-50 p-6 w-full h-full">
-  <div class="p-3">
-    <app-border-setting
-      [class.hidden]="activeMenuType !== 'border'"
-    ></app-border-setting>
+<div class="bg-gray-50 py-6 px-9 w-full h-full">
+  <h3 class="font-medium tracking-wide text-gray-500 uppercase pb-3">
+    setting
+  </h3>
 
-    <app-shadow-setting
-      [class.hidden]="activeMenuType !== 'shadow'"
-    ></app-shadow-setting>
+  <app-border-setting
+    [class.hidden]="activeMenuType !== 'border'"
+  ></app-border-setting>
 
-    <app-resize-setting
-      [class.hidden]="activeMenuType !== 'resize'"
-    ></app-resize-setting>
+  <app-shadow-setting
+    [class.hidden]="activeMenuType !== 'shadow'"
+  ></app-shadow-setting>
 
-    <app-rotate-setting
-      [class.hidden]="activeMenuType !== 'rotate'"
-    ></app-rotate-setting>
+  <app-resize-setting
+    [class.hidden]="activeMenuType !== 'resize'"
+  ></app-resize-setting>
 
-    <app-filename-setting
-      [class.hidden]="activeMenuType !== 'filename'"
-    ></app-filename-setting>
+  <app-rotate-setting
+    [class.hidden]="activeMenuType !== 'rotate'"
+  ></app-rotate-setting>
 
-    <app-text-setting
-      [class.hidden]="activeMenuType !== 'text'"
-    ></app-text-setting>
-  </div>
+  <app-filename-setting
+    [class.hidden]="activeMenuType !== 'filename'"
+  ></app-filename-setting>
+
+  <app-text-setting
+    [class.hidden]="activeMenuType !== 'text'"
+  ></app-text-setting>
 </div>
