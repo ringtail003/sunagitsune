@@ -19,11 +19,12 @@
     </app-form-content>
   </app-form-group-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'caption'"></app-form-label>
     <app-form-content>
       <app-input-text
         appFormLabelFor
+        class="block w-full"
         [error]="effect.getErrors().caption"
         [placeholder]="'YYYY-MM-DD'"
         [value]="effect.caption"
@@ -32,7 +33,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'font'"></app-form-label>
     <app-form-content>
       <app-input-text
@@ -45,7 +46,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'size'"></app-form-label>
     <app-form-content>
       <app-input-number
@@ -59,7 +60,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'color'"></app-form-label>
     <app-form-content>
       <app-input-color
@@ -71,7 +72,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'offset'"></app-form-label>
     <app-form-content>
       <app-input-number
@@ -84,7 +85,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'stroke color'"></app-form-label>
     <app-form-content>
       <app-input-color
@@ -96,7 +97,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section>
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'stroke width'"></app-form-label>
     <app-form-content>
       <app-input-number

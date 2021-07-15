@@ -92,9 +92,9 @@ export const text: Plugin = (source: Canvas, effect: Effect) => {
         const context: Context = {
           posX: detectPosX(effect.textEffect.type!),
           posY: detectPosY(effect.textEffect.type!),
-          caption: effect.textEffect.caption || "sunagitsune",
-          font: effect.textEffect.font || "",
-          size: effect.textEffect.size || 10,
+          caption: effect.textEffect.caption || "YYYY-MM-DD",
+          font: effect.textEffect.font || "Arial",
+          size: effect.textEffect.size || 15,
           color: effect.textEffect.color || "#000000",
           offset: effect.textEffect.offset || 0,
           stroke: effect.textEffect.hasStroke()
