@@ -1,5 +1,4 @@
-<button
-  type="button"
+<a
   class="
     capitalize
     text-gray-500
@@ -14,15 +13,8 @@
     focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
   "
   aria-expanded="false"
+  target="_blank"
+  [href]="url"
 >
   <span [textContent]="text"></span>
-  <app-icon-chevron-left
-    *ngIf="isMenuOpen"
-    class="block ml-2"
-  ></app-icon-chevron-left>
-
-  <app-icon-chevron-down
-    *ngIf="!isMenuOpen"
-    class="block ml-2"
-  ></app-icon-chevron-down>
-</button>
+</a>
