@@ -8,6 +8,7 @@ import { Plugin } from "src/app/models/effect/plugin/plugin";
 import { ResizePluginEffect } from "src/app/models/effect/plugin/resize-effect";
 import { RotatePluginEffect } from "src/app/models/effect/plugin/rotate-effect";
 import { ShadowPluginEffect } from "src/app/models/effect/plugin/shadow-effect";
+import { textPluginEffect } from "src/app/models/effect/plugin/text-effect";
 
 export class Effect {
   constructor(private metadata: EffectMetadata) {}
@@ -18,6 +19,7 @@ export class Effect {
     return {
       border: this.borderEffect,
       rotate: this.rotateEffect,
+      text: this.textEffect,
       resize: this.resizeEffect,
       shadow: this.shadowEffect,
       filename: this.filenameEffect,
@@ -44,6 +46,10 @@ export class Effect {
     return new FilenamePluginEffect(this.metadata);
   }
 
+  get textEffect(): textPluginEffect {
+    return new textPluginEffect(this.metadata);
+  }
+
   createMetadata(): Partial<EffectMetadata> {
     const metadata = {
       ...this.borderEffect.createMetadata(),
@@ -51,6 +57,7 @@ export class Effect {
       ...this.resizeEffect.createMetadata(),
       ...this.shadowEffect.createMetadata(),
       ...this.filenameEffect.createMetadata(),
+      ...this.textEffect.createMetadata(),
     };
 
     return Object.keys(metadata).reduce((acc, current) => {

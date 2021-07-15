@@ -39,6 +39,8 @@ import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { InputFilenameComponent } from './components/shared/input/input-filename/input-filename.component';
+import { TextSettingComponent } from './components/navbar/settings/text-setting/text-setting.component';
+import { InputTextComponent } from './components/shared/input/input-text/input-text.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { InputFilenameComponent } from './components/shared/input/input-filename
     FormFooterComponent,
     ThumbnailComponent,
     InputFilenameComponent,
+    TextSettingComponent,
+    InputTextComponent,
   ],
   imports: [
     BrowserModule,

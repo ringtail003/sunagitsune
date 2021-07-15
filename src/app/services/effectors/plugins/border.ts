@@ -5,23 +5,25 @@ import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
 import { Plugin } from "src/app/services/effectors/plugins/interface";
 
-function borderInside(
-  source: Canvas,
-  effect: { width: number; color: string }
-): Rx.Observable<Canvas> {
+interface Context {
+  width: number;
+  color: string;
+}
+
+function borderInside(source: Canvas, context: Context): Rx.Observable<Canvas> {
   return canvasFactory
     .fromCanvas(source, source.scale)
     .load()
     .pipe(
       map((canvas) => {
         canvas.context.beginPath();
-        canvas.context.strokeStyle = effect.color;
-        canvas.context.lineWidth = effect.width;
+        canvas.context.strokeStyle = context.color;
+        canvas.context.lineWidth = context.width;
         canvas.context.strokeRect(
-          effect.width / 2,
-          effect.width / 2,
-          canvas.context.canvas.width - effect.width,
-          canvas.context.canvas.height - effect.width
+          context.width / 2,
+          context.width / 2,
+          canvas.context.canvas.width - context.width,
+          canvas.context.canvas.height - context.width
         );
         canvas.context.closePath();
 
@@ -32,26 +34,26 @@ function borderInside(
 
 function borderOutside(
   source: Canvas,
-  effect: { width: number; color: string }
+  context: Context
 ): Rx.Observable<Canvas> {
   return canvasFactory
     .fromCanvas(source, {
-      width: source.scale.width + effect.width * 2,
-      height: source.scale.height + effect.width * 2,
+      width: source.scale.width + context.width * 2,
+      height: source.scale.height + context.width * 2,
     })
     .load()
     .pipe(
       map((canvas) => {
-        canvas.fill(canvas.scale, effect.color);
+        canvas.fill(canvas.scale, context.color);
 
         canvas.draw(
           {
-            width: canvas.scale.width - effect.width * 2,
-            height: canvas.scale.height - effect.width * 2,
+            width: canvas.scale.width - context.width * 2,
+            height: canvas.scale.height - context.width * 2,
           },
           {
-            left: effect.width,
-            top: effect.width,
+            left: context.width,
+            top: context.width,
           }
         );
 
@@ -68,16 +70,16 @@ const border: Plugin = (
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  const value = {
+  const context = {
     width: effect.borderEffect.width || 1,
     color: effect.borderEffect.color || "#000000",
   };
 
   switch (effect.borderEffect.type) {
     case "inside":
-      return borderInside(source, value);
+      return borderInside(source, context);
     case "outside":
-      return borderOutside(source, value);
+      return borderOutside(source, context);
     default:
       throw new Error(`Unknown border type "${effect.borderEffect.type}".`);
   }

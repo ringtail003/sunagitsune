@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { kebabToDash } from "src/app/utils/kebab-to-dash";
 
 @Component({
   selector: "app-thumbnail",
@@ -10,7 +11,11 @@ export class ThumbnailComponent implements OnInit {
   @Input() label!: string;
   @Input() type!: string;
 
+  filename!: string;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filename = kebabToDash(this.type);
+  }
 }

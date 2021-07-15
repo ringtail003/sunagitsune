@@ -1,0 +1,122 @@
+<ng-container *ngIf="effect">
+  <app-form-group-section>
+    <app-form-label [label]="'type'"></app-form-label>
+    <app-form-content>
+      <app-input-radio
+        class="block mr-4"
+        *ngFor="let item of effect.typeList"
+        [label]="item.label"
+        [selection]="item.selection"
+        [value]="effect.type"
+        (changeValue)="handleChangeType($event)"
+      >
+        <app-thumbnail
+          [effect]="'text'"
+          [type]="item.selection"
+          [label]="item.label"
+        ></app-thumbnail>
+      </app-input-radio>
+    </app-form-content>
+  </app-form-group-section>
+
+  <app-form-section>
+    <app-form-label [label]="'caption'"></app-form-label>
+    <app-form-content>
+      <app-input-text
+        appFormLabelFor
+        [error]="effect.getErrors().caption"
+        [placeholder]="'YYYY-MM-DD'"
+        [value]="effect.caption"
+        (changeValue)="handleChangeCaption($event)"
+      ></app-input-text>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'font'"></app-form-label>
+    <app-form-content>
+      <app-input-text
+        appFormLabelFor
+        [error]="effect.getErrors().font"
+        [placeholder]="'Arial'"
+        [value]="effect.font"
+        (changeValue)="handleChangeFont($event)"
+      ></app-input-text>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'size'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [error]="effect.getErrors().size"
+        [placeholder]="'10-30'"
+        [value]="effect.size"
+        (changeValue)="handleChangeSize($event)"
+      ></app-input-number>
+      <app-form-unit>pt</app-form-unit>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'color'"></app-form-label>
+    <app-form-content>
+      <app-input-color
+        appFormLabelFor
+        [error]="effect.getErrors().color"
+        [value]="effect.color"
+        (changeValue)="handleChangeColor($event)"
+      ></app-input-color>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'offset'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [error]="effect.getErrors().offset"
+        [placeholder]="'10-30'"
+        [value]="effect.offset"
+        (changeValue)="handleChangeOffset($event)"
+      ></app-input-number>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'stroke color'"></app-form-label>
+    <app-form-content>
+      <app-input-color
+        appFormLabelFor
+        [error]="effect.getErrors().strokeColor"
+        [value]="effect.strokeColor"
+        (changeValue)="handleChangeStrokeColor($event)"
+      ></app-input-color>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section>
+    <app-form-label [label]="'stroke width'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [error]="effect.getErrors().strokeWidth"
+        [placeholder]="'1-5'"
+        [value]="effect.strokeWidth"
+        (changeValue)="handleChangeStrokeWidth($event)"
+      ></app-input-number>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-footer>
+    <app-outline-button
+      [text]="'Reset text config'"
+      (buttonClick)="handleReset()"
+    ></app-outline-button>
+  </app-form-footer>
+
+  <app-form-footer *ngIf="error">
+    <app-form-error [error]="error"></app-form-error>
+  </app-form-footer>
+</ng-container>

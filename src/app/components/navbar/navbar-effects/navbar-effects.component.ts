@@ -13,6 +13,7 @@ export class NavbarEffectsComponent implements OnInit {
   menuTypes: EffectMenuType[] = [
     "resize",
     "rotate",
+    "text",
     "border",
     "shadow",
     "filename",
