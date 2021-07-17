@@ -1,7 +1,7 @@
 <figure class="flex justify-center" (click)="handleClick()">
   <img
-    src="assets/thumbnails/{{ effect }}/{{ filename }}.svg"
+    src="assets/thumbnails/{{ folder }}/{{ filename }}.svg"
     class="w-20 h-20"
   />
-  <figcaption class="sr-only" [textContent]="label"></figcaption>
+  <figcaption class="sr-only" [textContent]="item.label"></figcaption>
 </figure>

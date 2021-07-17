@@ -13,13 +13,13 @@ export const rotateResetMetadata = {
 
 export class RotatePluginEffect implements Plugin {
   #type: RotateType | null;
-  #typeList: { selection: RotateType; label: string }[];
+  #typeList: { type: RotateType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
     this.#type = asType(metadata.rotateType, rotateTypeList, null);
     this.#typeList = Object.keys(rotateTypeConfig).map((key) => {
       return {
-        selection: key as RotateType,
+        type: key as RotateType,
         label: rotateTypeConfig[key as RotateType] as string,
       };
     });
@@ -29,7 +29,7 @@ export class RotatePluginEffect implements Plugin {
     return this.#type || null;
   }
 
-  get typeList(): { selection: RotateType; label: string }[] {
+  get typeList(): { type: RotateType; label: string }[] {
     return this.#typeList;
   }
 

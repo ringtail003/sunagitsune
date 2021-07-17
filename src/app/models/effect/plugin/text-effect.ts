@@ -29,7 +29,7 @@ export class textPluginEffect implements Plugin {
   #strokeColor: string | null;
   #strokeWidth: number | null;
   #type: TextType | null;
-  #typeList: { selection: TextType; label: string }[];
+  #typeList: { type: TextType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
     this.#caption = asString(metadata.textCaption, null);
@@ -42,7 +42,7 @@ export class textPluginEffect implements Plugin {
     this.#type = asType(metadata.textType, textTypeList, null);
     this.#typeList = Object.keys(textTypeConfig).map((key) => {
       return {
-        selection: key as TextType,
+        type: key as TextType,
         label: textTypeConfig[key as TextType] as string,
       };
     });
@@ -80,7 +80,7 @@ export class textPluginEffect implements Plugin {
     return this.#type || null;
   }
 
-  get typeList(): { selection: TextType; label: string }[] {
+  get typeList(): { type: TextType; label: string }[] {
     return this.#typeList;
   }
 

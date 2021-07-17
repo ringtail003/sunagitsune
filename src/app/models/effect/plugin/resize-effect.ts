@@ -18,7 +18,7 @@ export class ResizePluginEffect implements Plugin {
   #width: number | null;
   #height: number | null;
   #type: ResizeType | null;
-  #typeList: { selection: ResizeType; label: string }[];
+  #typeList: { type: ResizeType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.resizeWidth, null);
@@ -26,7 +26,7 @@ export class ResizePluginEffect implements Plugin {
     this.#type = asType(metadata.resizeType, resizeTypeList, null);
     this.#typeList = Object.keys(resizeTypeConfig).map((key) => {
       return {
-        selection: key as ResizeType,
+        type: key as ResizeType,
         label: resizeTypeConfig[key as ResizeType] as string,
       };
     });
@@ -52,7 +52,7 @@ export class ResizePluginEffect implements Plugin {
     return this.#type || null;
   }
 
-  get typeList(): { selection: ResizeType; label: string }[] {
+  get typeList(): { type: ResizeType; label: string }[] {
     return this.#typeList;
   }
 

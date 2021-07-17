@@ -7,17 +7,16 @@ import { kebabToDash } from "src/app/utils/kebab-to-dash";
   styleUrls: ["./thumbnail.component.scss"],
 })
 export class ThumbnailComponent implements OnInit {
-  @Input() effect!: string;
-  @Input() label!: string;
-  @Input() type!: string;
-  @Output() clickThumbnail = new EventEmitter<void>();
+  @Input() item!: { type: string; label: string };
+  @Input() folder!: string;
+  @Output() clickThumbnail = new EventEmitter<string>();
 
   filename!: string;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.filename = kebabToDash(this.type);
+    this.filename = kebabToDash(this.item.type);
   }
 
   handleClick(): void {

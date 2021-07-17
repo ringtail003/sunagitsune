@@ -19,7 +19,7 @@ export class BorderPluginEffect implements Plugin {
   #width: number | null;
   #color: string | null;
   #type: BorderType | null;
-  #typeList: { selection: BorderType; label: string }[];
+  #typeList: { type: BorderType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.borderWidth, null);
@@ -27,7 +27,7 @@ export class BorderPluginEffect implements Plugin {
     this.#type = asType(metadata.borderType, borderTypeList, null);
     this.#typeList = Object.keys(borderTypeConfig).map((key) => {
       return {
-        selection: key as BorderType,
+        type: key as BorderType,
         label: borderTypeConfig[key as BorderType] as string,
       };
     });
@@ -53,7 +53,7 @@ export class BorderPluginEffect implements Plugin {
     return this.#type || null;
   }
 
-  get typeList(): { selection: BorderType; label: string }[] {
+  get typeList(): { type: BorderType; label: string }[] {
     return this.#typeList;
   }
 

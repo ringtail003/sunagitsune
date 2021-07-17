@@ -5,15 +5,14 @@
       <app-input-radio
         class="block mr-4"
         *ngFor="let item of effect.typeList"
-        [label]="item.label"
-        [selection]="item.selection"
-        [value]="effect.type"
+        [item]="item"
+        [current]="effect.type!"
         (changeValue)="handleChangeType($event)"
       >
         <app-thumbnail
-          [effect]="'rotate'"
-          [type]="item.selection"
-          [label]="item.label"
+          [folder]="'rotate'"
+          [item]="item"
+          (clickThumbnail)="handleChangeType($event)"
         ></app-thumbnail>
       </app-input-radio>
     </app-form-content>

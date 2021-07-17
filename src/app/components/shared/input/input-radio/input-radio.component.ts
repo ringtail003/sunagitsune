@@ -7,10 +7,9 @@ import { uniqueId } from "src/app/utils/unique-id";
   styleUrls: ["./input-radio.component.scss"],
 })
 export class InputRadioComponent implements OnInit {
-  @Input() selection: string | null = null;
-  @Input() label: string | null = null;
-  @Input() value: string | null = null;
-  @Output() changeValue = new EventEmitter<string | null>();
+  @Input() item!: { type: string; label: string };
+  @Input() current!: string;
+  @Output() changeValue = new EventEmitter<string>();
 
   id!: string;
 
@@ -21,6 +20,6 @@ export class InputRadioComponent implements OnInit {
   }
 
   handleChange() {
-    this.changeValue.emit(this.value);
+    this.changeValue.emit(this.item.type);
   }
 }

@@ -21,7 +21,7 @@ export class ShadowPluginEffect implements Plugin {
   #color: string | null;
   #offset: number | null;
   #type: ShadowType | null;
-  #typeList: { selection: ShadowType; label: string }[];
+  #typeList: { type: ShadowType; label: string }[];
 
   constructor(metadata: EffectMetadata) {
     this.#blur = asNumber(metadata.shadowBlur, null);
@@ -30,7 +30,7 @@ export class ShadowPluginEffect implements Plugin {
     this.#type = asType(metadata.shadowType, shadowTypeList, null);
     this.#typeList = Object.keys(shadowTypeConfig).map((key) => {
       return {
-        selection: key as ShadowType,
+        type: key as ShadowType,
         label: shadowTypeConfig[key as ShadowType] as string,
       };
     });
@@ -52,7 +52,7 @@ export class ShadowPluginEffect implements Plugin {
     return this.#type || null;
   }
 
-  get typeList(): { selection: ShadowType; label: string }[] {
+  get typeList(): { type: ShadowType; label: string }[] {
     return this.#typeList;
   }
 
