@@ -19,7 +19,7 @@ export class ResizeSettingComponent implements OnInit {
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.resize;
-      this.reset = effect.resize.resetMetadata();
+      this.reset = effect.resize.getResetMetadata();
       this.error =
         Object.values(effect.resize.getErrors()).find((error) => !!error) ||
         null;

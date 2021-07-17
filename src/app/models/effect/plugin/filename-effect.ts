@@ -43,7 +43,7 @@ export class FilenamePluginEffect implements PluginEffect {
     };
   }
 
-  resetMetadata() {
+  getResetMetadata() {
     return filenameResetMetadata;
   }
 

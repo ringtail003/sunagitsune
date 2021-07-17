@@ -6,5 +6,5 @@ export interface PluginEffect {
   hasError: () => boolean;
   getErrors: () => { [key: string]: string | null };
   createMetadata: () => Partial<EffectMetadata>;
-  resetMetadata: () => Partial<EffectMetadata>;
+  getResetMetadata: () => Partial<EffectMetadata>;
 }

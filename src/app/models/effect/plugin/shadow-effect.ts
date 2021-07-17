@@ -67,7 +67,7 @@ export class ShadowPluginEffect implements PluginEffect {
     };
   }
 
-  resetMetadata() {
+  getResetMetadata() {
     return shadowResetMetadata;
   }
 

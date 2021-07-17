@@ -41,7 +41,7 @@ export class RotatePluginEffect implements PluginEffect {
     };
   }
 
-  resetMetadata() {
+  getResetMetadata() {
     return rotateResetMetadata;
   }
 

@@ -19,7 +19,7 @@ export class BorderSettingComponent implements OnInit {
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.border;
-      this.reset = effect.border.resetMetadata();
+      this.reset = effect.border.getResetMetadata();
       this.error =
         Object.values(effect.border.getErrors()).find((error) => !!error) ||
         null;

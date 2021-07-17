@@ -18,7 +18,7 @@ export class FilenameSettingComponent implements OnInit {
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.filename;
-      this.reset = effect.filename.resetMetadata();
+      this.reset = effect.filename.getResetMetadata();
       this.error =
         Object.values(effect.filename.getErrors()).find((error) => !!error) ||
         null;

@@ -99,7 +99,7 @@ export class textPluginEffect implements PluginEffect {
     };
   }
 
-  resetMetadata() {
+  getResetMetadata() {
     return textResetMetadata;
   }
 

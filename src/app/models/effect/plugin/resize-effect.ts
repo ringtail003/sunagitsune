@@ -66,7 +66,7 @@ export class ResizePluginEffect implements PluginEffect {
     };
   }
 
-  resetMetadata() {
+  getResetMetadata() {
     return resizeResetMetadata;
   }
 

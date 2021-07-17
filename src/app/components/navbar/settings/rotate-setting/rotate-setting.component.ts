@@ -19,7 +19,7 @@ export class RotateSettingComponent implements OnInit {
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.rotate;
-      this.reset = effect.rotate.resetMetadata();
+      this.reset = effect.rotate.getResetMetadata();
       this.error =
         Object.values(effect.rotate.getErrors()).find((error) => !!error) ||
         null;

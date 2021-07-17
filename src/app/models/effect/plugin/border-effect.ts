@@ -67,7 +67,7 @@ export class BorderEffect implements PluginEffect {
     };
   }
 
-  resetMetadata() {
+  getResetMetadata() {
     return borderResetMetadata;
   }
 
