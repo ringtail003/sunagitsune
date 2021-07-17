@@ -3,7 +3,7 @@ import { map } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
-import { Plugin } from "src/app/services/effectors/plugins/interface";
+import { PluginEffector } from "src/app/services/effectors/plugins/interface";
 
 function rotate90(source: Canvas): Rx.Observable<Canvas> {
   return canvasFactory
@@ -74,7 +74,7 @@ function rotate270(source: Canvas): Rx.Observable<Canvas> {
     );
 }
 
-const rotate: Plugin = (source: Canvas, effect: Effect) => {
+const rotate: PluginEffector = (source: Canvas, effect: Effect) => {
   if (!effect.rotate.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }

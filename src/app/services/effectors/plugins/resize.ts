@@ -2,7 +2,7 @@ import * as Rx from "rxjs";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
-import { Plugin } from "src/app/services/effectors/plugins/interface";
+import { PluginEffector } from "src/app/services/effectors/plugins/interface";
 
 function resizeByRatio(source: Canvas, ratio: number): Rx.Observable<Canvas> {
   return canvasFactory
@@ -26,7 +26,7 @@ function resizeBySize(
     .load();
 }
 
-export const resize: Plugin = (source: Canvas, effect: Effect) => {
+export const resize: PluginEffector = (source: Canvas, effect: Effect) => {
   if (!effect.resize.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }

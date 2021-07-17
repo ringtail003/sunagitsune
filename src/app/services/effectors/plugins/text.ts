@@ -3,7 +3,7 @@ import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
 import { TextType } from "src/app/models/effect/types/text-type";
-import { Plugin } from "src/app/services/effectors/plugins/interface";
+import { PluginEffector } from "src/app/services/effectors/plugins/interface";
 
 type PosX = "left" | "center" | "right";
 type PosY = "top" | "middle" | "bottom";
@@ -79,7 +79,7 @@ function detectFillContext(canvas: Canvas, context: Context) {
   };
 }
 
-export const text: Plugin = (source: Canvas, effect: Effect) => {
+export const text: PluginEffector = (source: Canvas, effect: Effect) => {
   if (!effect.text.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }

@@ -2,7 +2,7 @@ import { map } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
-import { Plugin } from "src/app/services/effectors/plugins/interface";
+import { PluginEffector } from "src/app/services/effectors/plugins/interface";
 
 interface Context {
   offset: number;
@@ -11,7 +11,7 @@ interface Context {
   margin: number;
 }
 
-export const shadow: Plugin = (source: Canvas, effect: Effect) => {
+export const shadow: PluginEffector = (source: Canvas, effect: Effect) => {
   if (!effect.shadow.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
