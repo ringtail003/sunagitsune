@@ -31,15 +31,17 @@ export const resize: PluginEffector = (source: Canvas, effect: Effect) => {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  switch (effect.resize.type) {
+  const context = effect.resize.getContext();
+
+  switch (context.type) {
     case "width":
-      return resizeByRatio(source, effect.resize.width! / source.scale.width);
+      return resizeByRatio(source, context.width / source.scale.width);
     case "height":
-      return resizeByRatio(source, effect.resize.height! / source.scale.height);
+      return resizeByRatio(source, context.height / source.scale.height);
     case "both":
-      return resizeBySize(source, effect.resize.width!, effect.resize.height!);
+      return resizeBySize(source, context.width, context.height);
 
     default:
-      throw new Error(`Unknown resize type "${effect.resize.type}".`);
+      throw new Error(`Unknown resize type "${context.type}".`);
   }
 };

@@ -28,9 +28,7 @@
         <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
       </div>
       <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
-        <li
-          [textContent]="postEffect.effect!.filename.getFilename(filename)"
-        ></li>
+        <li [textContent]="postEffect.effect!.filename.apply(filename)"></li>
         <li class="flex gap-2">
           <span [textContent]="'width'"></span>
           <span [textContent]="postEffect.canvas.scale.width + 'px'"></span>

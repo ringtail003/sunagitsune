@@ -2,25 +2,12 @@ import { map } from "rxjs/operators";
 import { Canvas } from "src/app/models/canvas/canvas";
 import { canvasFactory } from "src/app/models/canvas/factory";
 import { Effect } from "src/app/models/effect/effect";
+import { textPluginEffect } from "src/app/models/effect/plugin/text-effect";
 import { TextType } from "src/app/models/effect/types/text-type";
 import { PluginEffector } from "src/app/services/effectors/plugins/interface";
 
 type PosX = "left" | "center" | "right";
 type PosY = "top" | "middle" | "bottom";
-
-interface Context {
-  posX: PosX;
-  posY: PosY;
-  caption: string;
-  font: string;
-  size: number;
-  color: string;
-  offset: number;
-  stroke: {
-    color: string;
-    width: number;
-  } | null;
-}
 
 function detectPosX(type: TextType): PosX {
   // prettier-ignore
@@ -68,15 +55,38 @@ function detectTop(canvas: Canvas, offset: number) {
   };
 }
 
-function detectFillContext(canvas: Canvas, context: Context) {
-  return {
-    font: `${context.size}pt ${context.font}`,
-    fillStyle: context.color,
-    textAlign: context.posX,
-    textBaseLine: context.posY,
-    left: detectLeft(canvas, context.offset)[context.posX],
-    top: detectTop(canvas, context.offset)[context.posY],
-  };
+function fillText(
+  canvas: Canvas,
+  effect: textPluginEffect,
+  position: { posX: PosX; posY: PosY }
+): void {
+  const context = effect.getContext();
+
+  canvas.context.font = `${context.size}pt ${context.font}`;
+  canvas.context.fillStyle = context.color;
+  canvas.context.textAlign = position.posX;
+  canvas.context.textBaseline = position.posY;
+  canvas.context.fillText(
+    context.caption,
+    detectLeft(canvas, context.offset)[position.posX],
+    detectTop(canvas, context.offset)[position.posY]
+  );
+}
+
+function strokeText(
+  canvas: Canvas,
+  effect: textPluginEffect,
+  position: { posX: PosX; posY: PosY }
+): void {
+  const context = effect.getContext();
+
+  canvas.context.strokeStyle = context.stroke!.color;
+  canvas.context.lineWidth = context.stroke!.width;
+  canvas.context.strokeText(
+    context.caption,
+    detectLeft(canvas, context.offset)[position.posX],
+    detectTop(canvas, context.offset)[position.posY]
+  );
 }
 
 export const text: PluginEffector = (source: Canvas, effect: Effect) => {
@@ -89,37 +99,15 @@ export const text: PluginEffector = (source: Canvas, effect: Effect) => {
     .load()
     .pipe(
       map((canvas) => {
-        const context: Context = {
-          posX: detectPosX(effect.text.type!),
-          posY: detectPosY(effect.text.type!),
-          caption: effect.text.caption || "YYYY-MM-DD",
-          font: effect.text.font || "Arial",
-          size: effect.text.size || 15,
-          color: effect.text.color || "#000000",
-          offset: effect.text.offset || 0,
-          stroke: effect.text.hasStroke()
-            ? {
-                color: effect.text.strokeColor || "#ffffff",
-                width: effect.text.strokeWidth || 0,
-              }
-            : null,
-        };
+        const context = effect.text.getContext();
+        const posX = detectPosX(context.type);
+        const posY = detectPosY(context.type);
 
-        const fill = detectFillContext(canvas, context);
-
-        canvas.context.font = fill.font;
-        canvas.context.fillStyle = fill.fillStyle;
-        canvas.context.textAlign = fill.textAlign;
-        canvas.context.textBaseline = fill.textBaseLine;
-        canvas.context.fillText(context.caption, fill.left, fill.top);
+        fillText(canvas, effect.text, { posX, posY });
 
         if (context.stroke) {
-          canvas.context.strokeStyle = context.stroke.color;
-          canvas.context.lineWidth = context.stroke.width;
-          canvas.context.strokeText(context.caption, fill.left, fill.top);
+          strokeText(canvas, effect.text, { posX, posY });
         }
-
-        canvas.context.save();
 
         return canvas;
       })

@@ -70,18 +70,15 @@ const border: PluginEffector = (
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  const context = {
-    width: effect.border.width || 1,
-    color: effect.border.color || "#000000",
-  };
+  const context = effect.border.getContext();
 
-  switch (effect.border.type) {
+  switch (context.type) {
     case "inside":
       return borderInside(source, context);
     case "outside":
       return borderOutside(source, context);
     default:
-      throw new Error(`Unknown border type "${effect.border.type}".`);
+      throw new Error(`Unknown border type "${context.type}".`);
   }
 };
 

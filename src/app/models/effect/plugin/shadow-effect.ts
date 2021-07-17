@@ -17,25 +17,29 @@ export const shadowResetMetadata = {
 };
 
 export class ShadowPluginEffect implements PluginEffect {
+  #type: ShadowType;
   #blur: number | null;
   #color: string | null;
   #offset: number | null;
-  #type: ShadowType | null;
   #typeList: { type: ShadowType; label: string }[];
 
   readonly name = "shadow";
 
   constructor(metadata: EffectMetadata) {
+    this.#type = asType(metadata.shadowType, shadowTypeList, "none");
     this.#blur = asNumber(metadata.shadowBlur, null);
     this.#color = asString(metadata.shadowColor, null);
     this.#offset = asNumber(metadata.shadowOffset, null);
-    this.#type = asType(metadata.shadowType, shadowTypeList, null);
     this.#typeList = Object.keys(shadowTypeConfig).map((key) => {
       return {
         type: key as ShadowType,
         label: shadowTypeConfig[key as ShadowType] as string,
       };
     });
+  }
+
+  get type(): ShadowType {
+    return this.#type;
   }
 
   get blur(): number | null {
@@ -48,10 +52,6 @@ export class ShadowPluginEffect implements PluginEffect {
 
   get offset(): number | null {
     return this.hasEffect() ? this.#offset || null : null;
-  }
-
-  get type(): ShadowType | null {
-    return this.#type || null;
   }
 
   get typeList(): { type: ShadowType; label: string }[] {
@@ -69,6 +69,20 @@ export class ShadowPluginEffect implements PluginEffect {
 
   getResetMetadata() {
     return shadowResetMetadata;
+  }
+
+  getContext(): {
+    type: ShadowType;
+    blur: number;
+    color: string;
+    offset: number;
+  } {
+    return {
+      type: this.#type,
+      blur: this.#blur || 5,
+      color: "#000000",
+      offset: this.#offset || 5,
+    };
   }
 
   hasEffect() {

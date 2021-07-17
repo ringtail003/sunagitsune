@@ -79,7 +79,9 @@ const rotate: PluginEffector = (source: Canvas, effect: Effect) => {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  switch (effect.rotate.type) {
+  const context = effect.rotate.getContext();
+
+  switch (context.type) {
     case "rotate90":
       return rotate90(source);
     case "rotate180":
@@ -87,7 +89,7 @@ const rotate: PluginEffector = (source: Canvas, effect: Effect) => {
     case "rotate270":
       return rotate270(source);
     default:
-      throw new Error(`Unknown rotate type "${effect.rotate.type}".`);
+      throw new Error(`Unknown rotate type "${context.type}".`);
   }
 };
 

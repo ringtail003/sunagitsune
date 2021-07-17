@@ -15,23 +15,27 @@ export const resizeResetMetadata = {
 };
 
 export class ResizePluginEffect implements PluginEffect {
+  #type: ResizeType;
   #width: number | null;
   #height: number | null;
-  #type: ResizeType | null;
   #typeList: { type: ResizeType; label: string }[];
 
   readonly name = "resize";
 
   constructor(metadata: EffectMetadata) {
+    this.#type = asType(metadata.resizeType, resizeTypeList, "none");
     this.#width = asNumber(metadata.resizeWidth, null);
     this.#height = asNumber(metadata.resizeHeight, null);
-    this.#type = asType(metadata.resizeType, resizeTypeList, null);
     this.#typeList = Object.keys(resizeTypeConfig).map((key) => {
       return {
         type: key as ResizeType,
         label: resizeTypeConfig[key as ResizeType] as string,
       };
     });
+  }
+
+  get type(): ResizeType {
+    return this.#type;
   }
 
   get width(): number | null {
@@ -50,10 +54,6 @@ export class ResizePluginEffect implements PluginEffect {
     return this.#type === "height" || this.#type === "both";
   }
 
-  get type(): ResizeType | null {
-    return this.#type || null;
-  }
-
   get typeList(): { type: ResizeType; label: string }[] {
     return this.#typeList;
   }
@@ -68,6 +68,14 @@ export class ResizePluginEffect implements PluginEffect {
 
   getResetMetadata() {
     return resizeResetMetadata;
+  }
+
+  getContext(): { type: ResizeType; width: number; height: number } {
+    return {
+      type: this.#type,
+      width: this.#width || 500 * 0.7,
+      height: this.#height || 345 * 0.7,
+    };
   }
 
   hasEffect() {

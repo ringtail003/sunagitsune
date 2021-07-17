@@ -7,4 +7,5 @@ export interface PluginEffect {
   getErrors: () => { [key: string]: string | null };
   createMetadata: () => Partial<EffectMetadata>;
   getResetMetadata: () => Partial<EffectMetadata>;
+  getContext: () => { [key: string]: unknown };
 }

@@ -21,6 +21,7 @@ export const textResetMetadata = {
 };
 
 export class textPluginEffect implements PluginEffect {
+  #type: TextType;
   #caption: string | null;
   #size: number | null;
   #font: string | null;
@@ -28,12 +29,12 @@ export class textPluginEffect implements PluginEffect {
   #offset: number | null;
   #strokeColor: string | null;
   #strokeWidth: number | null;
-  #type: TextType | null;
   #typeList: { type: TextType; label: string }[];
 
   readonly name = "text";
 
   constructor(metadata: EffectMetadata) {
+    this.#type = asType(metadata.textType, textTypeList, "none");
     this.#caption = asString(metadata.textCaption, null);
     this.#size = asNumber(metadata.textSize, null);
     this.#font = asString(metadata.textFont, null);
@@ -41,13 +42,16 @@ export class textPluginEffect implements PluginEffect {
     this.#offset = asNumber(metadata.textOffset, null);
     this.#strokeColor = asString(metadata.textStrokeColor, null);
     this.#strokeWidth = asNumber(metadata.textStrokeWidth, null);
-    this.#type = asType(metadata.textType, textTypeList, null);
     this.#typeList = Object.keys(textTypeConfig).map((key) => {
       return {
         type: key as TextType,
         label: textTypeConfig[key as TextType] as string,
       };
     });
+  }
+
+  get type(): TextType {
+    return this.#type;
   }
 
   get caption(): string | null {
@@ -78,10 +82,6 @@ export class textPluginEffect implements PluginEffect {
     return this.#strokeWidth || null;
   }
 
-  get type(): TextType | null {
-    return this.#type || null;
-  }
-
   get typeList(): { type: TextType; label: string }[] {
     return this.#typeList;
   }
@@ -101,6 +101,34 @@ export class textPluginEffect implements PluginEffect {
 
   getResetMetadata() {
     return textResetMetadata;
+  }
+
+  getContext(): {
+    type: TextType;
+    caption: string;
+    size: number;
+    font: string;
+    color: string;
+    offset: number;
+    stroke: {
+      color: string;
+      width: number;
+    } | null;
+  } {
+    return {
+      type: this.#type,
+      caption: this.#caption || "YYYY-MM-DD",
+      size: this.#size || 20,
+      font: this.#font || "Arial Black",
+      color: this.#color || "#000000",
+      offset: this.#offset || 0,
+      stroke: this.hasStroke()
+        ? {
+            color: this.#strokeColor || "red",
+            width: this.#strokeWidth || 2,
+          }
+        : null,
+    };
   }
 
   hasEffect() {

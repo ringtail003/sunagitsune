@@ -16,9 +16,9 @@ export const borderResetMetadata = {
 };
 
 export class BorderEffect implements PluginEffect {
+  #type: BorderType;
   #width: number | null;
   #color: string | null;
-  #type: BorderType | null;
   #typeList: { type: BorderType; label: string }[];
 
   readonly name = "border";
@@ -26,13 +26,17 @@ export class BorderEffect implements PluginEffect {
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.borderWidth, null);
     this.#color = asString(metadata.borderColor, null);
-    this.#type = asType(metadata.borderType, borderTypeList, null);
+    this.#type = asType(metadata.borderType, borderTypeList, "none");
     this.#typeList = Object.keys(borderTypeConfig).map((key) => {
       return {
         type: key as BorderType,
         label: borderTypeConfig[key as BorderType] as string,
       };
     });
+  }
+
+  get type(): BorderType {
+    return this.#type;
   }
 
   get width(): number | null {
@@ -51,10 +55,6 @@ export class BorderEffect implements PluginEffect {
     return this.#type !== "none";
   }
 
-  get type(): BorderType | null {
-    return this.#type || null;
-  }
-
   get typeList(): { type: BorderType; label: string }[] {
     return this.#typeList;
   }
@@ -69,6 +69,14 @@ export class BorderEffect implements PluginEffect {
 
   getResetMetadata() {
     return borderResetMetadata;
+  }
+
+  getContext(): { type: BorderType; width: number; color: string } {
+    return {
+      type: this.#type,
+      width: this.#width || 3,
+      color: "#000000",
+    };
   }
 
   hasEffect() {

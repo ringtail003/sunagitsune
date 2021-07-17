@@ -16,20 +16,16 @@ export const shadow: PluginEffector = (source: Canvas, effect: Effect) => {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  const context: Context = {
-    offset: effect.shadow.offset || 1,
-    blur: effect.shadow.blur || 0,
-    color: effect.shadow.color || "#000000",
-    margin: Math.max(
-      effect.shadow.offset || 1,
-      (effect.shadow.blur || 0) * 1.7
-    ),
-  };
+  const context = effect.shadow.getContext();
+  const margin = Math.max(
+    effect.shadow.offset || 1,
+    (effect.shadow.blur || 0) * 1.7
+  );
 
   return canvasFactory
     .fromCanvas(source, {
-      width: source.scale.width + context.margin,
-      height: source.scale.height + context.margin,
+      width: source.scale.width + margin,
+      height: source.scale.height + margin,
     })
     .load()
     .pipe(
@@ -42,8 +38,8 @@ export const shadow: PluginEffector = (source: Canvas, effect: Effect) => {
         canvas.context.shadowOffsetY = context.offset;
 
         canvas.draw({
-          width: canvas.scale.width - context.margin,
-          height: canvas.scale.height - context.margin,
+          width: canvas.scale.width - margin,
+          height: canvas.scale.height - margin,
         });
 
         return canvas;

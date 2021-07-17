@@ -28,12 +28,11 @@ export class FilenamePluginEffect implements PluginEffect {
     return this.#suffix || null;
   }
 
-  getFilename(raw: string): string {
-    const split = splitFilename(raw);
-    const prefix = this.assertPrefix() ? "" : this.#prefix || "";
-    const suffix = this.assertSuffix() ? "" : this.#suffix || "";
+  apply(filename: string): string {
+    const split = splitFilename(filename);
+    const context = this.getContext();
 
-    return `${prefix}${split.withoutExtension}${suffix}.${split.extension}`;
+    return `${context.prefix}${split.withoutExtension}${context.suffix}.${split.extension}`;
   }
 
   createMetadata() {
@@ -45,6 +44,13 @@ export class FilenamePluginEffect implements PluginEffect {
 
   getResetMetadata() {
     return filenameResetMetadata;
+  }
+
+  getContext(): { prefix: string; suffix: string } {
+    return {
+      prefix: this.#prefix || "",
+      suffix: this.#suffix || "",
+    };
   }
 
   hasEffect() {

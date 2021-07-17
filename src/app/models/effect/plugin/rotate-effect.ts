@@ -12,13 +12,13 @@ export const rotateResetMetadata = {
 };
 
 export class RotatePluginEffect implements PluginEffect {
-  #type: RotateType | null;
+  #type: RotateType;
   #typeList: { type: RotateType; label: string }[];
 
   readonly name = "rotate";
 
   constructor(metadata: EffectMetadata) {
-    this.#type = asType(metadata.rotateType, rotateTypeList, null);
+    this.#type = asType(metadata.rotateType, rotateTypeList, "none");
     this.#typeList = Object.keys(rotateTypeConfig).map((key) => {
       return {
         type: key as RotateType,
@@ -27,8 +27,8 @@ export class RotatePluginEffect implements PluginEffect {
     });
   }
 
-  get type(): RotateType | null {
-    return this.#type || null;
+  get type(): RotateType {
+    return this.#type;
   }
 
   get typeList(): { type: RotateType; label: string }[] {
@@ -43,6 +43,12 @@ export class RotatePluginEffect implements PluginEffect {
 
   getResetMetadata() {
     return rotateResetMetadata;
+  }
+
+  getContext(): { type: RotateType } {
+    return {
+      type: this.#type,
+    };
   }
 
   hasEffect() {

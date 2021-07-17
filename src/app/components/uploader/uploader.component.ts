@@ -44,7 +44,7 @@ export class UploaderComponent implements OnInit {
                 this.downloader.download(
                   file,
                   source.url,
-                  this.effect.filename.getFilename(file.name)
+                  this.effect.filename.apply(file.name)
                 );
               },
             })
