@@ -43,6 +43,7 @@ import { TextSettingComponent } from './components/navbar/settings/text-setting/
 import { InputTextComponent } from './components/shared/input/input-text/input-text.component';
 import { AreaTitleComponent } from './components/shared/area-title/area-title.component';
 import { NavbarLinkComponent } from './components/navbar/navbar-link/navbar-link.component';
+import { InputFontComponent } from './components/shared/input/input-font/input-font.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { NavbarLinkComponent } from './components/navbar/navbar-link/navbar-link
     InputTextComponent,
     AreaTitleComponent,
     NavbarLinkComponent,
+    InputFontComponent,
   ],
   imports: [
     BrowserModule,

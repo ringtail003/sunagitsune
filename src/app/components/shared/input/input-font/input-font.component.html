@@ -1,0 +1,31 @@
+<input
+  type="string"
+  maxlength="255"
+  class="
+    w-60
+    border-2 border-gray-300
+    rounded-md
+    focus:outline-none focus:ring-2
+    p-2
+    text-sm text-gray-700
+    placeholder-gray-200
+  "
+  placeholder="Fonts installed on your PC"
+  list="fonts"
+  [class.ring-2]="error"
+  [class.ring-red-300]="error"
+  [class.focus:ring-red-500]="error"
+  [class.focus:ring-blue-500]="!error"
+  [(ngModel)]="value"
+  (ngModelChange)="handleChange()"
+/>
+
+<datalist id="fonts">
+  <option value="Arial"></option>
+  <option value="Arial Black"></option>
+  <option value="Courier New"></option>
+  <option value="System"></option>
+  <option value="メイリオ"></option>
+  <option value="游ゴシック"></option>
+  <option value="游明朝"></option>
+</datalist>

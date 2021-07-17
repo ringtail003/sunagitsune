@@ -31,13 +31,12 @@
   <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'font'"></app-form-label>
     <app-form-content>
-      <app-input-text
+      <app-input-font
         appFormLabelFor
         [error]="effect.getErrors().font"
-        [placeholder]="'Arial'"
         [value]="effect.font"
         (changeValue)="handleChangeFont($event)"
-      ></app-input-text>
+      ></app-input-font>
     </app-form-content>
   </app-form-section>
 
