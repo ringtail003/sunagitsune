@@ -2,62 +2,49 @@ import {
   EffectMetadata,
   EffectMetadataKey,
 } from "src/app/models/effect/effect-metadata";
-import { BorderPluginEffect } from "src/app/models/effect/plugin/border-effect";
+import { BorderEffect } from "src/app/models/effect/plugin/border-effect";
 import { FilenamePluginEffect } from "src/app/models/effect/plugin/filename-effect";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import { ResizePluginEffect } from "src/app/models/effect/plugin/resize-effect";
 import { RotatePluginEffect } from "src/app/models/effect/plugin/rotate-effect";
 import { ShadowPluginEffect } from "src/app/models/effect/plugin/shadow-effect";
 import { textPluginEffect } from "src/app/models/effect/plugin/text-effect";
 
 export class Effect {
-  constructor(private metadata: EffectMetadata) {}
+  readonly border: BorderEffect;
+  readonly rotate: RotatePluginEffect;
+  readonly resize: ResizePluginEffect;
+  readonly shadow: ShadowPluginEffect;
+  readonly filename: FilenamePluginEffect;
+  readonly text: textPluginEffect;
+  readonly plugins: { [key: string]: PluginEffect };
 
-  get effects(): {
-    [key: string]: Plugin;
-  } {
-    return {
-      border: this.borderEffect,
-      rotate: this.rotateEffect,
-      text: this.textEffect,
-      resize: this.resizeEffect,
-      shadow: this.shadowEffect,
-      filename: this.filenameEffect,
+  constructor(private metadata: EffectMetadata) {
+    this.border = new BorderEffect(this.metadata);
+    this.rotate = new RotatePluginEffect(this.metadata);
+    this.resize = new ResizePluginEffect(this.metadata);
+    this.shadow = new ShadowPluginEffect(this.metadata);
+    this.filename = new FilenamePluginEffect(this.metadata);
+    this.text = new textPluginEffect(this.metadata);
+
+    this.plugins = {
+      border: this.border,
+      rotate: this.rotate,
+      resize: this.resize,
+      shadow: this.shadow,
+      filename: this.filename,
+      text: this.text,
     };
-  }
-
-  get borderEffect(): BorderPluginEffect {
-    return new BorderPluginEffect(this.metadata);
-  }
-
-  get rotateEffect(): RotatePluginEffect {
-    return new RotatePluginEffect(this.metadata);
-  }
-
-  get resizeEffect(): ResizePluginEffect {
-    return new ResizePluginEffect(this.metadata);
-  }
-
-  get shadowEffect(): ShadowPluginEffect {
-    return new ShadowPluginEffect(this.metadata);
-  }
-
-  get filenameEffect(): FilenamePluginEffect {
-    return new FilenamePluginEffect(this.metadata);
-  }
-
-  get textEffect(): textPluginEffect {
-    return new textPluginEffect(this.metadata);
   }
 
   createMetadata(): Partial<EffectMetadata> {
     const metadata = {
-      ...this.borderEffect.createMetadata(),
-      ...this.rotateEffect.createMetadata(),
-      ...this.resizeEffect.createMetadata(),
-      ...this.shadowEffect.createMetadata(),
-      ...this.filenameEffect.createMetadata(),
-      ...this.textEffect.createMetadata(),
+      ...this.border.createMetadata(),
+      ...this.rotate.createMetadata(),
+      ...this.resize.createMetadata(),
+      ...this.shadow.createMetadata(),
+      ...this.filename.createMetadata(),
+      ...this.text.createMetadata(),
     };
 
     return Object.keys(metadata).reduce((acc, current) => {

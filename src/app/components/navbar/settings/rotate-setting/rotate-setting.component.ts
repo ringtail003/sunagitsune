@@ -18,12 +18,11 @@ export class RotateSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.rotateEffect;
+      this.effect = effect.rotate;
+      this.reset = effect.rotate.resetMetadata();
       this.error =
-        Object.values(effect.rotateEffect.getErrors()).find(
-          (error) => !!error
-        ) || null;
-      this.reset = effect.rotateEffect.resetMetadata();
+        Object.values(effect.rotate.getErrors()).find((error) => !!error) ||
+        null;
     });
   }
 

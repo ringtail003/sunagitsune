@@ -18,12 +18,11 @@ export class ShadowSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.shadowEffect;
+      this.effect = effect.shadow;
+      this.reset = effect.shadow.resetMetadata();
       this.error =
-        Object.values(effect.shadowEffect.getErrors()).find(
-          (error) => !!error
-        ) || null;
-      this.reset = effect.shadowEffect.resetMetadata();
+        Object.values(effect.shadow.getErrors()).find((error) => !!error) ||
+        null;
     });
   }
 

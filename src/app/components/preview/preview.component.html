@@ -29,9 +29,7 @@
       </div>
       <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
         <li
-          [textContent]="
-            postEffect.effect!.filenameEffect.getFilename(filename)
-          "
+          [textContent]="postEffect.effect!.filename.getFilename(filename)"
         ></li>
         <li class="flex gap-2">
           <span [textContent]="'width'"></span>

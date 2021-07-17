@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { BorderPluginEffect } from "src/app/models/effect/plugin/border-effect";
+import { BorderEffect } from "src/app/models/effect/plugin/border-effect";
 import { BorderType } from "src/app/models/effect/types/border-type";
 import { ConfigService } from "src/app/services/config.service";
 
@@ -10,7 +10,7 @@ import { ConfigService } from "src/app/services/config.service";
   styleUrls: ["./border-setting.component.scss"],
 })
 export class BorderSettingComponent implements OnInit {
-  effect!: BorderPluginEffect;
+  effect!: BorderEffect;
   error!: string | null;
   reset!: Partial<EffectMetadata>;
 
@@ -18,12 +18,11 @@ export class BorderSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.borderEffect;
+      this.effect = effect.border;
+      this.reset = effect.border.resetMetadata();
       this.error =
-        Object.values(effect.borderEffect.getErrors()).find(
-          (error) => !!error
-        ) || null;
-      this.reset = effect.borderEffect.resetMetadata();
+        Object.values(effect.border.getErrors()).find((error) => !!error) ||
+        null;
     });
   }
 

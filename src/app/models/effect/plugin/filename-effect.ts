@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import { asString } from "src/app/utils/as-type/as-string";
 import { splitFilename } from "src/app/utils/split-filename";
 import validFilename from "valid-filename";
@@ -9,7 +9,7 @@ export const filenameResetMetadata = {
   filenameSuffix: null,
 };
 
-export class FilenamePluginEffect implements Plugin {
+export class FilenamePluginEffect implements PluginEffect {
   #prefix: string | null;
   #suffix: string | null;
 

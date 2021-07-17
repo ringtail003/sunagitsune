@@ -80,7 +80,7 @@ function detectFillContext(canvas: Canvas, context: Context) {
 }
 
 export const text: Plugin = (source: Canvas, effect: Effect) => {
-  if (!effect.textEffect.hasEffect()) {
+  if (!effect.text.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
@@ -90,17 +90,17 @@ export const text: Plugin = (source: Canvas, effect: Effect) => {
     .pipe(
       map((canvas) => {
         const context: Context = {
-          posX: detectPosX(effect.textEffect.type!),
-          posY: detectPosY(effect.textEffect.type!),
-          caption: effect.textEffect.caption || "YYYY-MM-DD",
-          font: effect.textEffect.font || "Arial",
-          size: effect.textEffect.size || 15,
-          color: effect.textEffect.color || "#000000",
-          offset: effect.textEffect.offset || 0,
-          stroke: effect.textEffect.hasStroke()
+          posX: detectPosX(effect.text.type!),
+          posY: detectPosY(effect.text.type!),
+          caption: effect.text.caption || "YYYY-MM-DD",
+          font: effect.text.font || "Arial",
+          size: effect.text.size || 15,
+          color: effect.text.color || "#000000",
+          offset: effect.text.offset || 0,
+          stroke: effect.text.hasStroke()
             ? {
-                color: effect.textEffect.strokeColor || "#ffffff",
-                width: effect.textEffect.strokeWidth || 0,
+                color: effect.text.strokeColor || "#ffffff",
+                width: effect.text.strokeWidth || 0,
               }
             : null,
         };

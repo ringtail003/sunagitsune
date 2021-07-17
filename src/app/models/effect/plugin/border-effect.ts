@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import {
   BorderType,
   borderTypeConfig,
@@ -15,7 +15,7 @@ export const borderResetMetadata = {
   borderType: "none" as BorderType,
 };
 
-export class BorderPluginEffect implements Plugin {
+export class BorderEffect implements PluginEffect {
   #width: number | null;
   #color: string | null;
   #type: BorderType | null;

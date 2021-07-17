@@ -66,22 +66,22 @@ const border: Plugin = (
   source: Canvas,
   effect: Effect
 ): Rx.Observable<Canvas> => {
-  if (!effect.borderEffect.hasEffect()) {
+  if (!effect.border.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
   const context = {
-    width: effect.borderEffect.width || 1,
-    color: effect.borderEffect.color || "#000000",
+    width: effect.border.width || 1,
+    color: effect.border.color || "#000000",
   };
 
-  switch (effect.borderEffect.type) {
+  switch (effect.border.type) {
     case "inside":
       return borderInside(source, context);
     case "outside":
       return borderOutside(source, context);
     default:
-      throw new Error(`Unknown border type "${effect.borderEffect.type}".`);
+      throw new Error(`Unknown border type "${effect.border.type}".`);
   }
 };
 

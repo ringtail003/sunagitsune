@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import {
   ResizeType,
   resizeTypeConfig,
@@ -14,7 +14,7 @@ export const resizeResetMetadata = {
   resizeHeight: null,
 };
 
-export class ResizePluginEffect implements Plugin {
+export class ResizePluginEffect implements PluginEffect {
   #width: number | null;
   #height: number | null;
   #type: ResizeType | null;

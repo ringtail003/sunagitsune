@@ -27,29 +27,19 @@ function resizeBySize(
 }
 
 export const resize: Plugin = (source: Canvas, effect: Effect) => {
-  if (!effect.resizeEffect.hasEffect()) {
+  if (!effect.resize.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  switch (effect.resizeEffect.type) {
+  switch (effect.resize.type) {
     case "width":
-      return resizeByRatio(
-        source,
-        effect.resizeEffect.width! / source.scale.width
-      );
+      return resizeByRatio(source, effect.resize.width! / source.scale.width);
     case "height":
-      return resizeByRatio(
-        source,
-        effect.resizeEffect.height! / source.scale.height
-      );
+      return resizeByRatio(source, effect.resize.height! / source.scale.height);
     case "both":
-      return resizeBySize(
-        source,
-        effect.resizeEffect.width!,
-        effect.resizeEffect.height!
-      );
+      return resizeBySize(source, effect.resize.width!, effect.resize.height!);
 
     default:
-      throw new Error(`Unknown resize type "${effect.resizeEffect.type}".`);
+      throw new Error(`Unknown resize type "${effect.resize.type}".`);
   }
 };

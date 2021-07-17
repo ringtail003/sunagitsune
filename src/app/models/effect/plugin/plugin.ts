@@ -1,6 +1,6 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 
-export interface Plugin {
+export interface PluginEffect {
   name: string;
   hasEffect: () => boolean;
   hasError: () => boolean;

@@ -18,11 +18,10 @@ export class TextSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.textEffect;
+      this.effect = effect.text;
+      this.reset = effect.text.resetMetadata();
       this.error =
-        Object.values(effect.textEffect.getErrors()).find((error) => !!error) ||
-        null;
-      this.reset = effect.textEffect.resetMetadata();
+        Object.values(effect.text.getErrors()).find((error) => !!error) || null;
     });
   }
 

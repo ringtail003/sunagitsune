@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import {
   RotateType,
   rotateTypeConfig,
@@ -11,7 +11,7 @@ export const rotateResetMetadata = {
   rotateType: "none" as RotateType,
 };
 
-export class RotatePluginEffect implements Plugin {
+export class RotatePluginEffect implements PluginEffect {
   #type: RotateType | null;
   #typeList: { type: RotateType; label: string }[];
 

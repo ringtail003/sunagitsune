@@ -18,12 +18,11 @@ export class ResizeSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.resizeEffect;
+      this.effect = effect.resize;
+      this.reset = effect.resize.resetMetadata();
       this.error =
-        Object.values(effect.resizeEffect.getErrors()).find(
-          (error) => !!error
-        ) || null;
-      this.reset = effect.resizeEffect.resetMetadata();
+        Object.values(effect.resize.getErrors()).find((error) => !!error) ||
+        null;
     });
   }
 

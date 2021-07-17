@@ -12,17 +12,17 @@ interface Context {
 }
 
 export const shadow: Plugin = (source: Canvas, effect: Effect) => {
-  if (!effect.shadowEffect.hasEffect()) {
+  if (!effect.shadow.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
   const context: Context = {
-    offset: effect.shadowEffect.offset || 1,
-    blur: effect.shadowEffect.blur || 0,
-    color: effect.shadowEffect.color || "#000000",
+    offset: effect.shadow.offset || 1,
+    blur: effect.shadow.blur || 0,
+    color: effect.shadow.color || "#000000",
     margin: Math.max(
-      effect.shadowEffect.offset || 1,
-      (effect.shadowEffect.blur || 0) * 1.7
+      effect.shadow.offset || 1,
+      (effect.shadow.blur || 0) * 1.7
     ),
   };
 

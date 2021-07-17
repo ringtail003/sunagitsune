@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import {
   ShadowType,
   shadowTypeConfig,
@@ -16,7 +16,7 @@ export const shadowResetMetadata = {
   shadowType: "none" as ShadowType,
 };
 
-export class ShadowPluginEffect implements Plugin {
+export class ShadowPluginEffect implements PluginEffect {
   #blur: number | null;
   #color: string | null;
   #offset: number | null;

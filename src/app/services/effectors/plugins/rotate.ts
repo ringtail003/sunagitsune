@@ -75,11 +75,11 @@ function rotate270(source: Canvas): Rx.Observable<Canvas> {
 }
 
 const rotate: Plugin = (source: Canvas, effect: Effect) => {
-  if (!effect.rotateEffect.hasEffect()) {
+  if (!effect.rotate.hasEffect()) {
     return canvasFactory.fromCanvas(source, source.scale).load();
   }
 
-  switch (effect.rotateEffect.type) {
+  switch (effect.rotate.type) {
     case "rotate90":
       return rotate90(source);
     case "rotate180":
@@ -87,7 +87,7 @@ const rotate: Plugin = (source: Canvas, effect: Effect) => {
     case "rotate270":
       return rotate270(source);
     default:
-      throw new Error(`Unknown rotate type "${effect.rotateEffect.type}".`);
+      throw new Error(`Unknown rotate type "${effect.rotate.type}".`);
   }
 };
 

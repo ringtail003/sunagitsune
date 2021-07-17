@@ -27,15 +27,15 @@ export class NavbarEffectsMenuComponent implements OnInit, OnChanges {
   constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
-    this.config.watch().subscribe((config) => {
-      const effect = config.effects[this.menu];
+    this.config.watch().subscribe((effect) => {
+      const plugin = effect.plugins[this.menu];
 
-      if (!effect) {
+      if (!plugin) {
         throw new Error(`"${this.menu}" effect is not implemented.`);
       }
 
-      this.hasSetting = effect.hasEffect() || false;
-      this.hasError = effect.hasError() || false;
+      this.hasSetting = plugin.hasEffect() || false;
+      this.hasError = plugin.hasError() || false;
     });
   }
 

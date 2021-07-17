@@ -17,12 +17,11 @@ export class FilenameSettingComponent implements OnInit {
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
-      this.effect = effect.filenameEffect;
+      this.effect = effect.filename;
+      this.reset = effect.filename.resetMetadata();
       this.error =
-        Object.values(effect.filenameEffect.getErrors()).find(
-          (error) => !!error
-        ) || null;
-      this.reset = effect.filenameEffect.resetMetadata();
+        Object.values(effect.filename.getErrors()).find((error) => !!error) ||
+        null;
     });
   }
 

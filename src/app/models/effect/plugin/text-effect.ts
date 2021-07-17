@@ -1,5 +1,5 @@
 import { EffectMetadata } from "src/app/models/effect/effect-metadata";
-import { Plugin } from "src/app/models/effect/plugin/plugin";
+import { PluginEffect } from "src/app/models/effect/plugin/plugin";
 import {
   TextType,
   textTypeConfig,
@@ -20,7 +20,7 @@ export const textResetMetadata = {
   textType: "none" as TextType,
 };
 
-export class textPluginEffect implements Plugin {
+export class textPluginEffect implements PluginEffect {
   #caption: string | null;
   #size: number | null;
   #font: string | null;
