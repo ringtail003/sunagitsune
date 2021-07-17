@@ -6,14 +6,10 @@
         class="block mr-4"
         *ngFor="let item of effect.typeList"
         [item]="item"
+        [name]="effect.name"
         [current]="effect.type!"
         (changeValue)="handleChangeType($event)"
       >
-        <app-thumbnail
-          [folder]="'border'"
-          [item]="item"
-          (clickThumbnail)="handleChangeType($event)"
-        ></app-thumbnail>
       </app-input-radio>
     </app-form-content>
   </app-form-group-section>

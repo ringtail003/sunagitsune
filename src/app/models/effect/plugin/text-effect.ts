@@ -31,6 +31,8 @@ export class textPluginEffect implements Plugin {
   #type: TextType | null;
   #typeList: { type: TextType; label: string }[];
 
+  readonly name = "text";
+
   constructor(metadata: EffectMetadata) {
     this.#caption = asString(metadata.textCaption, null);
     this.#size = asNumber(metadata.textSize, null);

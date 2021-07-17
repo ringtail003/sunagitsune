@@ -23,6 +23,8 @@ export class ShadowPluginEffect implements Plugin {
   #type: ShadowType | null;
   #typeList: { type: ShadowType; label: string }[];
 
+  readonly name = "shadow";
+
   constructor(metadata: EffectMetadata) {
     this.#blur = asNumber(metadata.shadowBlur, null);
     this.#color = asString(metadata.shadowColor, null);

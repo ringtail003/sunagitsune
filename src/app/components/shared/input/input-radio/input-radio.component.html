@@ -6,6 +6,7 @@
         focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500
       "
       id="{{ id }}"
+      [name]="name"
       [value]="item.type"
       [ngModel]="current"
       (change)="handleChange()"
@@ -16,5 +17,9 @@
       [textContent]="item.label"
     ></label>
   </div>
-  <ng-content></ng-content>
+
+  <figure class="flex justify-center cursor-pointer" (click)="handleChange()">
+    <img src="assets/thumbnails/{{ path }}.svg" class="w-20 h-20" />
+    <figcaption class="sr-only" [textContent]="item.label"></figcaption>
+  </figure>
 </div>

@@ -15,6 +15,8 @@ export class RotatePluginEffect implements Plugin {
   #type: RotateType | null;
   #typeList: { type: RotateType; label: string }[];
 
+  readonly name = "rotate";
+
   constructor(metadata: EffectMetadata) {
     this.#type = asType(metadata.rotateType, rotateTypeList, null);
     this.#typeList = Object.keys(rotateTypeConfig).map((key) => {

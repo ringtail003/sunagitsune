@@ -13,6 +13,8 @@ export class FilenamePluginEffect implements Plugin {
   #prefix: string | null;
   #suffix: string | null;
 
+  readonly name = "filename";
+
   constructor(metadata: EffectMetadata) {
     this.#prefix = asString(metadata.filenamePrefix, null);
     this.#suffix = asString(metadata.filenameSuffix, null);

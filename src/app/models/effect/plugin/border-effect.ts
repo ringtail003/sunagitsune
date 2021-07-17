@@ -21,6 +21,8 @@ export class BorderPluginEffect implements Plugin {
   #type: BorderType | null;
   #typeList: { type: BorderType; label: string }[];
 
+  readonly name = "border";
+
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.borderWidth, null);
     this.#color = asString(metadata.borderColor, null);

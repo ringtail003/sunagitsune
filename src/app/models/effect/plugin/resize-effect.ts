@@ -20,6 +20,8 @@ export class ResizePluginEffect implements Plugin {
   #type: ResizeType | null;
   #typeList: { type: ResizeType; label: string }[];
 
+  readonly name = "resize";
+
   constructor(metadata: EffectMetadata) {
     this.#width = asNumber(metadata.resizeWidth, null);
     this.#height = asNumber(metadata.resizeHeight, null);
