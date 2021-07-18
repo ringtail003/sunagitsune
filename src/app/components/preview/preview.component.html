@@ -6,7 +6,7 @@
       <figcaption class="text-gray-400">BEFORE</figcaption>
       <div
         #preEffectContainer
-        class="border-2 border-gray-100 p-2 flex justify-center"
+        class="border-2 border-gray-100 p-2 flex justify-center overflow-auto"
       ></div>
       <ul *ngIf="preEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
         <li [textContent]="filename"></li>
@@ -23,7 +23,7 @@
       <figcaption class="text-gray-400">AFTER</figcaption>
       <div
         #postEffectContainer
-        class="border-2 border-gray-100 p-2 flex justify-center"
+        class="border-2 border-gray-100 p-2 flex justify-center overflow-auto"
       >
         <app-icon-loading
           class="absolute text-gray-300"
