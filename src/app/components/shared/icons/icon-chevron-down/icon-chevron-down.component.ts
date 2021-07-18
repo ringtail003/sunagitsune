@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-icon-chevron-down",
@@ -6,7 +6,13 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./icon-chevron-down.component.scss"],
 })
 export class IconChevronComponent implements OnInit {
+  @Input() size!: number;
+
+  class!: string;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.class = `h-${this.size ?? 6} w-auto`;
+  }
 }

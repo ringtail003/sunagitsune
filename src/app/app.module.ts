@@ -44,6 +44,7 @@ import { InputTextComponent } from './components/shared/input/input-text/input-t
 import { AreaTitleComponent } from './components/shared/area-title/area-title.component';
 import { NavbarLinkComponent } from './components/navbar/navbar-link/navbar-link.component';
 import { InputFontComponent } from './components/shared/input/input-font/input-font.component';
+import { IconXComponent } from './components/shared/icons/icon-x/icon-x.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { InputFontComponent } from './components/shared/input/input-font/input-f
     AreaTitleComponent,
     NavbarLinkComponent,
     InputFontComponent,
+    IconXComponent,
   ],
   imports: [
     BrowserModule,

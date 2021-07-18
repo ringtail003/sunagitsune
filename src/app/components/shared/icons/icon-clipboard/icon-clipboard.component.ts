@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-icon-clipboard',
-  templateUrl: './icon-clipboard.component.html',
-  styleUrls: ['./icon-clipboard.component.scss']
+  selector: "app-icon-clipboard",
+  templateUrl: "./icon-clipboard.component.html",
+  styleUrls: ["./icon-clipboard.component.scss"],
 })
 export class IconClipboardComponent implements OnInit {
+  @Input() size!: number;
 
-  constructor() { }
+  class!: string;
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.class = `h-${this.size ?? 6} w-auto`;
   }
-
 }

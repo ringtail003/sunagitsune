@@ -25,7 +25,10 @@
         #postEffectContainer
         class="border-2 border-gray-100 p-2 flex justify-center"
       >
-        <app-icon-loading class="absolute text-gray-300"></app-icon-loading>
+        <app-icon-loading
+          class="absolute text-gray-300"
+          [size]="24"
+        ></app-icon-loading>
       </div>
       <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
         <li [textContent]="postEffect.effect!.filename.apply(filename)"></li>

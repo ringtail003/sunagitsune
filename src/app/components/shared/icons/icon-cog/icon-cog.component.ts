@@ -10,8 +10,13 @@ export class IconCogComponent implements OnInit {
     light: true,
   };
   @Input() error!: boolean;
+  @Input() size!: number;
+
+  class!: string;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.class = `h-${this.size ?? 6} w-auto`;
+  }
 }

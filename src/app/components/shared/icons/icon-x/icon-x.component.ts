@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-icon-loading",
-  templateUrl: "./icon-loading.component.html",
-  styleUrls: ["./icon-loading.component.scss"],
+  selector: "app-icon-x",
+  templateUrl: "./icon-x.component.html",
+  styleUrls: ["./icon-x.component.scss"],
 })
-export class IconLoadingComponent implements OnInit {
+export class IconXComponent implements OnInit {
   @Input() size!: number;
 
   class!: string;
