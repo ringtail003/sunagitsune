@@ -16,7 +16,7 @@ export const textResetMetadata = {
   textColor: null,
   textOffset: null,
   textStrokeColor: null,
-  textStrokeWidth: null,
+  textStrokeOffset: null,
   textType: "none" as TextType,
 };
 
@@ -28,7 +28,7 @@ export class textPluginEffect implements PluginEffect {
   #color: string | null;
   #offset: number | null;
   #strokeColor: string | null;
-  #strokeWidth: number | null;
+  #strokeOffset: number | null;
   #typeList: { type: TextType; label: string }[];
 
   readonly name = "text";
@@ -41,7 +41,7 @@ export class textPluginEffect implements PluginEffect {
     this.#color = asString(metadata.textColor, null);
     this.#offset = asNumber(metadata.textOffset, null);
     this.#strokeColor = asString(metadata.textStrokeColor, null);
-    this.#strokeWidth = asNumber(metadata.textStrokeWidth, null);
+    this.#strokeOffset = asNumber(metadata.textStrokeOffset, null);
     this.#typeList = Object.keys(textTypeConfig).map((key) => {
       return {
         type: key as TextType,
@@ -78,8 +78,8 @@ export class textPluginEffect implements PluginEffect {
     return this.#strokeColor || null;
   }
 
-  get strokeWidth(): number | null {
-    return this.#strokeWidth || null;
+  get strokeOffset(): number | null {
+    return this.#strokeOffset || null;
   }
 
   get typeList(): { type: TextType; label: string }[] {
@@ -94,7 +94,7 @@ export class textPluginEffect implements PluginEffect {
       textColor: this.#color,
       textOffset: this.#offset,
       textStrokeColor: this.#strokeColor,
-      textStrokeWidth: this.#strokeWidth,
+      textStrokeOffset: this.#strokeOffset,
       textType: this.#type === "none" ? null : this.#type,
     };
   }
@@ -112,7 +112,7 @@ export class textPluginEffect implements PluginEffect {
     offset: number;
     stroke: {
       color: string;
-      width: number;
+      offset: number;
     } | null;
   } {
     return {
@@ -125,7 +125,7 @@ export class textPluginEffect implements PluginEffect {
       stroke: this.hasStroke()
         ? {
             color: this.#strokeColor || "red",
-            width: this.#strokeWidth || 2,
+            offset: this.#strokeOffset || 2,
           }
         : null,
     };
@@ -136,7 +136,7 @@ export class textPluginEffect implements PluginEffect {
   }
 
   hasStroke(): boolean {
-    return !!(this.#strokeColor || this.#strokeWidth);
+    return !!(this.#strokeColor || this.#strokeOffset);
   }
 
   hasError() {
@@ -151,7 +151,7 @@ export class textPluginEffect implements PluginEffect {
       color: this.assertColor(),
       offset: this.assertOffset(),
       strokeColor: this.assertStrokeColor(),
-      strokeWidth: this.assertStrokeWidth(),
+      strokeOffset: this.assertStrokeOffset(),
       type: this.assertType(),
     };
   }
@@ -193,16 +193,16 @@ export class textPluginEffect implements PluginEffect {
   }
 
   private assertStrokeColor(): string | null {
-    if (this.hasEffect() && this.#strokeWidth && !this.#strokeColor) {
+    if (this.hasEffect() && this.#strokeOffset && !this.#strokeColor) {
       return `strokeColorを入力してください`;
     }
 
     return null;
   }
 
-  private assertStrokeWidth(): string | null {
-    if (this.hasEffect() && this.#strokeColor && !this.#strokeWidth) {
-      return `strokeWidthを入力してください`;
+  private assertStrokeOffset(): string | null {
+    if (this.hasEffect() && this.#strokeColor && !this.#strokeOffset) {
+      return `strokeOffsetを入力してください`;
     }
 
     return null;

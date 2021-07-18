@@ -53,8 +53,8 @@ export class TextSettingComponent implements OnInit {
     this.config.patch({ textStrokeColor: value });
   }
 
-  handleChangeStrokeWidth(value: number | null): void {
-    this.config.patch({ textStrokeWidth: value });
+  handleChangeStrokeOffset(value: number | null): void {
+    this.config.patch({ textStrokeOffset: value });
   }
 
   handleReset(): void {

@@ -58,34 +58,19 @@ function detectTop(canvas: Canvas, offset: number) {
 function fillText(
   canvas: Canvas,
   effect: textPluginEffect,
-  position: { posX: PosX; posY: PosY }
+  options: { posX: PosX; posY: PosY; offset: number; color: string }
 ): void {
   const context = effect.getContext();
 
   canvas.context.font = `${context.size}pt ${context.font}`;
-  canvas.context.fillStyle = context.color;
-  canvas.context.textAlign = position.posX;
-  canvas.context.textBaseline = position.posY;
+  canvas.context.fillStyle = options.color;
+  canvas.context.textAlign = options.posX;
+  canvas.context.textBaseline = options.posY;
+
   canvas.context.fillText(
     context.caption,
-    detectLeft(canvas, context.offset)[position.posX],
-    detectTop(canvas, context.offset)[position.posY]
-  );
-}
-
-function strokeText(
-  canvas: Canvas,
-  effect: textPluginEffect,
-  position: { posX: PosX; posY: PosY }
-): void {
-  const context = effect.getContext();
-
-  canvas.context.strokeStyle = context.stroke!.color;
-  canvas.context.lineWidth = context.stroke!.width;
-  canvas.context.strokeText(
-    context.caption,
-    detectLeft(canvas, context.offset)[position.posX],
-    detectTop(canvas, context.offset)[position.posY]
+    detectLeft(canvas, context.offset)[options.posX] + options.offset,
+    detectTop(canvas, context.offset)[options.posY] + options.offset
   );
 }
 
@@ -103,11 +88,21 @@ export const text: PluginEffector = (source: Canvas, effect: Effect) => {
         const posX = detectPosX(context.type);
         const posY = detectPosY(context.type);
 
-        fillText(canvas, effect.text, { posX, posY });
-
         if (context.stroke) {
-          strokeText(canvas, effect.text, { posX, posY });
+          fillText(canvas, effect.text, {
+            posX,
+            posY,
+            offset: context.stroke!.offset,
+            color: context.stroke!.color,
+          });
         }
+
+        fillText(canvas, effect.text, {
+          posX,
+          posY,
+          offset: 0,
+          color: context.color,
+        });
 
         return canvas;
       })

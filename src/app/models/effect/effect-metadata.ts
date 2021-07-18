@@ -25,7 +25,7 @@ interface FullEffectMetadata {
   textColor: string;
   textOffset: number;
   textStrokeColor: string;
-  textStrokeWidth: number;
+  textStrokeOffset: number;
 }
 
 export type EffectMetadataKey = keyof FullEffectMetadata;

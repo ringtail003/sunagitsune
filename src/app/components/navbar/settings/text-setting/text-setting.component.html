@@ -93,14 +93,14 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'stroke width'"></app-form-label>
+    <app-form-label [label]="'stroke offset'"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
-        [error]="effect.getErrors().strokeWidth"
+        [error]="effect.getErrors().strokeOffset"
         [placeholder]="'1-5'"
-        [value]="effect.strokeWidth"
-        (changeValue)="handleChangeStrokeWidth($event)"
+        [value]="effect.strokeOffset"
+        (changeValue)="handleChangeStrokeOffset($event)"
       ></app-input-number>
       <app-form-unit>px</app-form-unit>
     </app-form-content>
