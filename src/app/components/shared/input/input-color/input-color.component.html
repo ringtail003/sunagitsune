@@ -6,12 +6,12 @@
     [class.ring-red-300]="error"
     [class.focus:ring-red-500]="error"
     [class.focus:ring-blue-500]="!error"
-    [(ngModel)]="value"
+    [(ngModel)]="color"
     (change)="handleChange()"
   />
 
   <button
-    *ngIf="value"
+    *ngIf="color"
     class="text-gray-400 rounded-md focus:outline-none focus:ring-2"
     (click)="handleClear()"
   >
