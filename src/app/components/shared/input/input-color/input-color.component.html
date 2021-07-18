@@ -1,11 +1,20 @@
-<input
-  type="color"
-  class="rounded-md focus:outline-none focus:ring-2"
-  [class.ring-2]="error"
-  [class.ring-red-300]="error"
-  [class.focus:ring-red-500]="error"
-  [class.focus:ring-blue-500]="!error"
-  [(ngModel)]="value"
-  (change)="handleChange()"
-/>
-<button>clear</button>
+<div class="flex items-center gap-2">
+  <input
+    type="color"
+    class="rounded-md focus:outline-none focus:ring-2"
+    [class.ring-2]="error"
+    [class.ring-red-300]="error"
+    [class.focus:ring-red-500]="error"
+    [class.focus:ring-blue-500]="!error"
+    [(ngModel)]="value"
+    (change)="handleChange()"
+  />
+
+  <button
+    *ngIf="value"
+    class="text-gray-400 rounded-md focus:outline-none focus:ring-2"
+    (click)="handleClear()"
+  >
+    <app-icon-x [size]="4"></app-icon-x>
+  </button>
+</div>

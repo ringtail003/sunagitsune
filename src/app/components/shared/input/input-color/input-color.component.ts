@@ -14,7 +14,11 @@ export class InputColorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleChange() {
+  handleChange(): void {
     this.changeValue.emit(this.value);
+  }
+
+  handleClear(): void {
+    this.changeValue.emit(null);
   }
 }
