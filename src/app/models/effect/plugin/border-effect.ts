@@ -75,7 +75,7 @@ export class BorderEffect implements PluginEffect {
     return {
       type: this.#type,
       width: this.#width || 3,
-      color: "#000000",
+      color: this.#color || "#000000",
     };
   }
 
