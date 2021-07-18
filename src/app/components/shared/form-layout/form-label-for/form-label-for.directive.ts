@@ -1,4 +1,5 @@
 import { AfterViewInit, Directive, ElementRef, OnInit } from "@angular/core";
+import { findElements } from "src/app/utils/find-element";
 import { uniqueId } from "src/app/utils/unique-id";
 
 @Directive({
@@ -15,9 +16,7 @@ export class FormLabelForDirective implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const children = Array.from(
-      this.elementRef.nativeElement.children as HTMLCollection
-    ).filter((el) => el.tagName.toLowerCase() === "input");
+    const children = findElements(this.elementRef.nativeElement, "input");
 
     if (!children.length) {
       throw new Error(
