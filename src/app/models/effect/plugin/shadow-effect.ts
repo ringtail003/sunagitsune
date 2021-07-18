@@ -80,7 +80,7 @@ export class ShadowPluginEffect implements PluginEffect {
     return {
       type: this.#type,
       blur: this.#blur || 5,
-      color: "#000000",
+      color: this.#color || "#000000",
       offset: this.#offset || 5,
     };
   }
