@@ -24,7 +24,7 @@ export class InputColorComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    this.color = this.value;
+    this.color = this.value || "#000000";
   }
 
   handleChange(): void {

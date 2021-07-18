@@ -11,8 +11,13 @@
   />
 
   <button
-    *ngIf="color"
-    class="text-gray-400 rounded-md focus:outline-none focus:ring-2"
+    *ngIf="value"
+    class="
+      text-gray-400
+      rounded-md
+      focus:outline-none focus:ring-2
+      ring-blue-500
+    "
     (click)="handleClear()"
   >
     <app-icon-x [size]="4"></app-icon-x>
