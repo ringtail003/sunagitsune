@@ -112,6 +112,9 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@zeit/ng-deploy:deploy"
         }
       }
     }
