@@ -7,6 +7,7 @@ import { Effect } from "src/app/models/effect/effect";
 import { ConfigService } from "src/app/services/config.service";
 import { DownloaderService } from "src/app/services/downloader.service";
 import { EffectorService } from "src/app/services/effectors/effector.service";
+import { uniqueId } from "src/app/utils/unique-id";
 
 @Component({
   selector: "app-uploader",
@@ -17,6 +18,7 @@ export class UploaderComponent implements OnInit {
   @Output() upload = new EventEmitter<File[]>();
 
   effect!: Effect;
+  queue = new Set();
 
   constructor(
     private config: ConfigService,
@@ -32,6 +34,8 @@ export class UploaderComponent implements OnInit {
 
   handleChange(event: NgxDropzoneChangeEvent) {
     const files = event.addedFiles;
+    const id = uniqueId();
+    this.queue.add(id);
 
     Rx.from(files)
       .pipe(
@@ -46,6 +50,7 @@ export class UploaderComponent implements OnInit {
                   source.url,
                   this.effect.filename.apply(file.name)
                 );
+                this.queue.delete(id);
               },
             })
           )
