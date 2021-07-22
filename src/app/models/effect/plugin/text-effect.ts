@@ -130,7 +130,7 @@ export class textPluginEffect implements PluginEffect {
   } {
     return {
       type: this.#type,
-      caption: this.#caption || "YYYY-MM-DD",
+      caption: this.#caption || "Sample text",
       size: this.#size || 20,
       alpha: this.#alpha || 100,
       font: this.#font || "Arial Black",
