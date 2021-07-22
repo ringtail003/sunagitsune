@@ -37,6 +37,10 @@ export class TextSettingComponent implements OnInit {
     this.config.patch({ textSize: value });
   }
 
+  handleChangeAlpha(value: number | null): void {
+    this.config.patch({ textAlpha: value });
+  }
+
   handleChangeFont(value: string | null): void {
     this.config.patch({ textFont: value });
   }

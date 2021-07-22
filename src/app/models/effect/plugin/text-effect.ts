@@ -12,6 +12,7 @@ import { asType } from "src/app/utils/as-type/as-type";
 export const textResetMetadata = {
   textCaption: null,
   textSize: null,
+  textAlpha: null,
   textFont: null,
   textColor: null,
   textOffset: null,
@@ -24,6 +25,7 @@ export class textPluginEffect implements PluginEffect {
   #type: TextType;
   #caption: string | null;
   #size: number | null;
+  #alpha: number | null;
   #font: string | null;
   #color: string | null;
   #offset: number | null;
@@ -37,6 +39,7 @@ export class textPluginEffect implements PluginEffect {
     this.#type = asType(metadata.textType, textTypeList, "none");
     this.#caption = asString(metadata.textCaption, null);
     this.#size = asNumber(metadata.textSize, null);
+    this.#alpha = asNumber(metadata.textAlpha, null);
     this.#font = asString(metadata.textFont, null);
     this.#color = asString(metadata.textColor, null);
     this.#offset = asNumber(metadata.textOffset, null);
@@ -60,6 +63,10 @@ export class textPluginEffect implements PluginEffect {
 
   get size(): number | null {
     return this.#size || null;
+  }
+
+  get alpha(): number | null {
+    return this.#alpha || null;
   }
 
   get font(): string | null {
@@ -95,6 +102,7 @@ export class textPluginEffect implements PluginEffect {
       textType: this.#type,
       textCaption: this.assertCaption() ? null : this.#caption,
       textSize: this.assertSize() ? null : this.#size,
+      textAlpha: this.assertAlpha() ? null : this.#alpha,
       textFont: this.assertFont() ? null : this.#font,
       textColor: this.assertColor() ? null : this.#color,
       textOffset: this.assertOffset() ? null : this.#offset,
@@ -111,6 +119,7 @@ export class textPluginEffect implements PluginEffect {
     type: TextType;
     caption: string;
     size: number;
+    alpha: number;
     font: string;
     color: string;
     offset: number;
@@ -123,6 +132,7 @@ export class textPluginEffect implements PluginEffect {
       type: this.#type,
       caption: this.#caption || "YYYY-MM-DD",
       size: this.#size || 20,
+      alpha: this.#alpha || 100,
       font: this.#font || "Arial Black",
       color: this.#color || "#000000",
       offset: this.#offset || 0,
@@ -152,6 +162,7 @@ export class textPluginEffect implements PluginEffect {
       caption: this.assertCaption(),
       font: this.assertFont(),
       size: this.assertSize(),
+      alpha: this.assertAlpha(),
       color: this.assertColor(),
       offset: this.assertOffset(),
       strokeColor: this.assertStrokeColor(),
@@ -173,6 +184,10 @@ export class textPluginEffect implements PluginEffect {
       return `sizeを入力してください`;
     }
 
+    return null;
+  }
+
+  private assertAlpha(): string | null {
     return null;
   }
 

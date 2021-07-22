@@ -21,6 +21,7 @@ interface FullEffectMetadata {
   textType: TextType;
   textCaption: string;
   textSize: number;
+  textAlpha: number;
   textFont: string;
   textColor: string;
   textOffset: number;

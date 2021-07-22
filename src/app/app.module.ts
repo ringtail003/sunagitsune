@@ -40,6 +40,7 @@ import { InputFontComponent } from "./components/shared/input/input-font/input-f
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { InputRadioComponent } from "./components/shared/input/input-radio/input-radio.component";
 import { InputTextComponent } from "./components/shared/input/input-text/input-text.component";
+import { RangeListComponent } from "./components/shared/input/list/range-list/range-list.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { SplashComponent } from "./components/splash/splash.component";
@@ -89,6 +90,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     InputFontComponent,
     IconXComponent,
     SplashComponent,
+    RangeListComponent,
   ],
   imports: [
     BrowserModule,

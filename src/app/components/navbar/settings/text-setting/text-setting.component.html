@@ -55,6 +55,23 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
+    <app-form-label [label]="'alpha'"></app-form-label>
+    <app-form-content>
+      <app-range-list
+        appFormLabelFor
+        [min]="10"
+        [max]="100"
+        [step]="10"
+        [error]="effect.getErrors().alpha"
+        [placeholder]="'0-10'"
+        [value]="effect.alpha"
+        (changeValue)="handleChangeAlpha($event)"
+      ></app-range-list>
+      <app-form-unit>%</app-form-unit>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'color'"></app-form-label>
     <app-form-content>
       <app-input-color

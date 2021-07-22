@@ -58,7 +58,13 @@ function detectTop(canvas: Canvas, offset: number) {
 function fillText(
   canvas: Canvas,
   effect: textPluginEffect,
-  options: { posX: PosX; posY: PosY; offset: number; color: string }
+  options: {
+    posX: PosX;
+    posY: PosY;
+    offset: number;
+    color: string;
+    alpha: number;
+  }
 ): void {
   const context = effect.getContext();
 
@@ -66,6 +72,7 @@ function fillText(
   canvas.context.fillStyle = options.color;
   canvas.context.textAlign = options.posX;
   canvas.context.textBaseline = options.posY;
+  canvas.context.globalAlpha = options.alpha * 0.01;
 
   canvas.context.fillText(
     context.caption,
@@ -92,6 +99,7 @@ export const text: PluginEffector = (source: Canvas, effect: Effect) => {
           fillText(canvas, effect.text, {
             posX,
             posY,
+            alpha: context.alpha,
             offset: context.stroke!.offset,
             color: context.stroke!.color,
           });
@@ -100,6 +108,7 @@ export const text: PluginEffector = (source: Canvas, effect: Effect) => {
         fillText(canvas, effect.text, {
           posX,
           posY,
+          alpha: context.alpha,
           offset: 0,
           color: context.color,
         });

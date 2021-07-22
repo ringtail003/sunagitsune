@@ -16,7 +16,10 @@ export class FormLabelForDirective implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const children = findElements(this.elementRef.nativeElement, "input");
+    const children = findElements(this.elementRef.nativeElement, [
+      "input",
+      "select",
+    ]);
 
     if (!children.length) {
       throw new Error(
