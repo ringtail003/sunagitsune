@@ -59,10 +59,14 @@ export class ResizePluginEffect implements PluginEffect {
   }
 
   createMetadata() {
+    if (!this.hasEffect()) {
+      return {};
+    }
+
     return {
-      resizeWidth: this.#width,
-      resizeHeight: this.#height,
-      resizeType: this.#type === "none" ? null : this.#type,
+      resizeType: this.#type,
+      resizeWidth: this.assertWidth() ? null : this.#width,
+      resizeHeight: this.assertHeight() ? null : this.#height,
     };
   }
 

@@ -60,10 +60,14 @@ export class BorderEffect implements PluginEffect {
   }
 
   createMetadata() {
+    if (!this.hasEffect()) {
+      return {};
+    }
+
     return {
-      borderWidth: this.#width,
-      borderColor: this.#color,
-      borderType: this.#type === "none" ? null : this.#type,
+      borderType: this.#type,
+      borderWidth: this.assertWidth() ? null : this.#width,
+      borderColor: this.assertColor() ? null : this.#color,
     };
   }
 

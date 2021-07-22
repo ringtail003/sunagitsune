@@ -87,15 +87,19 @@ export class textPluginEffect implements PluginEffect {
   }
 
   createMetadata() {
+    if (!this.hasEffect()) {
+      return {};
+    }
+
     return {
-      textCaption: this.#caption,
-      textSize: this.#size,
-      textFont: this.#font,
-      textColor: this.#color,
-      textOffset: this.#offset,
-      textStrokeColor: this.#strokeColor,
-      textStrokeOffset: this.#strokeOffset,
-      textType: this.#type === "none" ? null : this.#type,
+      textType: this.#type,
+      textCaption: this.assertCaption() ? null : this.#caption,
+      textSize: this.assertSize() ? null : this.#size,
+      textFont: this.assertFont() ? null : this.#font,
+      textColor: this.assertColor() ? null : this.#color,
+      textOffset: this.assertOffset() ? null : this.#offset,
+      textStrokeColor: this.assertStrokeColor() ? null : this.#strokeColor,
+      textStrokeOffset: this.assertStrokeOffset() ? null : this.#strokeOffset,
     };
   }
 

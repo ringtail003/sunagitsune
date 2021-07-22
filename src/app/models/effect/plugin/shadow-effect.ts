@@ -59,11 +59,15 @@ export class ShadowPluginEffect implements PluginEffect {
   }
 
   createMetadata() {
+    if (!this.hasEffect()) {
+      return {};
+    }
+
     return {
-      shadowBlur: this.#blur,
-      shadowColor: this.#color,
-      shadowOffset: this.#offset,
-      shadowType: this.#type === "none" ? null : this.#type,
+      shadowType: this.#type || null,
+      shadowBlur: this.assertBlur() ? null : this.#blur,
+      shadowColor: this.assertColor() ? null : this.#color,
+      shadowOffset: this.assertOffset() ? null : this.#offset,
     };
   }
 
