@@ -11,6 +11,11 @@ div.container {
   z-index: 30;
 }
 
+div.header {
+  font-weight: 600;
+  color: #9CA3AF;
+}
+
 div.contents {
   display: flex;
   grid-gap: 2rem;

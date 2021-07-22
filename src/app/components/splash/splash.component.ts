@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import json from "../../../../package.json";
 
 @Component({
   selector: "app-splash",
@@ -9,9 +10,13 @@ export class SplashComponent implements OnInit {
   @Input() canClose!: boolean;
   @Output() clickClose = new EventEmitter<void>();
 
+  version!: string;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.version = json.version;
+  }
 
   handleClickCloseButton(): void {
     this.clickClose.emit();
