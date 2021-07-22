@@ -30,8 +30,6 @@ import { FormLabelComponent } from "./components/shared/form-layout/form-label/f
 import { FormLayoutComponent } from "./components/shared/form-layout/form-layout.component";
 import { FormSectionComponent } from "./components/shared/form-layout/form-section/form-section.component";
 import { FormUnitComponent } from "./components/shared/form-layout/form-unit/form-unit.component";
-import { IconChevronComponent } from "./components/shared/icons/icon-chevron-down/icon-chevron-down.component";
-import { IconChevronLeftComponent } from "./components/shared/icons/icon-chevron-left/icon-chevron-left.component";
 import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard/icon-clipboard.component";
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
 import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
@@ -54,14 +52,12 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     NavbarComponent,
     IconCogComponent,
     LogoComponent,
-    IconChevronComponent,
     NavbarEffectsMenuComponent,
     NavbarEffectsComponent,
     NavbarSettingComponent,
     NavbarButtonComponent,
     NavbarFooterComponent,
     IconClipboardComponent,
-    IconChevronLeftComponent,
     PreviewComponent,
     IconLoadingComponent,
     BorderSettingComponent,
