@@ -21,7 +21,7 @@ export class NavbarFooterComponent implements OnInit {
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.url = objectToQueryString(
-        this.document.location.href,
+        this.document.baseURI,
         effect.createMetadata()
       );
     });
