@@ -4,12 +4,10 @@
   (clickClose)="handleClickSplashClose()"
 ></app-splash>
 
-<div>
-  <app-navbar
-    (openMenu)="handleOpenMenu()"
-    (closeMenu)="handleCloseMenu()"
-    (clickLogo)="handleClickLogo()"
-  ></app-navbar>
+<app-navbar
+  (openMenu)="handleOpenMenu()"
+  (closeMenu)="handleCloseMenu()"
+  (clickLogo)="handleClickLogo()"
+></app-navbar>
 
-  <app-uploader [class.hidden]="isOpenMenu"></app-uploader>
-</div>
+<app-uploader [class.hidden]="isOpenMenu"></app-uploader>
