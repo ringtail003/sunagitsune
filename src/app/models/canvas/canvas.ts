@@ -30,9 +30,11 @@ export class Canvas {
   load(): Rx.Observable<this> {
     return this.#drawing.load().pipe(
       tap({
-        next: () => this.resize(),
+        next: () => {
+          this.resize();
+          this.#disposer();
+        },
       }),
-      // TODO: dispose
       map(() => this)
     );
   }
