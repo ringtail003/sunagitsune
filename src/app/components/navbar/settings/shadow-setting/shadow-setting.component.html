@@ -22,7 +22,7 @@
   </app-form-group-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'color'"></app-form-label>
+    <app-form-label [label]="'color'" [required]="true"></app-form-label>
     <app-form-content>
       <app-input-color
         appFormLabelFor
@@ -34,7 +34,7 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'offset'"></app-form-label>
+    <app-form-label [label]="'offset'" [required]="true"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor

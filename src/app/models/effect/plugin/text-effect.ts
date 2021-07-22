@@ -93,6 +93,14 @@ export class textPluginEffect implements PluginEffect {
     return this.#typeList;
   }
 
+  get requiredStrokeColor(): boolean {
+    return !!this.#strokeOffset;
+  }
+
+  get requiredStrokeOffset(): boolean {
+    return !!this.#strokeColor;
+  }
+
   createMetadata() {
     if (!this.hasEffect()) {
       return {};

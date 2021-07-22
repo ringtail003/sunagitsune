@@ -1,2 +1,13 @@
-<label class="text-gray-500 capitalize" [for]="for" [textContent]="label">
-</label>
+<div class="flex items-center gap-2">
+  <label
+    class="text-gray-500 capitalize"
+    [for]="for"
+    [textContent]="label"
+  ></label>
+
+  <span
+    *ngIf="required"
+    class="bg-gray-400 text-white px-2 py-0.5 text-xs rounded-md"
+    >Required</span
+  >
+</div>

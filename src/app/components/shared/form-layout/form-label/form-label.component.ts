@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class FormLabelComponent implements OnInit {
   @Input() label!: string;
+  @Input() required = false;
 
   for!: string;
 

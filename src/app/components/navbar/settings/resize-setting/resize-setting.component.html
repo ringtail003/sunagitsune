@@ -22,7 +22,10 @@
   </app-form-group-section>
 
   <app-form-section *ngIf="effect.requiredWidth">
-    <app-form-label [label]="'width'"></app-form-label>
+    <app-form-label
+      [label]="'width'"
+      [required]="effect.requiredWidth"
+    ></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
@@ -36,7 +39,10 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.requiredHeight">
-    <app-form-label [label]="'height'"></app-form-label>
+    <app-form-label
+      [label]="'height'"
+      [required]="effect.requiredHeight"
+    ></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
