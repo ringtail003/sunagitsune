@@ -8,7 +8,9 @@ import { LoaderService } from "src/app/services/loader.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  isMenuOpen!: boolean;
+  isReady: boolean = false;
+  isOpenMenu: boolean = false;
+  isOpenSplash: boolean = true;
 
   constructor(private config: ConfigService, private loader: LoaderService) {}
 
@@ -16,15 +18,28 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.loader.load().subscribe((metadata) => {
       this.config.patch(metadata);
     });
+
+    setTimeout(() => {
+      this.isReady = true;
+      this.isOpenSplash = false;
+    }, 2000);
   }
 
   ngAfterViewInit(): void {}
 
   handleOpenMenu(): void {
-    this.isMenuOpen = true;
+    this.isOpenMenu = true;
   }
 
   handleCloseMenu(): void {
-    this.isMenuOpen = false;
+    this.isOpenMenu = false;
+  }
+
+  handleClickLogo(): void {
+    this.isOpenSplash = true;
+  }
+
+  handleClickSplashClose(): void {
+    this.isOpenSplash = false;
   }
 }

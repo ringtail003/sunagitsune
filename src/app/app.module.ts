@@ -11,12 +11,15 @@ import { IconLoadingComponent } from "src/app/components/shared/icons/icon-loadi
 import { AppComponent } from "./app.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
+import { NavbarLinkComponent } from "./components/navbar/navbar-link/navbar-link.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
 import { BorderSettingComponent } from "./components/navbar/settings/border-setting/border-setting.component";
 import { FilenameSettingComponent } from "./components/navbar/settings/filename-setting/filename-setting.component";
 import { ResizeSettingComponent } from "./components/navbar/settings/resize-setting/resize-setting.component";
 import { RotateSettingComponent } from "./components/navbar/settings/rotate-setting/rotate-setting.component";
 import { ShadowSettingComponent } from "./components/navbar/settings/shadow-setting/shadow-setting.component";
+import { TextSettingComponent } from "./components/navbar/settings/text-setting/text-setting.component";
+import { AreaTitleComponent } from "./components/shared/area-title/area-title.component";
 import { OutlineButtonComponent } from "./components/shared/buttons/outline-button/outline-button.component";
 import { FormContentComponent } from "./components/shared/form-layout/form-content/form-content.component";
 import { FormErrorComponent } from "./components/shared/form-layout/form-error/form-error.component";
@@ -32,19 +35,17 @@ import { IconChevronLeftComponent } from "./components/shared/icons/icon-chevron
 import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard/icon-clipboard.component";
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
 import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
+import { IconXComponent } from "./components/shared/icons/icon-x/icon-x.component";
 import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
+import { InputFilenameComponent } from "./components/shared/input/input-filename/input-filename.component";
+import { InputFontComponent } from "./components/shared/input/input-font/input-font.component";
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { InputRadioComponent } from "./components/shared/input/input-radio/input-radio.component";
+import { InputTextComponent } from "./components/shared/input/input-text/input-text.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
+import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { InputFilenameComponent } from './components/shared/input/input-filename/input-filename.component';
-import { TextSettingComponent } from './components/navbar/settings/text-setting/text-setting.component';
-import { InputTextComponent } from './components/shared/input/input-text/input-text.component';
-import { AreaTitleComponent } from './components/shared/area-title/area-title.component';
-import { NavbarLinkComponent } from './components/navbar/navbar-link/navbar-link.component';
-import { InputFontComponent } from './components/shared/input/input-font/input-font.component';
-import { IconXComponent } from './components/shared/icons/icon-x/icon-x.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { IconXComponent } from './components/shared/icons/icon-x/icon-x.componen
     NavbarLinkComponent,
     InputFontComponent,
     IconXComponent,
+    SplashComponent,
   ],
   imports: [
     BrowserModule,

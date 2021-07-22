@@ -2,11 +2,12 @@
   <div class="bg-white w-full sticky top-0 px-6 py-4 shadow-md z-20">
     <nav class="flex items-center justify-between">
       <div class="flex items-center gap-6">
-        <app-logo></app-logo>
+        <app-logo (clickLogo)="handleLogoClick()"></app-logo>
+
         <app-navbar-button
           [isMenuOpen]="isOpen"
           [text]="'settings'"
-          (click)="handleClick()"
+          (click)="handleMenuButtonClick()"
         ></app-navbar-button>
       </div>
 
@@ -14,13 +15,11 @@
         <app-navbar-link
           [text]="'help'"
           [url]="'assets/help.mp4'"
-          (click)="handleClick()"
         ></app-navbar-link>
 
         <app-navbar-link
           [text]="'gitHub'"
           [url]="'https://github.com/ringtail003/sunagitsune'"
-          (click)="handleClick()"
         ></app-navbar-link>
       </div>
     </nav>

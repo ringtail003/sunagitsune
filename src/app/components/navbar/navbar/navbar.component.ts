@@ -10,26 +10,25 @@ export class NavbarComponent implements OnInit {
   @Input() url!: string;
   @Output() openMenu = new EventEmitter<void>();
   @Output() closeMenu = new EventEmitter<void>();
+  @Output() clickLogo = new EventEmitter<void>();
 
   isOpen = false;
   activeMenuType: EffectMenuType = "resize";
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.emit();
+  ngOnInit(): void {}
+
+  handleMenuButtonClick(): void {
+    (this.isOpen ? this.closeMenu : this.openMenu).emit();
+    this.isOpen = !this.isOpen;
   }
 
-  handleClick(): void {
-    this.isOpen = !this.isOpen;
-    this.emit();
+  handleLogoClick(): void {
+    this.clickLogo.emit();
   }
 
   handleSelectMenu(type: EffectMenuType): void {
     this.activeMenuType = type;
-  }
-
-  emit(): void {
-    (this.isOpen ? this.openMenu : this.closeMenu).emit();
   }
 }
