@@ -1,6 +1,7 @@
 <div
   ngx-dropzone
   class="z-10 dropzone-container"
+  [accept]="'image/jpeg,image/jpg,image/png'"
   (change)="handleChange($event)"
 >
   <ngx-dropzone-label>
@@ -9,6 +10,11 @@
       class="block transition-opacity duration-500"
       [class.opacity-0]="!queue.size"
       >{{ queue.size }} Files Processing...</span
+    >
+    <span
+      class="block transition-opacity duration-500"
+      [class.opacity-0]="!rejected"
+      >{{ rejected }} Files Rejected</span
     >
   </ngx-dropzone-label>
 </div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { NgxDropzoneChangeEvent } from "ngx-dropzone";
 import * as Rx from "rxjs";
-import { mergeMap, tap } from "rxjs/operators";
+import { delay, mergeMap, tap } from "rxjs/operators";
 import { canvasFactory } from "src/app/models/canvas/factory/index";
 import { Effect } from "src/app/models/effect/effect";
 import { ConfigService } from "src/app/services/config.service";
@@ -19,6 +19,7 @@ export class UploaderComponent implements OnInit {
 
   effect!: Effect;
   queue = new Set();
+  rejected = 0;
 
   constructor(
     private config: ConfigService,
@@ -33,12 +34,18 @@ export class UploaderComponent implements OnInit {
   }
 
   handleChange(event: NgxDropzoneChangeEvent) {
+    if (event.rejectedFiles.length) {
+      this.rejected += event.rejectedFiles.length;
+      return;
+    }
+
     const files = event.addedFiles;
     const id = uniqueId();
     this.queue.add(id);
 
     Rx.from(files)
       .pipe(
+        delay(1000),
         mergeMap((file) =>
           Rx.of(file).pipe(
             mergeMap(() => canvasFactory.fromFile(file).load()),
