@@ -14,9 +14,13 @@
   [class.bg-gray-100]="isActive"
   (click)="handleClick()"
 >
-  <app-icon-cog
-    [tone]="{ light: !hasSetting, dark: hasSetting }"
-    [error]="hasError"
-  ></app-icon-cog>
-  <span class="ml-4 capitalize" [textContent]="menu"></span>
+  <img src="assets/menu/{{ menu }}.svg" class="w-10 h-10" />
+
+  <span
+    class="ml-4 capitalize"
+    [class.text-gray-600]="!hasError && hasSetting"
+    [class.text-gray-400]="!hasError && !hasSetting"
+    [class.text-red-400]="hasError"
+    [textContent]="menu"
+  ></span>
 </a>
