@@ -65,8 +65,10 @@ export class ResizePluginEffect implements PluginEffect {
 
     return {
       resizeType: this.#type,
-      resizeWidth: this.assertWidth() ? null : this.#width,
-      resizeHeight: this.assertHeight() ? null : this.#height,
+      resizeWidth:
+        !this.requiredWidth || this.assertWidth() ? null : this.#width,
+      resizeHeight:
+        !this.requiredHeight || this.assertHeight() ? null : this.#height,
     };
   }
 
