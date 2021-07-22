@@ -1,4 +1,11 @@
 <ng-container *ngIf="effect">
+  <app-form-header>
+    <app-outline-button
+      [text]="'Clear text config'"
+      (buttonClick)="handleReset()"
+    ></app-outline-button>
+  </app-form-header>
+
   <app-form-group-section>
     <app-form-label [label]="'type'"></app-form-label>
     <app-form-content>
@@ -40,12 +47,7 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-footer>
-    <app-outline-button
-      [text]="'Reset border config'"
-      (buttonClick)="handleReset()"
-    ></app-outline-button>
-  </app-form-footer>
+  <app-form-footer> </app-form-footer>
 
   <app-form-footer *ngIf="error">
     <app-form-error [error]="error"></app-form-error>

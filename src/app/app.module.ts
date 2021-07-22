@@ -45,6 +45,7 @@ import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
+import { FormHeaderComponent } from './components/shared/form-layout/form-header/form-header.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { UploaderComponent } from "./components/uploader/uploader.component";
     IconXComponent,
     SplashComponent,
     RangeListComponent,
+    FormHeaderComponent,
   ],
   imports: [
     BrowserModule,
