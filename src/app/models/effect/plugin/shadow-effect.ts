@@ -83,7 +83,7 @@ export class ShadowPluginEffect implements PluginEffect {
   } {
     return {
       type: this.#type,
-      blur: this.#blur || 5,
+      blur: this.#blur ? 5 : 0,
       color: this.#color || "#000000",
       offset: this.#offset || 5,
     };
@@ -107,10 +107,6 @@ export class ShadowPluginEffect implements PluginEffect {
   }
 
   private assertBlur(): string | null {
-    if (this.hasEffect() && !this.#blur) {
-      return `blurを入力してください`;
-    }
-
     return null;
   }
 
