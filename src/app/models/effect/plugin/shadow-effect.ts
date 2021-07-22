@@ -111,8 +111,16 @@ export class ShadowPluginEffect implements PluginEffect {
   }
 
   private assertOffset(): string | null {
-    if (this.hasEffect() && !this.#offset) {
+    if (!this.hasEffect()) {
+      return null;
+    }
+
+    if (!this.#offset) {
       return `offsetを入力してください`;
+    }
+
+    if (this.#offset < 1) {
+      return `offsetに1以上の値を入力してください`;
     }
 
     return null;

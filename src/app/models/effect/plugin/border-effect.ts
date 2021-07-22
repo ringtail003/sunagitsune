@@ -100,8 +100,16 @@ export class BorderEffect implements PluginEffect {
   }
 
   private assertWidth(): string | null {
-    if (this.hasEffect() && !this.#width) {
+    if (!this.hasEffect()) {
+      return null;
+    }
+
+    if (!this.#width) {
       return `widthを入力してください`;
+    }
+
+    if (this.#width < 1) {
+      return `widthに1以上の値を入力してください`;
     }
 
     return null;

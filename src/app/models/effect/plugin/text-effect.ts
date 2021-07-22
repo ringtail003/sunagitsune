@@ -188,8 +188,16 @@ export class textPluginEffect implements PluginEffect {
   }
 
   private assertSize(): string | null {
-    if (this.hasEffect() && !this.#size) {
+    if (!this.hasEffect()) {
+      return null;
+    }
+
+    if (!this.#size) {
       return `sizeを入力してください`;
+    }
+
+    if (this.#size < 1) {
+      return `sizeに1以上の値を入力してください`;
     }
 
     return null;

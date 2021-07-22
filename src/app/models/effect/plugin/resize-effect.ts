@@ -101,16 +101,32 @@ export class ResizePluginEffect implements PluginEffect {
   }
 
   private assertWidth(): string | null {
-    if (this.requiredWidth && !this.#width) {
+    if (!this.requiredWidth) {
+      return null;
+    }
+
+    if (!this.#width) {
       return `widthを入力してください`;
+    }
+
+    if (this.#width < 1) {
+      return `widthに1以上の値を入力してください`;
     }
 
     return null;
   }
 
   private assertHeight(): string | null {
-    if (this.requiredHeight && !this.#height) {
+    if (!this.requiredHeight) {
+      return null;
+    }
+
+    if (!this.#height) {
       return `heightを入力してください`;
+    }
+
+    if (this.#height < 1) {
+      return `heightに1以上の値を入力してください`;
     }
 
     return null;
