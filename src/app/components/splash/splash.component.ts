@@ -7,7 +7,8 @@ import json from "../../../../package.json";
   styleUrls: ["./splash.component.scss"],
 })
 export class SplashComponent implements OnInit {
-  @Input() canClose!: boolean;
+  @Input() withCloseButton = false;
+
   @Output() clickClose = new EventEmitter<void>();
 
   version!: string;

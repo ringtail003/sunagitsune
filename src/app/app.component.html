@@ -1,14 +1,14 @@
 <app-splash
   *ngIf="isOpenSplash"
-  [canClose]="isReady"
+  [withCloseButton]="isReady"
   (clickClose)="handleClickSplashClose()"
 ></app-splash>
 
 <app-navbar
-  *ngIf="!isOpenSplash"
+  [class.hidden]="isOpenSplash"
   (openMenu)="handleOpenMenu()"
   (closeMenu)="handleCloseMenu()"
   (clickLogo)="handleClickLogo()"
 ></app-navbar>
 
-<app-uploader [class.hidden]="isOpenMenu"></app-uploader>
+<app-uploader [class.hidden]="isOpenMenu || isOpenSplash"></app-uploader>

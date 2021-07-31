@@ -2,8 +2,40 @@
   <figure>
     <app-logo></app-logo>
   </figure>
+  <h1>sunagitsune {{ version }}</h1>
 
-  <h1 class="header">
-    <p>sunagitsune {{ version }}</p>
-  </h1>
+  <div *ngIf="withCloseButton" class="text-gray-400 mt-2 flex flex-col gap-4">
+    <section>
+      <h2 class="font-bold">Advantage</h2>
+      <ul>
+        <li><em>sunagitsune</em> is free image effector.</li>
+        <li>No login required.</li>
+        <li>Easy to download.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="font-bold">Disadvantage</h2>
+      <ul>
+        <li>Browsing and clicks will collect via Google Analytics.</li>
+        <li>The results will not be published anywhere.</li>
+        <li>Let me use it for my learning.</li>
+      </ul>
+    </section>
+
+    <button
+      type="button"
+      autofocus
+      class="
+        border border-gray-400
+        rounded-md
+        p-2
+        ring-blue-500
+        focus:ring-2 focus:outline-none focus:ring-offset-2
+      "
+      (click)="handleClickCloseButton()"
+    >
+      Close
+    </button>
+  </div>
 </main>
