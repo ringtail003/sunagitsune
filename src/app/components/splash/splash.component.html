@@ -1,34 +1,9 @@
-<div class="container">
-  <div class="header">
+<main>
+  <figure>
+    <app-logo></app-logo>
+  </figure>
+
+  <h1 class="header">
     <p>sunagitsune {{ version }}</p>
-  </div>
-
-  <div class="contents">
-    <p>sunagitsune is image effector.</p>
-
-    <ul>
-      <li>Rotate the image.</li>
-      <li>Border and Shadow.</li>
-      <li>Easy to download.</li>
-    </ul>
-  </div>
-
-  <button
-    *ngIf="canClose"
-    type="button"
-    class="
-      border-2 border-gray-400
-      py-1.5
-      px-3
-      text-gray-400
-      rounded-md
-      transition
-      ease-in-out
-      hover:border-gray-500 hover:text-gray-500
-      focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-    "
-    (click)="handleClickCloseButton()"
-  >
-    Back to app
-  </button>
-</div>
+  </h1>
+</main>

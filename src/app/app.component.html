@@ -5,6 +5,7 @@
 ></app-splash>
 
 <app-navbar
+  *ngIf="!isOpenSplash"
   (openMenu)="handleOpenMenu()"
   (closeMenu)="handleCloseMenu()"
   (clickLogo)="handleClickLogo()"
