@@ -181,7 +181,7 @@ export class textPluginEffect implements PluginEffect {
 
   private assertCaption(): string | null {
     if (this.hasEffect() && !this.#caption) {
-      return `captionを入力してください`;
+      return `挿入するテキストを入力してください`;
     }
 
     return null;
@@ -193,11 +193,11 @@ export class textPluginEffect implements PluginEffect {
     }
 
     if (!this.#size) {
-      return `sizeを入力してください`;
+      return `サイズを入力してください`;
     }
 
     if (this.#size < 1) {
-      return `sizeに1以上の値を入力してください`;
+      return `サイズに1以上の値を入力してください`;
     }
 
     return null;
@@ -209,7 +209,7 @@ export class textPluginEffect implements PluginEffect {
 
   private assertColor(): string | null {
     if (this.hasEffect() && !this.#color) {
-      return `colorを選択してください`;
+      return `テキストの色を選択してください`;
     }
 
     return null;
@@ -221,7 +221,7 @@ export class textPluginEffect implements PluginEffect {
 
   private assertFont(): string | null {
     if (this.hasEffect() && !this.#font) {
-      return `fontを入力してください`;
+      return `フォント名を入力してください`;
     }
 
     return null;
@@ -229,7 +229,7 @@ export class textPluginEffect implements PluginEffect {
 
   private assertStrokeColor(): string | null {
     if (this.hasEffect() && this.#strokeOffset && !this.#strokeColor) {
-      return `strokeColorを入力してください`;
+      return `枠線の色を入力してください`;
     }
 
     return null;
@@ -237,7 +237,7 @@ export class textPluginEffect implements PluginEffect {
 
   private assertStrokeOffset(): string | null {
     if (this.hasEffect() && this.#strokeColor && !this.#strokeOffset) {
-      return `strokeOffsetを入力してください`;
+      return `テキストと影の間隔を入力してください`;
     }
 
     return null;

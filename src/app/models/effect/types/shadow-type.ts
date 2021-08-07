@@ -1,6 +1,6 @@
 export const shadowTypeConfig = {
-  none: "none",
-  right: "right",
+  none: "なし",
+  right: "右側に影をつける",
 };
 
 export type ShadowType = keyof typeof shadowTypeConfig;

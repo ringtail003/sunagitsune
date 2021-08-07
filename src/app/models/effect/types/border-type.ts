@@ -1,7 +1,7 @@
 export const borderTypeConfig = {
-  none: "none",
-  inside: "inside",
-  outside: "outside",
+  none: "なし",
+  inside: "内側",
+  outside: "外側",
 };
 
 export type BorderType = keyof typeof borderTypeConfig;

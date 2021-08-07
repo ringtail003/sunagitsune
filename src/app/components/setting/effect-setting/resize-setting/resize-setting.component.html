@@ -1,7 +1,7 @@
 <ng-container *ngIf="effect">
   <app-form-header>
     <app-outline-button
-      [text]="'Clear resize setting'"
+      [text]="'入力した内容をクリアする'"
       (buttonClick)="handleReset()"
     ></app-outline-button>
   </app-form-header>
@@ -22,7 +22,7 @@
 
   <app-form-section *ngIf="effect.requiredWidth">
     <app-form-label
-      [label]="'width'"
+      [label]="'横幅'"
       [required]="effect.requiredWidth"
     ></app-form-label>
     <app-form-content>
@@ -39,7 +39,7 @@
 
   <app-form-section *ngIf="effect.requiredHeight">
     <app-form-label
-      [label]="'height'"
+      [label]="'高さ'"
       [required]="effect.requiredHeight"
     ></app-form-label>
     <app-form-content>

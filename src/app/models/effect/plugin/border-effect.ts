@@ -105,11 +105,11 @@ export class BorderEffect implements PluginEffect {
     }
 
     if (!this.#width) {
-      return `widthを入力してください`;
+      return `線の太さを入力してください`;
     }
 
     if (this.#width < 1) {
-      return `widthに1以上の値を入力してください`;
+      return `線の太さに1以上の値を入力してください`;
     }
 
     return null;
@@ -117,7 +117,7 @@ export class BorderEffect implements PluginEffect {
 
   private assertColor(): string | null {
     if (this.hasEffect() && !this.#color) {
-      return `colorを選択してください`;
+      return `線の色を選択してください`;
     }
 
     return null;

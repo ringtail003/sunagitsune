@@ -106,11 +106,11 @@ export class ResizePluginEffect implements PluginEffect {
     }
 
     if (!this.#width) {
-      return `widthを入力してください`;
+      return `横幅を入力してください`;
     }
 
     if (this.#width < 1) {
-      return `widthに1以上の値を入力してください`;
+      return `横幅に1以上の値を入力してください`;
     }
 
     return null;
@@ -122,11 +122,11 @@ export class ResizePluginEffect implements PluginEffect {
     }
 
     if (!this.#height) {
-      return `heightを入力してください`;
+      return `高さを入力してください`;
     }
 
     if (this.#height < 1) {
-      return `heightに1以上の値を入力してください`;
+      return `高さに1以上の値を入力してください`;
     }
 
     return null;

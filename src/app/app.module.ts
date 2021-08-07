@@ -44,9 +44,11 @@ import { InputTextComponent } from "./components/shared/input/input-text/input-t
 import { RangeListComponent } from "./components/shared/input/list/range-list/range-list.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MenuLabelPipe } from "./pipes/menu-label.pipe";
+import { IconCheckCircleComponent } from './components/shared/icons/icon-check-circle/icon-check-circle.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +97,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     RangeListComponent,
     FormHeaderComponent,
     SidebarComponent,
+    MenuLabelPipe,
+    IconCheckCircleComponent,
   ],
   imports: [
     BrowserModule,

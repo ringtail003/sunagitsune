@@ -1,13 +1,14 @@
 <div class="flex items-center gap-2">
   <label
-    class="text-gray-500 capitalize"
+    class="text-sm text-gray-500 capitalize"
     [for]="for"
     [textContent]="label"
   ></label>
 
-  <span
+  <abbr
     *ngIf="required"
     class="bg-gray-400 text-white px-2 py-0.5 text-xs rounded-md"
-    >Required</span
+    title="必須入力の項目です"
+    >必須</abbr
   >
 </div>

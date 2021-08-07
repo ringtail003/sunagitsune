@@ -1,7 +1,7 @@
 <ng-container *ngIf="effect">
   <app-form-header>
     <app-outline-button
-      [text]="'Clear border setting'"
+      [text]="'入力した内容をクリアする'"
       (buttonClick)="handleReset()"
     ></app-outline-button>
   </app-form-header>
@@ -21,7 +21,10 @@
   </app-form-group-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'caption'" [required]="true"></app-form-label>
+    <app-form-label
+      [label]="'挿入するテキスト'"
+      [required]="true"
+    ></app-form-label>
     <app-form-content>
       <app-input-text
         appFormLabelFor
@@ -35,7 +38,7 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'font'" [required]="true"></app-form-label>
+    <app-form-label [label]="'フォント名'" [required]="true"></app-form-label>
     <app-form-content>
       <app-input-font
         appFormLabelFor
@@ -47,7 +50,7 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'size'" [required]="true"></app-form-label>
+    <app-form-label [label]="'サイズ'" [required]="true"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
@@ -61,7 +64,19 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'alpha'"></app-form-label>
+    <app-form-label [label]="'テキストの色'" [required]="true"></app-form-label>
+    <app-form-content>
+      <app-input-color
+        appFormLabelFor
+        [error]="effect.getErrors().color"
+        [value]="effect.color"
+        (changeValue)="handleChangeColor($event)"
+      ></app-input-color>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section *ngIf="effect.hasEffect()">
+    <app-form-label [label]="'不透明度'"></app-form-label>
     <app-form-content>
       <app-range-list
         appFormLabelFor
@@ -78,19 +93,7 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'color'" [required]="true"></app-form-label>
-    <app-form-content>
-      <app-input-color
-        appFormLabelFor
-        [error]="effect.getErrors().color"
-        [value]="effect.color"
-        (changeValue)="handleChangeColor($event)"
-      ></app-input-color>
-    </app-form-content>
-  </app-form-section>
-
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'offset'"></app-form-label>
+    <app-form-label [label]="'余白の大きさ'"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
@@ -105,7 +108,7 @@
 
   <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label
-      [label]="'stroke color'"
+      [label]="'影の色'"
       [required]="effect.requiredStrokeColor"
     ></app-form-label>
     <app-form-content>
@@ -120,7 +123,7 @@
 
   <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label
-      [label]="'stroke offset'"
+      [label]="'テキストと影の間隔'"
       [required]="effect.requiredStrokeOffset"
     ></app-form-label>
     <app-form-content>

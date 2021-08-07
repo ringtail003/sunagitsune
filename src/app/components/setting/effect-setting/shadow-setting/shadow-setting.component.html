@@ -1,7 +1,7 @@
 <ng-container *ngIf="effect">
   <app-form-header>
     <app-outline-button
-      [text]="'Clear shadow setting'"
+      [text]="'入力した内容をクリアする'"
       (buttonClick)="handleReset()"
     ></app-outline-button>
   </app-form-header>
@@ -21,7 +21,7 @@
   </app-form-group-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'color'" [required]="true"></app-form-label>
+    <app-form-label [label]="'影の色'" [required]="true"></app-form-label>
     <app-form-content>
       <app-input-color
         appFormLabelFor
@@ -33,7 +33,7 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'offset'" [required]="true"></app-form-label>
+    <app-form-label [label]="'影の長さ'" [required]="true"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor
@@ -47,7 +47,7 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'blur'"></app-form-label>
+    <app-form-label [label]="'ぼかしの大きさ'"></app-form-label>
     <app-form-content>
       <app-input-number
         appFormLabelFor

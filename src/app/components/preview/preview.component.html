@@ -1,14 +1,14 @@
-<div class="py-6 px-9 w-full">
-  <app-area-title [title]="'preview'"></app-area-title>
+<div class="w-full py-6 px-9">
+  <app-area-title [title]="'プレビューを見る'"></app-area-title>
 
   <div class="flex flex-wrap justify-center gap-6">
     <figure class="flex-row w-full">
       <figcaption class="text-gray-400">BEFORE</figcaption>
       <div
         #preEffectContainer
-        class="border-2 border-gray-100 p-2 flex justify-center overflow-auto"
+        class="flex justify-center p-2 overflow-auto border-2 border-gray-100"
       ></div>
-      <ul *ngIf="preEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
+      <ul *ngIf="preEffect" class="flex-row gap-2 mt-1 text-sm text-gray-300">
         <li [textContent]="filename"></li>
         <li class="flex gap-2">
           <span [textContent]="'width'"></span>
@@ -23,14 +23,14 @@
       <figcaption class="text-gray-400">AFTER</figcaption>
       <div
         #postEffectContainer
-        class="border-2 border-gray-100 p-2 flex justify-center overflow-auto"
+        class="flex justify-center p-2 overflow-auto border-2 border-gray-100"
       >
         <app-icon-loading
           class="absolute text-gray-300"
           [size]="24"
         ></app-icon-loading>
       </div>
-      <ul *ngIf="postEffect" class="mt-1 flex-row gap-2 text-gray-300 text-sm">
+      <ul *ngIf="postEffect" class="flex-row gap-2 mt-1 text-sm text-gray-300">
         <li [textContent]="postEffect.effect!.filename.apply(filename)"></li>
         <li class="flex gap-2">
           <span [textContent]="'width'"></span>

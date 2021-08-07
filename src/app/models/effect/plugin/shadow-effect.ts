@@ -116,11 +116,11 @@ export class ShadowPluginEffect implements PluginEffect {
     }
 
     if (!this.#offset) {
-      return `offsetを入力してください`;
+      return `影の長さを入力してください`;
     }
 
     if (this.#offset < 1) {
-      return `offsetに1以上の値を入力してください`;
+      return `影の長さに1以上の値を入力してください`;
     }
 
     return null;
@@ -128,7 +128,7 @@ export class ShadowPluginEffect implements PluginEffect {
 
   private assertColor(): string | null {
     if (this.hasEffect() && !this.#color) {
-      return `colorを選択してください`;
+      return `影の色を選択してください`;
     }
 
     return null;

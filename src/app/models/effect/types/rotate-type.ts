@@ -1,5 +1,5 @@
 export const rotateTypeConfig = {
-  none: "none",
+  none: "なし",
   rotate90: "90°",
   rotate180: "180°",
   rotate270: "270°",
