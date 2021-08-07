@@ -1,5 +1,5 @@
 <div class="flex flex-col justify-between">
-  <div class="bg-white w-full fixed h-16 top-0 px-6 pt-3 shadow-md z-20">
+  <div class="fixed top-0 z-20 w-full h-16 px-6 pt-3 bg-white shadow-md">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-6 text-gray-500">
         <app-logo></app-logo>
@@ -11,11 +11,6 @@
       </div>
 
       <div class="flex items-center gap-6">
-        <app-navbar-link
-          [text]="'help'"
-          [url]="'assets/help.mp4'"
-        ></app-navbar-link>
-
         <app-navbar-link
           [text]="'gitHub'"
           [url]="'https://github.com/ringtail003/sunagitsune'"
