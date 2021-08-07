@@ -1,28 +1,19 @@
-<app-area-title [title]="'recycle url'"></app-area-title>
+<app-area-title [title]="'ブックマーク用のURL'"></app-area-title>
 
 <div
-  class="flex justify-start hover:text-gray-900 gap-4"
+  class="flex justify-start gap-4 hover:text-gray-900"
   [class.text-gray-900]="copied"
   [class.text-gray-500]="!copied"
 >
-  <div class="flow-root">
-    <a
-      class="
-        cursor-pointer
-        flex
-        items-center
-        rounded-md
-        text-base
-        font-medium
-        focus:outline-none
-      "
-      [class.text-blue-700]="copied"
-      (click)="handleClick()"
-    >
-      <app-icon-clipboard></app-icon-clipboard>
-      <span *ngIf="!copied" class="ml-2 w-14">Copy</span>
-      <span *ngIf="copied" class="ml-2 w-14">Copied</span>
-    </a>
-  </div>
-  <span class="font-sm truncate" [textContent]="url"></span>
+  <a
+    class="
+      truncate
+      rounded-md
+      focus:outline-none focus:ring-2 focus:ring-blue-500
+      font-sm
+    "
+    target="_blank"
+    [href]="url"
+    [textContent]="url"
+  ></a>
 </div>

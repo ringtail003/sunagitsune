@@ -31,7 +31,7 @@ import { FormLabelComponent } from "./components/shared/form-layout/form-label/f
 import { FormLayoutComponent } from "./components/shared/form-layout/form-layout.component";
 import { FormSectionComponent } from "./components/shared/form-layout/form-section/form-section.component";
 import { FormUnitComponent } from "./components/shared/form-layout/form-unit/form-unit.component";
-import { IconClipboardComponent } from "./components/shared/icons/icon-clipboard/icon-clipboard.component";
+import { IconCheckCircleComponent } from "./components/shared/icons/icon-check-circle/icon-check-circle.component";
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
 import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
 import { IconXComponent } from "./components/shared/icons/icon-x/icon-x.component";
@@ -48,7 +48,6 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
-import { IconCheckCircleComponent } from './components/shared/icons/icon-check-circle/icon-check-circle.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +61,6 @@ import { IconCheckCircleComponent } from './components/shared/icons/icon-check-c
     SettingComponent,
     NavbarButtonComponent,
     NavbarFooterComponent,
-    IconClipboardComponent,
     PreviewComponent,
     IconLoadingComponent,
     BorderSettingComponent,
