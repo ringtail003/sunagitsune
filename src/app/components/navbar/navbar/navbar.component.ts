@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { EffectMenuType } from "src/app/components/navbar/effect-menu-type";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: "app-navbar",
@@ -7,28 +6,13 @@ import { EffectMenuType } from "src/app/components/navbar/effect-menu-type";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  @Input() url!: string;
-  @Output() openMenu = new EventEmitter<void>();
-  @Output() closeMenu = new EventEmitter<void>();
-  @Output() clickLogo = new EventEmitter<void>();
-
-  isOpen = false;
-  activeMenuType: EffectMenuType = "resize";
+  @Output() clickMenu = new EventEmitter<void>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   handleMenuButtonClick(): void {
-    (this.isOpen ? this.closeMenu : this.openMenu).emit();
-    this.isOpen = !this.isOpen;
-  }
-
-  handleLogoClick(): void {
-    this.clickLogo.emit();
-  }
-
-  handleSelectMenu(type: EffectMenuType): void {
-    this.activeMenuType = type;
+    this.clickMenu.emit();
   }
 }

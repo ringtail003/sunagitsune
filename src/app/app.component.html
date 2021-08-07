@@ -4,11 +4,16 @@
   (clickClose)="handleClickSplashClose()"
 ></app-splash>
 
-<app-navbar
-  [class.hidden]="isOpenSplash"
-  (openMenu)="handleOpenMenu()"
-  (closeMenu)="handleCloseMenu()"
-  (clickLogo)="handleClickLogo()"
-></app-navbar>
+<nav>
+  <app-navbar
+    [class.hidden]="isOpenSplash"
+    (clickMenu)="handleClickMenu()"
+  ></app-navbar>
+</nav>
 
-<app-uploader [class.hidden]="isOpenMenu || isOpenSplash"></app-uploader>
+<aside></aside>
+
+<main>
+  <app-uploader [class.hidden]="isOpenSetting"></app-uploader>
+  <app-setting [class.hidden]="!isOpenSetting"></app-setting>
+</main>

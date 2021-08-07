@@ -5,26 +5,27 @@ import { RouterModule } from "@angular/router";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
 import { NavbarFooterComponent } from "src/app/components/navbar/navbar-footer/navbar-footer.component";
-import { NavbarSettingComponent } from "src/app/components/navbar/navbar-setting/navbar-setting.component";
 import { PreviewComponent } from "src/app/components/preview/preview.component";
+import { SettingComponent } from "src/app/components/setting/setting.component";
 import { IconLoadingComponent } from "src/app/components/shared/icons/icon-loading/icon-loading.component";
 import { AppComponent } from "./app.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
 import { NavbarLinkComponent } from "./components/navbar/navbar-link/navbar-link.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
-import { BorderSettingComponent } from "./components/navbar/settings/border-setting/border-setting.component";
-import { FilenameSettingComponent } from "./components/navbar/settings/filename-setting/filename-setting.component";
-import { ResizeSettingComponent } from "./components/navbar/settings/resize-setting/resize-setting.component";
-import { RotateSettingComponent } from "./components/navbar/settings/rotate-setting/rotate-setting.component";
-import { ShadowSettingComponent } from "./components/navbar/settings/shadow-setting/shadow-setting.component";
-import { TextSettingComponent } from "./components/navbar/settings/text-setting/text-setting.component";
+import { BorderSettingComponent } from "./components/setting/effect-setting/border-setting/border-setting.component";
+import { FilenameSettingComponent } from "./components/setting/effect-setting/filename-setting/filename-setting.component";
+import { ResizeSettingComponent } from "./components/setting/effect-setting/resize-setting/resize-setting.component";
+import { RotateSettingComponent } from "./components/setting/effect-setting/rotate-setting/rotate-setting.component";
+import { ShadowSettingComponent } from "./components/setting/effect-setting/shadow-setting/shadow-setting.component";
+import { TextSettingComponent } from "./components/setting/effect-setting/text-setting/text-setting.component";
 import { AreaTitleComponent } from "./components/shared/area-title/area-title.component";
 import { OutlineButtonComponent } from "./components/shared/buttons/outline-button/outline-button.component";
 import { FormContentComponent } from "./components/shared/form-layout/form-content/form-content.component";
 import { FormErrorComponent } from "./components/shared/form-layout/form-error/form-error.component";
 import { FormFooterComponent } from "./components/shared/form-layout/form-footer/form-footer.component";
 import { FormGroupSectionComponent } from "./components/shared/form-layout/form-group-section/form-group-section.component";
+import { FormHeaderComponent } from "./components/shared/form-layout/form-header/form-header.component";
 import { FormLabelForDirective } from "./components/shared/form-layout/form-label-for/form-label-for.directive";
 import { FormLabelComponent } from "./components/shared/form-layout/form-label/form-label.component";
 import { FormLayoutComponent } from "./components/shared/form-layout/form-layout.component";
@@ -45,7 +46,6 @@ import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
-import { FormHeaderComponent } from './components/shared/form-layout/form-header/form-header.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ import { FormHeaderComponent } from './components/shared/form-layout/form-header
     LogoComponent,
     NavbarEffectsMenuComponent,
     NavbarEffectsComponent,
-    NavbarSettingComponent,
+    SettingComponent,
     NavbarButtonComponent,
     NavbarFooterComponent,
     IconClipboardComponent,

@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class NavbarButtonComponent implements OnInit {
   @Input() text!: string;
-  @Input() isMenuOpen!: boolean;
 
   constructor() {}
 
