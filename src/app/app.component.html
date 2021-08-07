@@ -1,17 +1,10 @@
-<app-splash
-  *ngIf="isOpenSplash"
-  [withCloseButton]="isReady"
-  (clickClose)="handleClickSplashClose()"
-></app-splash>
+<app-splash *ngIf="!isReady" [withCloseButton]="isReady"></app-splash>
 
-<nav>
-  <app-navbar
-    [class.hidden]="isOpenSplash"
-    (clickMenu)="handleClickMenu()"
-  ></app-navbar>
+<nav [class.hidden]="!isReady">
+  <app-navbar (clickMenu)="handleClickMenu()"></app-navbar>
 </nav>
 
-<div class="flex w-full pt-16 bg-gray-200">
+<div class="flex w-full pt-16 bg-gray-200" [class.hidden]="!isReady">
   <aside class="h-full p-6">
     <app-sidebar></app-sidebar>
   </aside>

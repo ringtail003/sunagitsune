@@ -10,7 +10,6 @@ import { LoaderService } from "src/app/services/loader.service";
 export class AppComponent implements OnInit, AfterViewInit {
   isReady: boolean = false;
   isOpenSetting: boolean = false;
-  isOpenSplash: boolean = true;
 
   constructor(private config: ConfigService, private loader: LoaderService) {}
 
@@ -21,7 +20,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       this.isReady = true;
-      this.isOpenSplash = false;
     }, 2000);
   }
 
@@ -29,9 +27,5 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   handleClickMenu(): void {
     this.isOpenSetting = !this.isOpenSetting;
-  }
-
-  handleClickSplashClose(): void {
-    this.isOpenSplash = false;
   }
 }
