@@ -1,10 +1,11 @@
-<div class="h-screen flex bg-white">
+<div class="flex justify-between h-screen bg-white">
   <app-navbar-effects
+    class="flex-grow-0 block"
     [activeMenuType]="activeMenuType"
     (selectMenu)="handleSelectMenu($event)"
   ></app-navbar-effects>
 
-  <div class="h-full py-6 bg-gray-50 px-9">
+  <div class="flex-grow h-full py-6 bg-gray-50 px-9">
     <app-border-setting
       [class.hidden]="activeMenuType !== 'border'"
     ></app-border-setting>
@@ -32,7 +33,7 @@
     <div class="h-24"></div>
   </div>
 
-  <app-preview class="block"></app-preview>
+  <app-preview class="flex-grow-0 block w-preview"></app-preview>
 </div>
 
 <div
