@@ -9,9 +9,9 @@ export class MenuLabelPipe implements PipeTransform {
     return (
       {
         border: "枠線",
-        resize: "リサイズ",
+        resize: "サイズ変更",
         text: "テキストの挿入",
-        shadow: "影をつける",
+        shadow: "ドロップシャドウ",
         rotate: "回転",
         filename: "ファイル名",
       }[type] || type
