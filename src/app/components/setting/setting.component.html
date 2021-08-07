@@ -1,47 +1,45 @@
-<div>
-  <div class="grid grid-cols-5 bg-white overflow-y-scroll h-screen">
-    <app-navbar-effects
-      class="block"
-      [activeMenuType]="activeMenuType"
-      (selectMenu)="handleSelectMenu($event)"
-    ></app-navbar-effects>
+<div class="grid h-screen grid-cols-5 overflow-y-scroll bg-white">
+  <app-navbar-effects
+    class="block"
+    [activeMenuType]="activeMenuType"
+    (selectMenu)="handleSelectMenu($event)"
+  ></app-navbar-effects>
 
-    <div class="bg-gray-50 py-6 px-9 w-full h-full col-span-2">
-      <app-area-title [title]="'setting'"></app-area-title>
+  <div class="w-full h-full col-span-2 py-6 bg-gray-50 px-9">
+    <app-area-title [title]="'setting'"></app-area-title>
 
-      <app-border-setting
-        [class.hidden]="activeMenuType !== 'border'"
-      ></app-border-setting>
+    <app-border-setting
+      [class.hidden]="activeMenuType !== 'border'"
+    ></app-border-setting>
 
-      <app-shadow-setting
-        [class.hidden]="activeMenuType !== 'shadow'"
-      ></app-shadow-setting>
+    <app-shadow-setting
+      [class.hidden]="activeMenuType !== 'shadow'"
+    ></app-shadow-setting>
 
-      <app-resize-setting
-        [class.hidden]="activeMenuType !== 'resize'"
-      ></app-resize-setting>
+    <app-resize-setting
+      [class.hidden]="activeMenuType !== 'resize'"
+    ></app-resize-setting>
 
-      <app-rotate-setting
-        [class.hidden]="activeMenuType !== 'rotate'"
-      ></app-rotate-setting>
+    <app-rotate-setting
+      [class.hidden]="activeMenuType !== 'rotate'"
+    ></app-rotate-setting>
 
-      <app-filename-setting
-        [class.hidden]="activeMenuType !== 'filename'"
-      ></app-filename-setting>
+    <app-filename-setting
+      [class.hidden]="activeMenuType !== 'filename'"
+    ></app-filename-setting>
 
-      <app-text-setting
-        [class.hidden]="activeMenuType !== 'text'"
-      ></app-text-setting>
+    <app-text-setting
+      [class.hidden]="activeMenuType !== 'text'"
+    ></app-text-setting>
 
-      <div class="h-24"></div>
-    </div>
-
-    <app-preview class="block col-span-2"></app-preview>
+    <div class="h-24"></div>
   </div>
 
-  <div
-    class="bg-white w-full fixed bottom-0 px-6 pt-3 pb-6 shadow-reverse-lg z-20"
-  >
-    <app-navbar-footer></app-navbar-footer>
-  </div>
+  <app-preview class="block col-span-2"></app-preview>
+</div>
+
+<div
+  class="fixed bottom-0 z-20 w-full px-6 pt-3 pb-6 bg-white shadow-reverse-lg"
+>
+  <app-navbar-footer></app-navbar-footer>
 </div>

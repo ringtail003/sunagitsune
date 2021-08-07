@@ -4,8 +4,8 @@
   <app-navbar (clickMenu)="handleClickMenu()"></app-navbar>
 </nav>
 
-<div class="flex w-full pt-16 bg-gray-200" [class.hidden]="!isReady">
-  <aside class="h-full p-6">
+<div class="flex pt-16 bg-gray-200" [class.hidden]="!isReady">
+  <aside class="py-6 pl-6" [class.hidden]="isOpenSetting">
     <app-sidebar></app-sidebar>
   </aside>
 
