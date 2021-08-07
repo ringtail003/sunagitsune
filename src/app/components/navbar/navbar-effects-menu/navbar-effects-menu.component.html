@@ -3,9 +3,7 @@
     flex
     items-center
     justify-between
-    py-4
-    px-2
-    -m-3
+    p-4
     text-sm
     font-medium
     text-gray-500
@@ -17,7 +15,7 @@
   [class.bg-gray-100]="isActive"
   (click)="handleClick()"
 >
-  <p class="ml-4 capitalize" [textContent]="menu | menuLabel"></p>
+  <p [textContent]="menu | menuLabel"></p>
 
   <app-icon-check-circle
     *ngIf="hasSetting && !hasError"

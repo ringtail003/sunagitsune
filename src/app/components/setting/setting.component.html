@@ -1,11 +1,10 @@
-<div class="grid h-screen grid-cols-5 bg-white">
+<div class="h-screen flex bg-white">
   <app-navbar-effects
-    class="block"
     [activeMenuType]="activeMenuType"
     (selectMenu)="handleSelectMenu($event)"
   ></app-navbar-effects>
 
-  <div class="w-full h-full col-span-2 py-6 bg-gray-50 px-9">
+  <div class="h-full py-6 bg-gray-50 px-9">
     <app-border-setting
       [class.hidden]="activeMenuType !== 'border'"
     ></app-border-setting>
@@ -33,7 +32,7 @@
     <div class="h-24"></div>
   </div>
 
-  <app-preview class="block col-span-2"></app-preview>
+  <app-preview class="block"></app-preview>
 </div>
 
 <div
