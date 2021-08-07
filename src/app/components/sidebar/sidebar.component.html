@@ -1,0 +1,20 @@
+<div class="flex-row p-6 space-y-8 text-gray-500 bg-white rounded-md">
+  <figure
+    *ngFor="let content of contents; index as index"
+    class="flex-row space-y-2"
+  >
+    <div class="flex items-center gap-2">
+      <p
+        class="flex justify-center flex-shrink-0 w-6 h-6 font-bold text-white bg-gray-500  text-md rounded-3xl"
+      >
+        <span [textContent]="index + 1"></span>
+      </p>
+      <figcaption
+        class="text-xs text-gray-400"
+        [textContent]="content.caption"
+      ></figcaption>
+    </div>
+
+    <img src="assets/help/{{ content.image }}.svg" class="w-32 m-auto" />
+  </figure>
+</div>

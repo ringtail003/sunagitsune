@@ -11,9 +11,13 @@
   ></app-navbar>
 </nav>
 
-<aside></aside>
+<div class="flex w-full pt-16 bg-gray-200">
+  <aside class="h-full p-6">
+    <app-sidebar></app-sidebar>
+  </aside>
 
-<main>
-  <app-uploader [class.hidden]="isOpenSetting"></app-uploader>
-  <app-setting [class.hidden]="!isOpenSetting"></app-setting>
-</main>
+  <main class="w-full">
+    <app-uploader [class.hidden]="isOpenSetting"></app-uploader>
+    <app-setting [class.hidden]="!isOpenSetting"></app-setting>
+  </main>
+</div>
