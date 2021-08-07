@@ -12,14 +12,12 @@ import { ConfigService } from "src/app/services/config.service";
 export class TextSettingComponent implements OnInit {
   effect!: textPluginEffect;
   error!: string | null;
-  reset!: Partial<EffectMetadata>;
 
   constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.text;
-      this.reset = effect.text.getResetMetadata();
       this.error =
         Object.values(effect.text.getErrors()).find((error) => !!error) || null;
     });
@@ -59,9 +57,5 @@ export class TextSettingComponent implements OnInit {
 
   handleChangeStrokeOffset(value: number | null): void {
     this.config.patch({ textStrokeOffset: value });
-  }
-
-  handleReset(): void {
-    this.config.patch(this.reset);
   }
 }

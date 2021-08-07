@@ -12,14 +12,12 @@ import { ConfigService } from "src/app/services/config.service";
 export class BorderSettingComponent implements OnInit {
   effect!: BorderEffect;
   error!: string | null;
-  reset!: Partial<EffectMetadata>;
 
   constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.border;
-      this.reset = effect.border.getResetMetadata();
       this.error =
         Object.values(effect.border.getErrors()).find((error) => !!error) ||
         null;
@@ -36,9 +34,5 @@ export class BorderSettingComponent implements OnInit {
 
   handleChangeType(value: string | null): void {
     this.config.patch({ borderType: value as BorderType });
-  }
-
-  handleReset(): void {
-    this.config.patch(this.reset);
   }
 }

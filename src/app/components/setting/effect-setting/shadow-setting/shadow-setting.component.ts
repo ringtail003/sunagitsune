@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { EffectMetadata } from "src/app/models/effect/effect-metadata";
 import { ShadowPluginEffect } from "src/app/models/effect/plugin/shadow-effect";
 import { ShadowType } from "src/app/models/effect/types/shadow-type";
 import { ConfigService } from "src/app/services/config.service";
@@ -12,14 +11,12 @@ import { ConfigService } from "src/app/services/config.service";
 export class ShadowSettingComponent implements OnInit {
   effect!: ShadowPluginEffect;
   error!: string | null;
-  reset!: Partial<EffectMetadata>;
 
   constructor(private config: ConfigService) {}
 
   ngOnInit(): void {
     this.config.watch().subscribe((effect) => {
       this.effect = effect.shadow;
-      this.reset = effect.shadow.getResetMetadata();
       this.error =
         Object.values(effect.shadow.getErrors()).find((error) => !!error) ||
         null;
@@ -40,9 +37,5 @@ export class ShadowSettingComponent implements OnInit {
 
   handleChangeOffset(value: number | null): void {
     this.config.patch({ shadowOffset: value });
-  }
-
-  handleReset(): void {
-    this.config.patch(this.reset);
   }
 }

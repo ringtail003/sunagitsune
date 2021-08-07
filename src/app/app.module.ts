@@ -48,6 +48,7 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
+import { HeaderImageComponent } from './components/shared/header-image/header-image.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     SidebarComponent,
     MenuLabelPipe,
     IconCheckCircleComponent,
+    HeaderImageComponent,
   ],
   imports: [
     BrowserModule,

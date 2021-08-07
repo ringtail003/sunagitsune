@@ -3,7 +3,8 @@
     flex
     items-center
     justify-between
-    p-3
+    py-4
+    px-2
     -m-3
     text-sm
     font-medium
@@ -16,11 +17,7 @@
   [class.bg-gray-100]="isActive"
   (click)="handleClick()"
 >
-  <div class="flex items-center gap-2">
-    <img src="assets/menu/{{ menu }}.svg" class="w-10 h-10" />
-
-    <span class="ml-4 capitalize" [textContent]="menu | menuLabel"></span>
-  </div>
+  <p class="ml-4 capitalize" [textContent]="menu | menuLabel"></p>
 
   <app-icon-check-circle
     *ngIf="hasSetting && !hasError"

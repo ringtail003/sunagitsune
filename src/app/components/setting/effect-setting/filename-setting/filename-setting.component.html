@@ -2,16 +2,11 @@
 
 <ng-container *ngIf="effect">
   <app-form-header>
-    <app-outline-button
-      [text]="'入力した内容をクリアする'"
-      (buttonClick)="handleReset()"
-    ></app-outline-button>
+    <app-header-image [filename]="'filename'"></app-header-image>
   </app-form-header>
 
   <app-form-section>
-    <app-form-label
-      [label]="'ダウンロードファイルの先頭に追加するテキスト'"
-    ></app-form-label>
+    <app-form-label [label]="'先頭に挿入するテキスト'"></app-form-label>
     <app-form-content>
       <app-input-filename
         appFormLabelFor
@@ -24,9 +19,7 @@
   </app-form-section>
 
   <app-form-section>
-    <app-form-label
-      [label]="'ダウンロードファイルの末尾に追加するテキスト'"
-    ></app-form-label>
+    <app-form-label [label]="'末尾に追加するテキスト'"></app-form-label>
     <app-form-content>
       <app-input-filename
         appFormLabelFor
