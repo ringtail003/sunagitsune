@@ -3,14 +3,14 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgxDropzoneModule } from "ngx-dropzone";
 import { AppRoutingModule } from "src/app-routing.module";
-import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
 import { NavbarFooterComponent } from "src/app/components/navbar/navbar-footer/navbar-footer.component";
 import { SettingPageComponent } from "src/app/components/pages/setting-page/setting-page.component";
 import { PreviewComponent } from "src/app/components/preview/preview.component";
+import { EffectsMenuItemComponent } from "src/app/components/setting/effect-menu/effect-menu-item/effect-menu-item.component";
+import { EffectMenuComponent } from "src/app/components/setting/effect-menu/effect-menu.component";
 import { IconLoadingComponent } from "src/app/components/shared/icons/icon-loading/icon-loading.component";
 import { AppComponent } from "./app.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
-import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
 import { NavbarRouterLinkComponent } from "./components/navbar/navbar-router-link/navbar-router-link.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
 import { DescriptionPageComponent } from "./components/pages/description-page/description-page.component";
@@ -42,6 +42,7 @@ import { IconCheckCircleComponent } from "./components/shared/icons/icon-check-c
 import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
 import { IconGithubComponent } from "./components/shared/icons/icon-github/icon-github.component";
 import { IconPencilAltComponent } from "./components/shared/icons/icon-pencil-alt/icon-pencil-alt.component";
+import { IconTwitterComponent } from "./components/shared/icons/icon-twitter/icon-twitter.component";
 import { IconXComponent } from "./components/shared/icons/icon-x/icon-x.component";
 import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
 import { InputFilenameComponent } from "./components/shared/input/input-filename/input-filename.component";
@@ -56,7 +57,6 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
-import { IconTwitterComponent } from './components/shared/icons/icon-twitter/icon-twitter.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +64,8 @@ import { IconTwitterComponent } from './components/shared/icons/icon-twitter/ico
     UploaderComponent,
     NavbarComponent,
     LogoComponent,
-    NavbarEffectsMenuComponent,
-    NavbarEffectsComponent,
+    EffectsMenuItemComponent,
+    EffectMenuComponent,
     NavbarButtonComponent,
     NavbarFooterComponent,
     PreviewComponent,

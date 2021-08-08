@@ -4,11 +4,11 @@
 
     <ul class="space-y-2">
       <li *ngFor="let type of menuTypes">
-        <app-navbar-effects-menu
+        <app-effect-menu-item
           [menu]="type"
           [activeMenuType]="activeMenuType"
           (selectMenu)="handleSelectMenu($event)"
-        ></app-navbar-effects-menu>
+        ></app-effect-menu-item>
       </li>
     </ul>
   </div>

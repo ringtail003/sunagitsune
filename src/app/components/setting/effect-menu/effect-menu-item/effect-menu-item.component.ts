@@ -10,11 +10,11 @@ import { EffectMenuType } from "src/app/components/navbar/effect-menu-type";
 import { ConfigService } from "src/app/services/config.service";
 
 @Component({
-  selector: "app-navbar-effects-menu",
-  templateUrl: "./navbar-effects-menu.component.html",
-  styleUrls: ["./navbar-effects-menu.component.scss"],
+  selector: "app-effect-menu-item",
+  templateUrl: "./effect-menu-item.component.html",
+  styleUrls: ["./effect-menu-item.component.scss"],
 })
-export class NavbarEffectsMenuComponent implements OnInit, OnChanges {
+export class EffectsMenuItemComponent implements OnInit, OnChanges {
   @Input() menu!: EffectMenuType;
   @Input() activeMenuType!: EffectMenuType;
 

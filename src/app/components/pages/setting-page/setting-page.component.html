@@ -1,11 +1,11 @@
 <h1 class="sr-only">設定の編集</h1>
 
 <div class="flex justify-between bg-white">
-  <app-navbar-effects
+  <app-effect-menu
     class="flex-grow-0 block"
     [activeMenuType]="activeMenuType"
     (selectMenu)="handleSelectMenu($event)"
-  ></app-navbar-effects>
+  ></app-effect-menu>
 
   <div class="flex-grow min-h-screen py-6 bg-gray-50 px-9">
     <app-border-setting
