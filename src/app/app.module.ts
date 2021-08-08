@@ -49,6 +49,7 @@ import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
 import { HeaderImageComponent } from './components/shared/header-image/header-image.component';
+import { IconPencilAltComponent } from './components/shared/icons/icon-pencil-alt/icon-pencil-alt.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { HeaderImageComponent } from './components/shared/header-image/header-im
     MenuLabelPipe,
     IconCheckCircleComponent,
     HeaderImageComponent,
+    IconPencilAltComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-icon-check-circle",
-  templateUrl: "./icon-check-circle.component.html",
-  styleUrls: ["./icon-check-circle.component.scss"],
+  selector: "app-icon-pencil-alt",
+  templateUrl: "./icon-pencil-alt.component.html",
+  styleUrls: ["./icon-pencil-alt.component.scss"],
 })
-export class IconCheckCircleComponent implements OnInit {
+export class IconPencilAltComponent implements OnInit {
   @Input() tone: "light" | "dark" = "dark";
+  @Input() error!: boolean;
   @Input() size!: number;
 
   class!: string;

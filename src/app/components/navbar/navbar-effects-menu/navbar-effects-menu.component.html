@@ -20,13 +20,13 @@
 
   <app-icon-check-circle
     *ngIf="hasSetting && !hasError"
-    class="text-gray-300"
+    [tone]="'light'"
     [size]="5"
   ></app-icon-check-circle>
 
-  <app-icon-exclamation-circle
+  <app-icon-pencil-alt
     *ngIf="hasError"
-    class="text-red-400"
+    [tone]="'dark'"
     [size]="5"
-  ></app-icon-exclamation-circle>
+  ></app-icon-pencil-alt>
 </a>
