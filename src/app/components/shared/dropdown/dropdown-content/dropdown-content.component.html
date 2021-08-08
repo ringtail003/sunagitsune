@@ -1,6 +1,10 @@
 <div
-  [class.opacity-0]="!isOpen"
+  [class.scale-0]="!isOpen"
+  [class.scale-100]="isOpen"
   class="
+    transform
+    duration-500
+    ease-in
     absolute
     max-w-sm
     px-6
@@ -8,8 +12,6 @@
     pb-6
     mt-2
     text-sm text-gray-300
-    transition
-    ease-in
     bg-gray-700
     border border-gray-300
     rounded-md
@@ -21,7 +23,11 @@
   <div class="flex justify-end mb-4">
     <button
       type="button"
-      class="rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      class="
+        rounded-md
+        focus:outline-none focus:ring-2 focus:ring-blue-500
+        hover:text-white
+      "
     >
       <span class="sr-only">閉じる</span>
       <app-icon-x class="w-5" (click)="handleCloseButtonClick()"></app-icon-x>

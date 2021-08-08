@@ -23,6 +23,17 @@
       <div class="flex items-center gap-6">
         <app-dropdown>
           <app-dropdown-trigger>
+            <app-icon-twitter
+              class="w-8 text-gray-700 cursor-pointer hover:text-gray-900"
+            ></app-icon-twitter>
+          </app-dropdown-trigger>
+          <app-dropdown-content>
+            <div *ngTemplateOutlet="dropDownContentTwitter"></div>
+          </app-dropdown-content>
+        </app-dropdown>
+
+        <app-dropdown>
+          <app-dropdown-trigger>
             <app-icon-github
               class="w-8 text-gray-700 cursor-pointer hover:text-gray-900"
             ></app-icon-github>
@@ -36,9 +47,28 @@
   </div>
 </div>
 
+<ng-template #dropDownContentTwitter>
+  <div class="flex-row space-y-4">
+    <p>アプリを気に入っていただけたらシェアしてください。</p>
+    <p class="text-center">
+      <a
+        href="https://github.com/ringtail003/sunagitsune"
+        target="_blank"
+        class="
+          text-gray-300
+          underline
+          hover:text-blue-400
+          focus:ring-blue-400 focus:outline-none focus:ring-offset-2
+        "
+        >Twitterでシェアする</a
+      >
+    </p>
+  </div>
+</ng-template>
+
 <ng-template #dropDownContentGitHub>
   <div class="flex-row space-y-4">
-    <p>このアプリのソースコードは GitHubで公開されています。</p>
+    <p>アプリのソースコードはGitHubで公開されています。</p>
     <p class="text-center">
       <a
         href="https://github.com/ringtail003/sunagitsune"

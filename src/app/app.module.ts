@@ -56,6 +56,7 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
+import { IconTwitterComponent } from './components/shared/icons/icon-twitter/icon-twitter.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     DropdownContentComponent,
     DropdownComponent,
     DropdownTriggerComponent,
+    IconTwitterComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule, FormsModule, AppRoutingModule],
   providers: [],
