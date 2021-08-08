@@ -21,7 +21,7 @@
       </div>
 
       <div class="flex items-center gap-6">
-        <app-dropdown>
+        <app-dropdown [label]="'Twitterでシェア'">
           <app-dropdown-trigger>
             <app-icon-twitter
               class="w-8 text-gray-700 cursor-pointer hover:text-gray-900"
@@ -32,7 +32,7 @@
           </app-dropdown-content>
         </app-dropdown>
 
-        <app-dropdown>
+        <app-dropdown [label]="'GitHubについて'">
           <app-dropdown-trigger>
             <app-icon-github
               class="w-8 text-gray-700 cursor-pointer hover:text-gray-900"
@@ -52,8 +52,9 @@
     <p>アプリを気に入っていただけたらシェアしてください。</p>
     <p class="text-center">
       <a
-        href="https://github.com/ringtail003/sunagitsune"
+        href="https://twitter.com/intent/tweet?text=無料で使える画像加工Webアプリです🦊&url=https://sunagitsune.vercel.app/"
         target="_blank"
+        rel="nofollow noopener noreferrer"
         class="
           text-gray-300
           underline
@@ -73,6 +74,7 @@
       <a
         href="https://github.com/ringtail003/sunagitsune"
         target="_blank"
+        rel="nofollow noopener noreferrer"
         class="
           text-gray-300
           underline

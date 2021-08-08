@@ -1,7 +1,8 @@
 <div
   role="dialog"
+  class="relative"
   [attr.aria-expanded]="content.isOpen"
-  aria-label="オープンソースについての補足"
+  [attr.aria-label]="label"
 >
   <ng-content></ng-content>
 </div>
