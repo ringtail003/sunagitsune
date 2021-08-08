@@ -11,9 +11,9 @@ import { IconLoadingComponent } from "src/app/components/shared/icons/icon-loadi
 import { AppComponent } from "./app.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
-import { NavbarLinkComponent } from "./components/navbar/navbar-link/navbar-link.component";
 import { NavbarRouterLinkComponent } from "./components/navbar/navbar-router-link/navbar-router-link.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
+import { DescriptionPageComponent } from "./components/pages/description-page/description-page.component";
 import { UploadPageComponent } from "./components/pages/upload-page/upload-page.component";
 import { BorderSettingComponent } from "./components/setting/effect-setting/border-setting/border-setting.component";
 import { FilenameSettingComponent } from "./components/setting/effect-setting/filename-setting/filename-setting.component";
@@ -23,6 +23,9 @@ import { ShadowSettingComponent } from "./components/setting/effect-setting/shad
 import { TextSettingComponent } from "./components/setting/effect-setting/text-setting/text-setting.component";
 import { AreaTitleComponent } from "./components/shared/area-title/area-title.component";
 import { OutlineButtonComponent } from "./components/shared/buttons/outline-button/outline-button.component";
+import { DropdownContentComponent } from "./components/shared/dropdown/dropdown-content/dropdown-content.component";
+import { DropdownTriggerComponent } from "./components/shared/dropdown/dropdown-trigger/dropdown-trigger.component";
+import { DropdownComponent } from "./components/shared/dropdown/dropdown/dropdown.component";
 import { FormContentComponent } from "./components/shared/form-layout/form-content/form-content.component";
 import { FormErrorComponent } from "./components/shared/form-layout/form-error/form-error.component";
 import { FormFooterComponent } from "./components/shared/form-layout/form-footer/form-footer.component";
@@ -36,8 +39,8 @@ import { FormSectionComponent } from "./components/shared/form-layout/form-secti
 import { FormUnitComponent } from "./components/shared/form-layout/form-unit/form-unit.component";
 import { HeaderImageComponent } from "./components/shared/header-image/header-image.component";
 import { IconCheckCircleComponent } from "./components/shared/icons/icon-check-circle/icon-check-circle.component";
-import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
 import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
+import { IconGithubComponent } from "./components/shared/icons/icon-github/icon-github.component";
 import { IconPencilAltComponent } from "./components/shared/icons/icon-pencil-alt/icon-pencil-alt.component";
 import { IconXComponent } from "./components/shared/icons/icon-x/icon-x.component";
 import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
@@ -53,18 +56,12 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
-import { DescriptionPageComponent } from './components/pages/description-page/description-page.component';
-import { IconGithubComponent } from './components/shared/icons/icon-github/icon-github.component';
-import { DropdownContentComponent } from './components/shared/dropdown/dropdown-content/dropdown-content.component';
-import { DropdownComponent } from './components/shared/dropdown/dropdown/dropdown.component';
-import { DropdownTriggerComponent } from './components/shared/dropdown/dropdown-trigger/dropdown-trigger.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploaderComponent,
     NavbarComponent,
-    IconCogComponent,
     LogoComponent,
     NavbarEffectsMenuComponent,
     NavbarEffectsComponent,
@@ -97,7 +94,6 @@ import { DropdownTriggerComponent } from './components/shared/dropdown/dropdown-
     TextSettingComponent,
     InputTextComponent,
     AreaTitleComponent,
-    NavbarLinkComponent,
     InputFontComponent,
     IconXComponent,
     SplashComponent,
