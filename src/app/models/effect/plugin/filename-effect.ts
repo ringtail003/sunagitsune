@@ -75,7 +75,7 @@ export class FilenamePluginEffect implements PluginEffect {
 
     return validFilename(this.#prefix)
       ? null
-      : "ファイル名として有効なprefixを入力してください";
+      : "ファイル名として使用可能なテキストを入力してください";
   }
 
   private assertSuffix(): string | null {
@@ -85,6 +85,6 @@ export class FilenamePluginEffect implements PluginEffect {
 
     return validFilename(this.#suffix)
       ? null
-      : "ファイル名として有効なsuffixを入力してください";
+      : "ファイル名として使用可能なテキストを入力してください";
   }
 }
