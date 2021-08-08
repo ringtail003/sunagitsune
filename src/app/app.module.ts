@@ -29,11 +29,14 @@ import { FormHeaderComponent } from "./components/shared/form-layout/form-header
 import { FormLabelForDirective } from "./components/shared/form-layout/form-label-for/form-label-for.directive";
 import { FormLabelComponent } from "./components/shared/form-layout/form-label/form-label.component";
 import { FormLayoutComponent } from "./components/shared/form-layout/form-layout.component";
+import { FormSectionTitleComponent } from "./components/shared/form-layout/form-section-title/form-section-title.component";
 import { FormSectionComponent } from "./components/shared/form-layout/form-section/form-section.component";
 import { FormUnitComponent } from "./components/shared/form-layout/form-unit/form-unit.component";
+import { HeaderImageComponent } from "./components/shared/header-image/header-image.component";
 import { IconCheckCircleComponent } from "./components/shared/icons/icon-check-circle/icon-check-circle.component";
 import { IconCogComponent } from "./components/shared/icons/icon-cog/icon-cog.component";
 import { IconExclamationCircleComponent } from "./components/shared/icons/icon-exclamation-circle/icon-exclamation-circle.component";
+import { IconPencilAltComponent } from "./components/shared/icons/icon-pencil-alt/icon-pencil-alt.component";
 import { IconXComponent } from "./components/shared/icons/icon-x/icon-x.component";
 import { InputColorComponent } from "./components/shared/input/input-color/input-color.component";
 import { InputFilenameComponent } from "./components/shared/input/input-filename/input-filename.component";
@@ -48,8 +51,6 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
-import { HeaderImageComponent } from './components/shared/header-image/header-image.component';
-import { IconPencilAltComponent } from './components/shared/icons/icon-pencil-alt/icon-pencil-alt.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { IconPencilAltComponent } from './components/shared/icons/icon-pencil-al
     IconCheckCircleComponent,
     HeaderImageComponent,
     IconPencilAltComponent,
+    FormSectionTitleComponent,
   ],
   imports: [
     BrowserModule,

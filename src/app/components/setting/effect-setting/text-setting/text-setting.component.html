@@ -75,6 +75,25 @@
   </app-form-section>
 
   <app-form-section *ngIf="effect.hasEffect()">
+    <app-form-label [label]="'画像隅からの間隔'"></app-form-label>
+    <app-form-content>
+      <app-input-number
+        appFormLabelFor
+        [error]="effect.getErrors().offset"
+        [placeholder]="'10-30'"
+        [value]="effect.offset"
+        (changeValue)="handleChangeOffset($event)"
+      ></app-input-number>
+      <app-form-unit>px</app-form-unit>
+    </app-form-content>
+  </app-form-section>
+
+  <app-form-section-title
+    *ngIf="effect.hasEffect()"
+    [title]="'テキストの透過'"
+  ></app-form-section-title>
+
+  <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label [label]="'不透明度'"></app-form-label>
     <app-form-content>
       <app-range-list
@@ -91,19 +110,10 @@
     </app-form-content>
   </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'余白の大きさ'"></app-form-label>
-    <app-form-content>
-      <app-input-number
-        appFormLabelFor
-        [error]="effect.getErrors().offset"
-        [placeholder]="'10-30'"
-        [value]="effect.offset"
-        (changeValue)="handleChangeOffset($event)"
-      ></app-input-number>
-      <app-form-unit>px</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+  <app-form-section-title
+    *ngIf="effect.hasEffect()"
+    [title]="'テキストの影'"
+  ></app-form-section-title>
 
   <app-form-section *ngIf="effect.hasEffect()">
     <app-form-label
