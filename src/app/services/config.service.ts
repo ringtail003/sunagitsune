@@ -10,13 +10,11 @@ import { createEffectMetadata } from "src/app/models/effect/factory";
 
 @Injectable({ providedIn: "root" })
 export class ConfigService {
-  private subject$ = new Rx.Subject<Effect>();
-  private observable$: Rx.Observable<Effect>;
+  private subject$ = new Rx.ReplaySubject<Effect>(1);
 
   #metadata: EffectMetadata;
 
   constructor() {
-    this.observable$ = this.subject$.asObservable();
     this.#metadata = createEffectMetadata();
   }
 
@@ -29,7 +27,9 @@ export class ConfigService {
   }
 
   watch(options?: { debounce: number }): Rx.Observable<Effect> {
-    return this.observable$.pipe(debounceTime(options?.debounce || 0));
+    return this.subject$
+      .asObservable()
+      .pipe(debounceTime(options?.debounce || 0));
   }
 
   update(): void {

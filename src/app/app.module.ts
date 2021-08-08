@@ -1,18 +1,20 @@
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { RouterModule } from "@angular/router";
 import { NgxDropzoneModule } from "ngx-dropzone";
+import { AppRoutingModule } from "src/app-routing.module";
 import { NavbarEffectsMenuComponent } from "src/app/components/navbar/navbar-effects-menu/navbar-effects-menu.component";
 import { NavbarFooterComponent } from "src/app/components/navbar/navbar-footer/navbar-footer.component";
+import { SettingPageComponent } from "src/app/components/pages/setting-page/setting-page.component";
 import { PreviewComponent } from "src/app/components/preview/preview.component";
-import { SettingComponent } from "src/app/components/setting/setting.component";
 import { IconLoadingComponent } from "src/app/components/shared/icons/icon-loading/icon-loading.component";
 import { AppComponent } from "./app.component";
 import { NavbarButtonComponent } from "./components/navbar/navbar-button/navbar-button.component";
 import { NavbarEffectsComponent } from "./components/navbar/navbar-effects/navbar-effects.component";
 import { NavbarLinkComponent } from "./components/navbar/navbar-link/navbar-link.component";
+import { NavbarRouterLinkComponent } from "./components/navbar/navbar-router-link/navbar-router-link.component";
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
+import { UploadPageComponent } from "./components/pages/upload-page/upload-page.component";
 import { BorderSettingComponent } from "./components/setting/effect-setting/border-setting/border-setting.component";
 import { FilenameSettingComponent } from "./components/setting/effect-setting/filename-setting/filename-setting.component";
 import { ResizeSettingComponent } from "./components/setting/effect-setting/resize-setting/resize-setting.component";
@@ -61,7 +63,6 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     LogoComponent,
     NavbarEffectsMenuComponent,
     NavbarEffectsComponent,
-    SettingComponent,
     NavbarButtonComponent,
     NavbarFooterComponent,
     PreviewComponent,
@@ -103,13 +104,11 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     IconPencilAltComponent,
     FormSectionTitleComponent,
     InputRangeComponent,
+    SettingPageComponent,
+    UploadPageComponent,
+    NavbarRouterLinkComponent,
   ],
-  imports: [
-    BrowserModule,
-    NgxDropzoneModule,
-    FormsModule,
-    RouterModule.forRoot([], { useHash: false }),
-  ],
+  imports: [BrowserModule, NgxDropzoneModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

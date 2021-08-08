@@ -1,13 +1,18 @@
 <div class="flex flex-col justify-between">
   <div class="fixed top-0 z-20 w-full h-16 px-6 pt-3 bg-white shadow-md">
     <div class="flex items-center justify-between">
-      <div class="flex items-center gap-6 text-gray-500">
+      <div class="flex items-center gap-3 text-gray-500">
         <app-logo></app-logo>
 
-        <app-navbar-button
-          [text]="'設定'"
-          (click)="handleMenuButtonClick()"
-        ></app-navbar-button>
+        <app-navbar-router-link
+          [url]="''"
+          [text]="'アップロードする'"
+        ></app-navbar-router-link>
+
+        <app-navbar-router-link
+          [url]="'setting'"
+          [text]="'設定を編集する'"
+        ></app-navbar-router-link>
       </div>
 
       <div class="flex items-center gap-6">

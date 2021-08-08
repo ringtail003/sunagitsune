@@ -1,16 +1,9 @@
-<app-splash *ngIf="!isReady" [withCloseButton]="isReady"></app-splash>
+<app-splash *ngIf="!isReady"></app-splash>
 
 <nav [class.hidden]="!isReady">
   <app-navbar (clickMenu)="handleClickMenu()"></app-navbar>
 </nav>
 
-<div class="flex pt-16 bg-gray-200" [class.hidden]="!isReady">
-  <aside class="py-6 pl-6" [class.hidden]="isOpenSetting">
-    <app-sidebar></app-sidebar>
-  </aside>
-
-  <main class="w-full">
-    <app-uploader [class.hidden]="isOpenSetting"></app-uploader>
-    <app-setting [class.hidden]="!isOpenSetting"></app-setting>
-  </main>
-</div>
+<main class="w-full flex pt-16 bg-gray-200" [class.hidden]="!isReady">
+  <router-outlet></router-outlet>
+</main>
