@@ -53,6 +53,7 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
+import { DescriptionPageComponent } from './components/pages/description-page/description-page.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     SettingPageComponent,
     UploadPageComponent,
     NavbarRouterLinkComponent,
+    DescriptionPageComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule, FormsModule, AppRoutingModule],
   providers: [],
