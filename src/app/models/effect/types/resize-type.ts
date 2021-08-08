@@ -1,8 +1,8 @@
 export const resizeTypeConfig = {
   none: "なし",
-  width: "横幅を指定",
-  height: "高さを指定",
-  both: "横幅と高さを指定",
+  width: "横幅基準",
+  height: "高さ基準",
+  both: "別指定",
 };
 
 export type ResizeType = keyof typeof resizeTypeConfig;

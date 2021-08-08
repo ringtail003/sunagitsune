@@ -1,11 +1,11 @@
 export const textTypeConfig = {
   none: "なし",
   topLeft: "左上",
-  topCenter: "上中央",
+  topCenter: "中央上",
   topRight: "右上",
   center: "中央",
   bottomLeft: "左下",
-  bottomCenter: "下中央",
+  bottomCenter: "中央下",
   bottomRight: "右下",
 };
 
