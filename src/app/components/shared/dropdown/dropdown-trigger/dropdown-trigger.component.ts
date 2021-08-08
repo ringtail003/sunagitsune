@@ -6,17 +6,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dropdown-trigger.component.scss"],
 })
 export class DropdownTriggerComponent implements OnInit {
-  constructor() {}
+  private triggerClickHandler!: () => void;
 
-  private handler: () => void = () => {};
+  constructor() {}
 
   ngOnInit(): void {}
 
   handleClick(): void {
-    this.handler();
+    this.triggerClickHandler();
   }
 
   setHandler(handler: () => void): void {
-    this.handler = handler;
+    this.triggerClickHandler = handler;
   }
 }

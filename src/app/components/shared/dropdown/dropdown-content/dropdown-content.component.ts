@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class DropdownContentComponent implements OnInit {
   isOpen = false;
+  private extendContentHandler!: (isOpen: boolean) => void;
 
   constructor() {}
 
@@ -14,9 +15,19 @@ export class DropdownContentComponent implements OnInit {
 
   toggle(): void {
     this.isOpen = !this.isOpen;
+    this.extendContentHandler(this.isOpen);
+  }
+
+  close(): void {
+    this.isOpen = false;
+    this.extendContentHandler(this.isOpen);
   }
 
   handleCloseButtonClick(): void {
     this.isOpen = false;
+  }
+
+  setHandler(handler: (isOpen: boolean) => void): void {
+    this.extendContentHandler = handler;
   }
 }
