@@ -1,4 +1,7 @@
-<figure class="flex justify-center">
-  <img src="assets/headers/{{ filename }}.svg" class="w-96" />
-  <figcaption></figcaption>
+<figure class="flex-row justify-center space-y-2">
+  <img src="assets/headers/{{ type }}.svg" class="w-96" />
+  <figcaption
+    class="text-xs text-gray-400"
+    [textContent]="description"
+  ></figcaption>
 </figure>
