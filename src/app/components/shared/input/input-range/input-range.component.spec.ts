@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RangeListComponent } from './range-list.component';
+import { InputRangeComponent } from './input-range.component';
 
-describe('RangeListComponent', () => {
-  let component: RangeListComponent;
-  let fixture: ComponentFixture<RangeListComponent>;
+describe('InputRangeComponent', () => {
+  let component: InputRangeComponent;
+  let fixture: ComponentFixture<InputRangeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RangeListComponent ]
+      declarations: [ InputRangeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RangeListComponent);
+    fixture = TestBed.createComponent(InputRangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

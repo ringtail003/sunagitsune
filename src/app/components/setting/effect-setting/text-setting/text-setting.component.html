@@ -97,16 +97,14 @@
     <app-form-section>
       <app-form-label [label]="'不透明度'"></app-form-label>
       <app-form-content>
-        <app-range-list
-          appFormLabelFor
-          [min]="10"
+        <app-input-range
+          [min]="0"
           [max]="100"
           [step]="10"
-          [error]="effect.getErrors().alpha"
-          [placeholder]="'0-10'"
           [value]="effect.alpha"
           (changeValue)="handleChangeAlpha($event)"
-        ></app-range-list>
+        ></app-input-range>
+
         <app-form-unit>%</app-form-unit>
       </app-form-content>
     </app-form-section>

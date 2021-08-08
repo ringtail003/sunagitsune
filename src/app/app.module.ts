@@ -43,8 +43,8 @@ import { InputFilenameComponent } from "./components/shared/input/input-filename
 import { InputFontComponent } from "./components/shared/input/input-font/input-font.component";
 import { InputNumberComponent } from "./components/shared/input/input-number/input-number.component";
 import { InputRadioComponent } from "./components/shared/input/input-radio/input-radio.component";
+import { InputRangeComponent } from "./components/shared/input/input-range/input-range.component";
 import { InputTextComponent } from "./components/shared/input/input-text/input-text.component";
-import { RangeListComponent } from "./components/shared/input/list/range-list/range-list.component";
 import { LogoComponent } from "./components/shared/logo/logo.component";
 import { ThumbnailComponent } from "./components/shared/thumbnail/thumbnail.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -95,7 +95,6 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     InputFontComponent,
     IconXComponent,
     SplashComponent,
-    RangeListComponent,
     FormHeaderComponent,
     SidebarComponent,
     MenuLabelPipe,
@@ -103,6 +102,7 @@ import { MenuLabelPipe } from "./pipes/menu-label.pipe";
     HeaderImageComponent,
     IconPencilAltComponent,
     FormSectionTitleComponent,
+    InputRangeComponent,
   ],
   imports: [
     BrowserModule,
