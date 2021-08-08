@@ -7,7 +7,7 @@ import { EffectMenuType } from "src/app/components/navbar/effect-menu-type";
   styleUrls: ["./setting.component.scss"],
 })
 export class SettingComponent implements OnInit {
-  activeMenuType: EffectMenuType = "resize";
+  activeMenuType: EffectMenuType = "border";
 
   constructor() {}
 
