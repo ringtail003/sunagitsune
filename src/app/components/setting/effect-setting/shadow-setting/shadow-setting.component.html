@@ -19,47 +19,49 @@
     </app-form-content>
   </app-form-group-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'影の色'" [required]="true"></app-form-label>
-    <app-form-content>
-      <app-input-color
-        appFormLabelFor
-        [error]="effect.getErrors().color"
-        [value]="effect.color"
-        (changeValue)="handleChangeColor($event)"
-      ></app-input-color>
-    </app-form-content>
-  </app-form-section>
+  <ng-container *ngIf="effect.hasEffect()">
+    <app-form-section>
+      <app-form-label [label]="'影の色'" [required]="true"></app-form-label>
+      <app-form-content>
+        <app-input-color
+          appFormLabelFor
+          [error]="effect.getErrors().color"
+          [value]="effect.color"
+          (changeValue)="handleChangeColor($event)"
+        ></app-input-color>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'影の長さ'" [required]="true"></app-form-label>
-    <app-form-content>
-      <app-input-number
-        appFormLabelFor
-        [error]="effect.getErrors().offset"
-        [placeholder]="'1-10'"
-        [value]="effect.offset"
-        (changeValue)="handleChangeOffset($event)"
-      ></app-input-number>
-      <app-form-unit>px</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label [label]="'影の長さ'" [required]="true"></app-form-label>
+      <app-form-content>
+        <app-input-number
+          appFormLabelFor
+          [error]="effect.getErrors().offset"
+          [placeholder]="'1-10'"
+          [value]="effect.offset"
+          (changeValue)="handleChangeOffset($event)"
+        ></app-input-number>
+        <app-form-unit>px</app-form-unit>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'ぼかしの大きさ'"></app-form-label>
-    <app-form-content>
-      <app-input-number
-        appFormLabelFor
-        [error]="effect.getErrors().blur"
-        [placeholder]="'1-10'"
-        [value]="effect.blur"
-        (changeValue)="handleChangeBlur($event)"
-      ></app-input-number>
-      <app-form-unit>px</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label [label]="'ぼかしの大きさ'"></app-form-label>
+      <app-form-content>
+        <app-input-number
+          appFormLabelFor
+          [error]="effect.getErrors().blur"
+          [placeholder]="'1-10'"
+          [value]="effect.blur"
+          (changeValue)="handleChangeBlur($event)"
+        ></app-input-number>
+        <app-form-unit>px</app-form-unit>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-footer *ngIf="error">
-    <app-form-error [error]="error"></app-form-error>
-  </app-form-footer>
+    <app-form-footer *ngIf="error">
+      <app-form-error [error]="error"></app-form-error>
+    </app-form-footer>
+  </ng-container>
 </ng-container>

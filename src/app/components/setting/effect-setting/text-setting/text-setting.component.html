@@ -19,135 +19,134 @@
     </app-form-content>
   </app-form-group-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label
-      [label]="'挿入するテキスト'"
-      [required]="true"
-    ></app-form-label>
-    <app-form-content>
-      <app-input-text
-        appFormLabelFor
-        class="block w-full"
-        [error]="effect.getErrors().caption"
-        [placeholder]="'Sample text'"
-        [value]="effect.caption"
-        (changeValue)="handleChangeCaption($event)"
-      ></app-input-text>
-    </app-form-content>
-  </app-form-section>
+  <ng-container *ngIf="effect.hasEffect()">
+    <app-form-section>
+      <app-form-label
+        [label]="'挿入するテキスト'"
+        [required]="true"
+      ></app-form-label>
+      <app-form-content>
+        <app-input-text
+          appFormLabelFor
+          class="block w-full"
+          [error]="effect.getErrors().caption"
+          [placeholder]="'Sample text'"
+          [value]="effect.caption"
+          (changeValue)="handleChangeCaption($event)"
+        ></app-input-text>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'フォント名'" [required]="true"></app-form-label>
-    <app-form-content>
-      <app-input-font
-        appFormLabelFor
-        [error]="effect.getErrors().font"
-        [value]="effect.font"
-        (changeValue)="handleChangeFont($event)"
-      ></app-input-font>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label [label]="'フォント名'" [required]="true"></app-form-label>
+      <app-form-content>
+        <app-input-font
+          appFormLabelFor
+          [error]="effect.getErrors().font"
+          [value]="effect.font"
+          (changeValue)="handleChangeFont($event)"
+        ></app-input-font>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'サイズ'" [required]="true"></app-form-label>
-    <app-form-content>
-      <app-input-number
-        appFormLabelFor
-        [error]="effect.getErrors().size"
-        [placeholder]="'10-30'"
-        [value]="effect.size"
-        (changeValue)="handleChangeSize($event)"
-      ></app-input-number>
-      <app-form-unit>pt</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label [label]="'サイズ'" [required]="true"></app-form-label>
+      <app-form-content>
+        <app-input-number
+          appFormLabelFor
+          [error]="effect.getErrors().size"
+          [placeholder]="'10-30'"
+          [value]="effect.size"
+          (changeValue)="handleChangeSize($event)"
+        ></app-input-number>
+        <app-form-unit>pt</app-form-unit>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'テキストの色'" [required]="true"></app-form-label>
-    <app-form-content>
-      <app-input-color
-        appFormLabelFor
-        [error]="effect.getErrors().color"
-        [value]="effect.color"
-        (changeValue)="handleChangeColor($event)"
-      ></app-input-color>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label
+        [label]="'テキストの色'"
+        [required]="true"
+      ></app-form-label>
+      <app-form-content>
+        <app-input-color
+          appFormLabelFor
+          [error]="effect.getErrors().color"
+          [value]="effect.color"
+          (changeValue)="handleChangeColor($event)"
+        ></app-input-color>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'画像隅からの間隔'"></app-form-label>
-    <app-form-content>
-      <app-input-number
-        appFormLabelFor
-        [error]="effect.getErrors().offset"
-        [placeholder]="'10-30'"
-        [value]="effect.offset"
-        (changeValue)="handleChangeOffset($event)"
-      ></app-input-number>
-      <app-form-unit>px</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label [label]="'画像隅からの間隔'"></app-form-label>
+      <app-form-content>
+        <app-input-number
+          appFormLabelFor
+          [error]="effect.getErrors().offset"
+          [placeholder]="'10-30'"
+          [value]="effect.offset"
+          (changeValue)="handleChangeOffset($event)"
+        ></app-input-number>
+        <app-form-unit>px</app-form-unit>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section-title
-    *ngIf="effect.hasEffect()"
-    [title]="'テキストの透過'"
-  ></app-form-section-title>
+    <app-form-section-title [title]="'テキストの透過'"></app-form-section-title>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label [label]="'不透明度'"></app-form-label>
-    <app-form-content>
-      <app-range-list
-        appFormLabelFor
-        [min]="10"
-        [max]="100"
-        [step]="10"
-        [error]="effect.getErrors().alpha"
-        [placeholder]="'0-10'"
-        [value]="effect.alpha"
-        (changeValue)="handleChangeAlpha($event)"
-      ></app-range-list>
-      <app-form-unit>%</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label [label]="'不透明度'"></app-form-label>
+      <app-form-content>
+        <app-range-list
+          appFormLabelFor
+          [min]="10"
+          [max]="100"
+          [step]="10"
+          [error]="effect.getErrors().alpha"
+          [placeholder]="'0-10'"
+          [value]="effect.alpha"
+          (changeValue)="handleChangeAlpha($event)"
+        ></app-range-list>
+        <app-form-unit>%</app-form-unit>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section-title
-    *ngIf="effect.hasEffect()"
-    [title]="'テキストの影'"
-  ></app-form-section-title>
+    <app-form-section-title [title]="'テキストの影'"></app-form-section-title>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label
-      [label]="'影の色'"
-      [required]="effect.requiredStrokeColor"
-    ></app-form-label>
-    <app-form-content>
-      <app-input-color
-        appFormLabelFor
-        [error]="effect.getErrors().strokeColor"
-        [value]="effect.strokeColor"
-        (changeValue)="handleChangeStrokeColor($event)"
-      ></app-input-color>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label
+        [label]="'影の色'"
+        [required]="effect.requiredStrokeColor"
+      ></app-form-label>
+      <app-form-content>
+        <app-input-color
+          appFormLabelFor
+          [error]="effect.getErrors().strokeColor"
+          [value]="effect.strokeColor"
+          (changeValue)="handleChangeStrokeColor($event)"
+        ></app-input-color>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-section *ngIf="effect.hasEffect()">
-    <app-form-label
-      [label]="'テキストと影の間隔'"
-      [required]="effect.requiredStrokeOffset"
-    ></app-form-label>
-    <app-form-content>
-      <app-input-number
-        appFormLabelFor
-        [error]="effect.getErrors().strokeOffset"
-        [placeholder]="'1-5'"
-        [value]="effect.strokeOffset"
-        (changeValue)="handleChangeStrokeOffset($event)"
-      ></app-input-number>
-      <app-form-unit>px</app-form-unit>
-    </app-form-content>
-  </app-form-section>
+    <app-form-section>
+      <app-form-label
+        [label]="'テキストと影の間隔'"
+        [required]="effect.requiredStrokeOffset"
+      ></app-form-label>
+      <app-form-content>
+        <app-input-number
+          appFormLabelFor
+          [error]="effect.getErrors().strokeOffset"
+          [placeholder]="'1-5'"
+          [value]="effect.strokeOffset"
+          (changeValue)="handleChangeStrokeOffset($event)"
+        ></app-input-number>
+        <app-form-unit>px</app-form-unit>
+      </app-form-content>
+    </app-form-section>
 
-  <app-form-footer *ngIf="error">
-    <app-form-error [error]="error"></app-form-error>
-  </app-form-footer>
+    <app-form-footer *ngIf="error">
+      <app-form-error [error]="error"></app-form-error>
+    </app-form-footer>
+  </ng-container>
 </ng-container>
