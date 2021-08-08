@@ -20,9 +20,11 @@
 
   <app-icon-check-circle
     *ngIf="hasSetting && !hasError"
-    [tone]="'light'"
-    [size]="5"
+    class="w-5 text-gray-300"
   ></app-icon-check-circle>
 
-  <app-icon-pencil-alt [tone]="'dark'" [size]="5"></app-icon-pencil-alt>
+  <app-icon-pencil-alt
+    *ngIf="hasSetting && hasError"
+    class="w-5 text-gray-300"
+  ></app-icon-pencil-alt>
 </a>

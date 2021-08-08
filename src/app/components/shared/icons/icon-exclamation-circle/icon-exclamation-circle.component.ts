@@ -6,13 +6,9 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./icon-exclamation-circle.component.scss"],
 })
 export class IconExclamationCircleComponent implements OnInit {
-  @Input() size!: number;
-
-  class!: string;
+  @Input() class = "";
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.class = `h-${this.size ?? 6} w-auto`;
-  }
+  ngOnInit(): void {}
 }

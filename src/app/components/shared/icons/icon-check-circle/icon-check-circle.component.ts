@@ -6,14 +6,9 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./icon-check-circle.component.scss"],
 })
 export class IconCheckCircleComponent implements OnInit {
-  @Input() tone: "light" | "dark" = "dark";
-  @Input() size!: number;
-
-  class!: string;
+  @Input() class = "";
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.class = `h-${this.size ?? 6} w-auto`;
-  }
+  ngOnInit(): void {}
 }
