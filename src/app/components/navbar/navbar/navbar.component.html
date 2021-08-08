@@ -21,11 +21,36 @@
       </div>
 
       <div class="flex items-center gap-6">
-        <app-navbar-link
-          [text]="'gitHub'"
-          [url]="'https://github.com/ringtail003/sunagitsune'"
-        ></app-navbar-link>
+        <app-dropdown>
+          <app-dropdown-trigger>
+            <app-icon-github
+              class="w-8 text-gray-700 cursor-pointer hover:text-gray-900"
+            ></app-icon-github>
+          </app-dropdown-trigger>
+          <app-dropdown-content>
+            <div *ngTemplateOutlet="dropDownContentGitHub"></div>
+          </app-dropdown-content>
+        </app-dropdown>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #dropDownContentGitHub>
+  <div class="flex-row space-y-4">
+    <p>このアプリのソースコードは GitHubで公開されています。</p>
+    <p class="text-center">
+      <a
+        href="https://github.com/ringtail003/sunagitsune"
+        target="_blank"
+        class="
+          text-gray-300
+          underline
+          hover:text-blue-400
+          focus:ring-blue-400 focus:outline-none focus:ring-offset-2
+        "
+        >GitHubを開く</a
+      >
+    </p>
+  </div>
+</ng-template>

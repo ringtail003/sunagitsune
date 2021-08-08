@@ -1,0 +1,32 @@
+<div
+  [class.opacity-0]="!isOpen"
+  class="
+    absolute
+    max-w-sm
+    px-6
+    pt-4
+    pb-6
+    mt-2
+    text-sm text-gray-300
+    transition
+    ease-in
+    bg-gray-700
+    border border-gray-300
+    rounded-md
+    shadow-sm
+    min-w-sm
+    right-2
+  "
+>
+  <div class="flex justify-end mb-4">
+    <button
+      type="button"
+      class="rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <span class="sr-only">閉じる</span>
+      <app-icon-x class="w-5" (click)="handleCloseButtonClick()"></app-icon-x>
+    </button>
+  </div>
+
+  <ng-content></ng-content>
+</div>

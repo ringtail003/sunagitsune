@@ -54,6 +54,10 @@ import { SplashComponent } from "./components/splash/splash.component";
 import { UploaderComponent } from "./components/uploader/uploader.component";
 import { MenuLabelPipe } from "./pipes/menu-label.pipe";
 import { DescriptionPageComponent } from './components/pages/description-page/description-page.component';
+import { IconGithubComponent } from './components/shared/icons/icon-github/icon-github.component';
+import { DropdownContentComponent } from './components/shared/dropdown/dropdown-content/dropdown-content.component';
+import { DropdownComponent } from './components/shared/dropdown/dropdown/dropdown.component';
+import { DropdownTriggerComponent } from './components/shared/dropdown/dropdown-trigger/dropdown-trigger.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +113,10 @@ import { DescriptionPageComponent } from './components/pages/description-page/de
     UploadPageComponent,
     NavbarRouterLinkComponent,
     DescriptionPageComponent,
+    IconGithubComponent,
+    DropdownContentComponent,
+    DropdownComponent,
+    DropdownTriggerComponent,
   ],
   imports: [BrowserModule, NgxDropzoneModule, FormsModule, AppRoutingModule],
   providers: [],
