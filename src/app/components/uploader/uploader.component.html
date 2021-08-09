@@ -1,20 +1,22 @@
 <div
   ngx-dropzone
-  class="z-10 dropzone-container"
+  class="dropzone-container"
   [accept]="'image/jpeg,image/jpg,image/png'"
   (change)="handleChange($event)"
 >
   <ngx-dropzone-label>
     <span>ここにファイルをドラッグ＆ドロップしてください</span>
+
     <span
-      class="block transition-opacity duration-500"
-      [class.opacity-0]="!queue.size"
-      >{{ queue.size }} Files Processing...</span
-    >
-    <span
-      class="block transition-opacity duration-500"
+      class="block transition-opacity duration-500 text-sm pt-4"
       [class.opacity-0]="!rejected"
-      >{{ rejected }} Files Rejected</span
+      >加工できないファイルがアップロードされました。ファイル形式を確認してください。</span
+    >
+
+    <span
+      class="block transition-opacity duration-500 text-sm pt-4"
+      [class.opacity-0]="!queue.size"
+      >{{ queue.size }} ファイル 加工中です...</span
     >
   </ngx-dropzone-label>
 </div>

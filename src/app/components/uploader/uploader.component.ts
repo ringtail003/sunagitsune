@@ -65,8 +65,4 @@ export class UploaderComponent implements OnInit {
       )
       .subscribe();
   }
-
-  onRemove(event: any) {
-    console.log(event);
-  }
 }
