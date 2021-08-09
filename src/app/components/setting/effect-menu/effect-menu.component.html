@@ -2,7 +2,7 @@
   <div>
     <app-area-title [title]="'メニューから選ぶ'"></app-area-title>
 
-    <ul class="space-y-2">
+    <ul class="space-y-2 flex flex-row flex-wrap lg:flex-col lg:flex-nowrap">
       <li *ngFor="let type of menuTypes">
         <app-effect-menu-item
           [menu]="type"

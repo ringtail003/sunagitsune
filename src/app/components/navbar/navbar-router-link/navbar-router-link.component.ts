@@ -10,6 +10,7 @@ import { filter, tap } from "rxjs/operators";
 export class NavbarRouterLinkComponent implements OnInit {
   @Input() url!: string;
   @Input() text!: string;
+  @Input() abbr!: string;
 
   isActive = false;
 

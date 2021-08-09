@@ -2,17 +2,19 @@
   class="
     inline-flex
     items-center
+    px-3
+    py-2
     text-sm
     font-medium
+    truncate
+    transition
+    ease-in
     bg-white
     rounded-md
     group
-    px-3
-    py-2
     hover:bg-gray-500 hover:text-gray-50
     focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-    transition
-    ease-in
+    whitespace-nowrap
   "
   [class.text-gray-500]="!isActive"
   [class.bg-gray-700]="isActive"
@@ -20,5 +22,6 @@
   aria-expanded="false"
   [routerLink]="url"
 >
-  <span [textContent]="text"></span>
+  <abbr class="md:hidden" [textContent]="abbr" [title]="text"></abbr>
+  <span class="hidden md:inline" [textContent]="text"></span>
 </a>
